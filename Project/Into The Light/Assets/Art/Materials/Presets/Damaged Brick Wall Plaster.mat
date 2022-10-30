@@ -194,8 +194,8 @@ Material:
     - _NormalScale: 1.51
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 6.67
-    - _PPDMaxSamples: 64
-    - _PPDMinSamples: 64
+    - _PPDMaxSamples: 28
+    - _PPDMinSamples: 13
     - _PPDPrimitiveLength: 2
     - _PPDPrimitiveWidth: 2
     - _RayTracing: 0
