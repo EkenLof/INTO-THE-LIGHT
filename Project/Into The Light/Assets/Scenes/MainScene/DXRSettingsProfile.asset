@@ -46,22 +46,22 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.92
+    m_Value: 0.75
   intensity:
     m_OverrideState: 1
     m_Value: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.479
+    m_Value: 0.277
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.7877358, g: 0.9527757, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 388ec2b461a6b2843a435c0781dc04ee, type: 3}
+    m_Value: {fileID: 2800000, guid: a82dab21d60c1df48b373e91bb1ef34b, type: 3}
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 5.34
+    m_Value: 1.63
   anamorphic:
     m_OverrideState: 0
     m_Value: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384c4d03a551c44448145f4093304119, type: 3}
   m_Name: ScreenSpaceReflection
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   quality:
     m_OverrideState: 1
     m_Value: 3
@@ -572,13 +572,13 @@ MonoBehaviour:
   active: 0
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   enable:
     m_OverrideState: 1
     m_Value: 1
   tracing:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 4
   rayMiss:
     m_OverrideState: 0
     m_Value: 3
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_Value: 50
   m_ClampValue:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.61
   mode:
     m_OverrideState: 0
     m_Value: 2
@@ -643,7 +643,7 @@ MonoBehaviour:
     m_Value: 0
   m_DenoiserRadius:
     m_OverrideState: 1
-    m_Value: 0.66
+    m_Value: 0.017
   m_SecondDenoiserPass:
     m_OverrideState: 1
     m_Value: 1
