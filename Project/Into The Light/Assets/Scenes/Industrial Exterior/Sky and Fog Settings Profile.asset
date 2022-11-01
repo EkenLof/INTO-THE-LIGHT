@@ -352,7 +352,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -361,7 +361,7 @@ MonoBehaviour:
     m_Value: 1
   tracing:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 4
   m_MinSmoothness:
     m_OverrideState: 1
     m_Value: 0.4
@@ -369,7 +369,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0.5
   reflectSky:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   usedAlgorithm:
     m_OverrideState: 0
@@ -405,19 +405,19 @@ MonoBehaviour:
     m_Value: 1
   m_RayLength:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 58.6
   m_ClampValue:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3.92
   m_Denoise:
     m_OverrideState: 1
     m_Value: 1
   m_DenoiserRadius:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 13
   m_AffectSmoothSurfaces:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   mode:
     m_OverrideState: 0
     m_Value: 2
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ef2681fa3dc8c4fa031f044e68c63f, type: 3}
   m_Name: GlobalIllumination
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
