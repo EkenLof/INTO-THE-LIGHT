@@ -81,7 +81,7 @@ public class DragMoveRig : MonoBehaviour
             // 2022
             if (Input.GetMouseButton(1) && kasta)
             {
-                if (rgBody != null) rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration);
+                if (rgBody != null) rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //2022ITTL
 
                 isObjectHold = false;
 
