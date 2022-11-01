@@ -64,11 +64,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Extract18.003
-    second: {fileID: 2100000, guid: fda71cad3f615c449ad15d1d0d3816a9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Extract18_001
     second: {fileID: 2100000, guid: 255259072124b2640bd8687ed67a2bcf, type: 2}
   - first:
@@ -114,7 +109,7 @@ ModelImporter:
       takeName: Armature|0_T-Pose.002
       internalID: 0
       firstFrame: 0
-      lastFrame: 2
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -143,7 +138,7 @@ ModelImporter:
       takeName: Grab.001
       internalID: 0
       firstFrame: 0
-      lastFrame: 4
+      lastFrame: 109
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -172,7 +167,7 @@ ModelImporter:
       takeName: Armature.002|Walk
       internalID: 0
       firstFrame: 0
-      lastFrame: 2
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
