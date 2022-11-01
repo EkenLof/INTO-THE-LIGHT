@@ -1,11 +1,32 @@
 fileFormatVersion: 2
-guid: 69735e32f203d454b92d92fa5c430783
+guid: 3f0c8c7426ee8874c8d24cadaa3cbe2c
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
-      74: -5710125859294317504
-    second: Armature.002|Armature.001|0_T-Pose.001
+      74: -292257520162478221
+    second: Armature|0_T-Pose.002
+  - first:
+      74: 3884461936808136930
+    second: Grab.001
+  - first:
+      74: 2667949614841947897
+    second: Walk
+  - first:
+      74: 125453756785918064
+    second: Armature.002Action.001
+  - first:
+      74: 6993211063919357183
+    second: Armature.002|Armature.001|0_T-Pose
+  - first:
+      74: 5138602965388526686
+    second: Armature.002|Armature.002Action
+  - first:
+      74: 4028146881832135640
+    second: Armature.002|Armature.002Action.001
+  - first:
+      74: 6448769540171833144
+    second: Armature.002|Armature|0_T-Pose.001
   - first:
       74: -5711605485868707501
     second: Armature.002|Key.001|0_T-Pose
@@ -16,11 +37,29 @@ ModelImporter:
       74: 3594256579652111466
     second: Armature.002|Key|0_T-Pose.001
   - first:
-      74: 1404831324423291004
-    second: Armature.002|Key|0_T-Pose.002
-  - first:
       74: -792196377076434364
     second: Armature.002|Key|0_T-Pose.003
+  - first:
+      74: -2630020535824132839
+    second: Armature.002|Walk
+  - first:
+      74: 7503164609496748152
+    second: Extract18_001.001|Armature.001|0_T-Pose
+  - first:
+      74: 8871867087170471632
+    second: Extract18_001.001|Armature|0_T-Pose.001
+  - first:
+      74: 3717092527171511453
+    second: Extract18_001.001|Key.001|0_T-Pose
+  - first:
+      74: -2497004668257033227
+    second: Extract18_001.001|Key|0_T-Pose
+  - first:
+      74: 5601846366665597518
+    second: Extract18_001.001|Key|0_T-Pose.001
+  - first:
+      74: 246293705876168320
+    second: Extract18_001.001|Key|0_T-Pose.003
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -69,7 +108,94 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|0_T-Pose.002
+      takeName: Armature|0_T-Pose.002
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Grab.001
+      takeName: Grab.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.002|Walk
+      takeName: Armature.002|Walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
