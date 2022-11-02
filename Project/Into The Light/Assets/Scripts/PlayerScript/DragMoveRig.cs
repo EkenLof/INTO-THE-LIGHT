@@ -8,11 +8,11 @@ public class DragMoveRig : MonoBehaviour
     public GameObject playerCamera;
 
     [Header("Action Values")]
-    public float interactionRange = 3;
+    public float interactionRange = 2;
     public float interactionDoorRange = 3;
     float distance;
     public float holdingDistance;
-    public float holdingObjectDistance = 2;
+    public float holdingObjectDistance = 1.2f;
     public float holdingDoorDistance = 1;
     public float forceAmount = 50f;
 

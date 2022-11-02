@@ -5,10 +5,10 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -292257520162478221
-    second: Armature|0_T-Pose.002
+    second: Push
   - first:
       74: 3884461936808136930
-    second: Grab.001
+    second: Grab
   - first:
       74: 2667949614841947897
     second: Walk
@@ -41,7 +41,7 @@ ModelImporter:
     second: Armature.002|Key|0_T-Pose.003
   - first:
       74: -2630020535824132839
-    second: Armature.002|Walk
+    second: Walk
   - first:
       74: 7503164609496748152
     second: Extract18_001.001|Armature.001|0_T-Pose
@@ -105,7 +105,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|0_T-Pose.002
+      name: Push
       takeName: Armature|0_T-Pose.002
       internalID: 0
       firstFrame: 0
@@ -134,7 +134,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Grab.001
+      name: Grab
       takeName: Grab.001
       internalID: 0
       firstFrame: 0
@@ -163,7 +163,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature.002|Walk
+      name: Walk
       takeName: Armature.002|Walk
       internalID: 0
       firstFrame: 0

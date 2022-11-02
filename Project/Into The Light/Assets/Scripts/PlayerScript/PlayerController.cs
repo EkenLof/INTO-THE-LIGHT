@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
 
     public bool isCrouch = false;
     public bool isForward;
+    //public bool isWalk = false;
+    //public bool isRun = false;
 
-    public float speed = 3f;
-    public float runSpeed = 6.25f;
+    public float speed = 1f;
+    public float runSpeed = 3.75f;
     //public float gravity = -18.81f;
     public float jumpHeight = 4f;
 
@@ -66,9 +68,13 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 moveVector;
 
-            if (Input.GetKey(KeyCode.LeftShift)) moveVector = transform.TransformDirection(controllInput) * runSpeed;
-            else moveVector = transform.TransformDirection(controllInput) * speed;
+            if (Input.GetKey(KeyCode.LeftShift)) 
+            {
+                moveVector = transform.TransformDirection(controllInput) * runSpeed;
 
+            } else  moveVector = transform.TransformDirection(controllInput) * speed;
+
+            
             controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
 
             if (Input.GetButtonDown("Jump") && isGrounded && !isCrouch) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
