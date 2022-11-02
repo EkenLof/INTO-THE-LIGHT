@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CamController : MonoBehaviour
@@ -10,6 +11,9 @@ public class CamController : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
+
+    [SerializeField] float lookUp = -90f;
+    [SerializeField] float lookDown = 90f;
 
     int fovDeffault = 60;
     int fovZoom = 20;
@@ -28,7 +32,7 @@ public class CamController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, lookUp, lookDown);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
