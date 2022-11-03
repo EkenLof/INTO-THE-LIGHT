@@ -6,17 +6,12 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool isPaused;
+    public bool isPaused = false;
 
     public GameObject menuUi;
     public GameObject pausedMenuUi;
     public GameObject optionsMenuUi;
     public GameObject saveMenuUi;
-
-    //public GameObject effect; // Fixa 2022
-
-    //public Volume allEffects;
-    //DepthOfField onDof;
 
     public PlayerController player;
     public CamController cam;
@@ -27,20 +22,12 @@ public class PauseMenu : MonoBehaviour
         menuUi.gameObject.SetActive(false);
         optionsMenuUi.gameObject.SetActive(false);
         saveMenuUi.gameObject.SetActive(false);
-        //effect.gameObject.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
-
-        isPaused = false;
 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<CamController>();
         icons = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
-        //allEffects = GameObject.FindWithTag("AllEffectCtrl").GetComponent<Volume>();
-
-        //allEffects.profile.TryGet<DepthOfField>(out onDof);
-
-        //onDof.focusMode
     }
 
     void Update()
@@ -65,9 +52,6 @@ public class PauseMenu : MonoBehaviour
             menuUi.gameObject.SetActive(true);
             pausedMenuUi.gameObject.SetActive(true);
 
-            //effect.gameObject.SetActive(true);
-
-            //2022
             icons.setCrossMouse(true);
             icons.enabled = false;
             Cursor.lockState = CursorLockMode.None;
@@ -80,9 +64,6 @@ public class PauseMenu : MonoBehaviour
             pausedMenuUi.gameObject.SetActive(false);
             optionsMenuUi.gameObject.SetActive(false);
 
-            //effect.gameObject.SetActive(false);
-
-            //2022
             icons.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;

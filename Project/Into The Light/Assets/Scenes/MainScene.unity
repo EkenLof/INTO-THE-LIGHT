@@ -1079,13 +1079,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7523285417472682508, guid: 8e360e1de90b60f4c9960f5fcf21da79,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523285417472682508, guid: 8e360e1de90b60f4c9960f5fcf21da79,
+        type: 3}
       propertyPath: forceAmount
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7523285417472682508, guid: 8e360e1de90b60f4c9960f5fcf21da79,
         type: 3}
       propertyPath: interactionRange
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523285417472682508, guid: 8e360e1de90b60f4c9960f5fcf21da79,
+        type: 3}
+      propertyPath: interactionDoorRange
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7523285417472682508, guid: 8e360e1de90b60f4c9960f5fcf21da79,
         type: 3}
