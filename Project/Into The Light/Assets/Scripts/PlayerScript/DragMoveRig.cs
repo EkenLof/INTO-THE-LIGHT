@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class DragMoveRig : MonoBehaviour
@@ -23,7 +24,7 @@ public class DragMoveRig : MonoBehaviour
     [SerializeField] bool door;
     [SerializeField] bool obj;
     [SerializeField] bool kasta;
-    [SerializeField] bool kastaDoor;
+    //[SerializeField] bool kastaDoor; //Tillfälligt av
     [SerializeField] bool lockedDoor;
 
     [Header("Icons")]
@@ -40,38 +41,49 @@ public class DragMoveRig : MonoBehaviour
     Rigidbody rgBody;
     Rigidbody rgDoor;
 
+    private string objName = "ObjectToPickUp";
+    private string doorName = "Door";
+
     void Start()
     {
         isObjectHold = false;
         objectHold = null;
         lookOnObject = false;
-        setCrossMouse();
+        setCrossMouse(true);
 
         door = false;
         obj = false;
         kasta = false;
-        kastaDoor = false;
+        //kastaDoor = false; //Tillfälligt av
         lockedDoor = true;
 
         Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
 
-        if (rgDoor != null) rgBody = GameObject.FindGameObjectWithTag("ObjectToPickUp").GetComponent<Rigidbody>(); //2022ITTL
-        objectHold = GameObject.FindGameObjectWithTag("ObjectToPickUp");
+        rgBody = GameObject.FindGameObjectWithTag(objName).GetComponent<Rigidbody>(); //2022ITTL
+        //if (rgDoor != null) rgBody = GameObject.FindGameObjectWithTag(objName).GetComponent<Rigidbody>(); //2022ITTL
+        objectHold = GameObject.FindGameObjectWithTag(objName);
 
-        Debug.Log(rgDoor);
-        if (rgDoor != null) rgDoor = GameObject.FindGameObjectWithTag("Door").GetComponent<Rigidbody>(); //2022ITTL
+        rgDoor = GameObject.FindGameObjectWithTag(doorName).GetComponent<Rigidbody>(); //2022ITTL
+        //if (rgDoor != null) rgDoor = GameObject.FindGameObjectWithTag(doorName).GetComponent<Rigidbody>(); //2022ITTL
 
     }
 
     void Update()
     {
-        
-       if (rgDoor != null) distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
+
+        distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
 
         // 2022
-        if (rgDoor != null) lockedRot = rgDoor.transform.eulerAngles; //2022ITTL
+        lockedRot = rgDoor.transform.eulerAngles;
         if (lockedRot.x == 270 && lockedDoor) rgDoor.isKinematic = true;
-        else if (rgDoor != null) rgDoor.isKinematic = false; //2022ITTL
+        rgDoor.isKinematic = false;
+
+        /*
+         if (rgDoor != null) distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
+         if (rgDoor != null) lockedRot = rgDoor.transform.eulerAngles; //2022ITTL
+         if (lockedRot.x == 270 && lockedDoor) rgDoor.isKinematic = true;
+         else if (rgDoor != null) rgDoor.isKinematic = false; //2022ITTL
+         */
 
         if (Input.GetMouseButton(0))
         {
@@ -81,39 +93,43 @@ public class DragMoveRig : MonoBehaviour
             // 2022
             if (Input.GetMouseButton(1) && kasta)
             {
-                if (rgBody != null) rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //2022ITTL
+                rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //2022ITTL
 
                 isObjectHold = false;
 
-                setCrossMouse();
+                setCrossMouse(true);
 
                 objectHold.GetComponent<Rigidbody>().useGravity = true;
             }
+            /* //Tillfälligt av
             if (Input.GetMouseButton(1) && kastaDoor)
             {
-                rgDoor.AddForce(transform.forward * forceAmount, ForceMode.Acceleration);
-
+                Debug.Log("kasta -If- OK");
+                rgDoor.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //??? kålla varför ej får force
+                Debug.Log("forse OK");
                 isObjectHold = false;
 
-                setCrossMouse();
+                setCrossMouse(true);
 
                 objectHold.GetComponent<Rigidbody>().useGravity = true;
             }
-            // 2022
+            */
         }
         else
         {
-            if (distance <= interactionRange) setOpenHand(); else setCrossMouse();
+            if (distance <= interactionRange) setOpenHand(true); 
+            else setCrossMouse(true); 
+
             kasta = false;
-            kastaDoor = false;
+            //kastaDoor = false; //Tillfälligt av
             lockedDoor = true;
         }
 
-        if (Input.GetMouseButtonUp(0) && isObjectHold)
+        if (Input.GetMouseButtonUp(0) && isObjectHold) // (Input.GetMouseButtonUp(0) && isObjectHold)
         {
             isObjectHold = false;
 
-            setCrossMouse();
+            setCrossMouse(true);
 
             objectHold.GetComponent<Rigidbody>().useGravity = true;
         }
@@ -126,35 +142,35 @@ public class DragMoveRig : MonoBehaviour
 
         if (Physics.Raycast (playerAim, out hit, interactionRange))
         {
-            if (hit.collider.tag == "ObjectToPickUp")
+            if (hit.collider.tag == objName)
             {
                 isObjectHold = true;
                 obj = true;
                 door = false;
 
                 kasta = true;
-                kastaDoor = false;
+                //kastaDoor = false; //Tillfälligt av
 
                 if (obj) holdingDistance = holdingObjectDistance;
 
                 objectHold = hit.collider.gameObject;
                 objectHold.GetComponent<Rigidbody>().useGravity = false;
 
-                setGrabHand();
+                setGrabHand(true);
             }
         }
         else kasta = false;
 
         if (Physics.Raycast(playerAim, out hit, interactionDoorRange))
         {
-            if (hit.collider.tag == "Door")
+            if (hit.collider.tag == doorName)
             {
                 isObjectHold = true;
                 door = true;
                 obj = false;
                 kasta = false;
                 lockedDoor = false;
-                kastaDoor = true;
+                //kastaDoor = true; //Tillfälligt av
 
 
                 if (door) holdingDistance = holdingDoorDistance;
@@ -162,7 +178,7 @@ public class DragMoveRig : MonoBehaviour
                 objectHold = hit.collider.gameObject;
                 objectHold.GetComponent<Rigidbody>().useGravity = false;
 
-                setGrabHand();
+                setGrabHand(true);
             }
         }
     }
@@ -178,19 +194,29 @@ public class DragMoveRig : MonoBehaviour
         objectHold.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * 10; 
     }
 
-    public void setCrossMouse()
+    public void setCrossMouse(bool isCrossMouse)
     {
-        Cursor.SetCursor(cross, hotspot, cursorMode);
-        Cursor.visible = true;
+
+        if (isCrossMouse)
+        {
+            Cursor.SetCursor(cross, hotspot, cursorMode);
+            Cursor.visible = true;
+        }
     }
-    public void setOpenHand()
+    public void setOpenHand(bool isOpenHand)
     {
-        Cursor.SetCursor(openHand, hotspot, cursorMode);
-        Cursor.visible = true;
+        if (isOpenHand)
+        {
+            Cursor.SetCursor(openHand, hotspot, cursorMode);
+            Cursor.visible = true;
+        }
     }
-    public void setGrabHand()
+    public void setGrabHand(bool isGrabHand)
     {
-        Cursor.SetCursor(grabHand, hotspot, cursorMode);
-        Cursor.visible = true;
+        if (isGrabHand)
+        { 
+            Cursor.SetCursor(grabHand, hotspot, cursorMode);
+            Cursor.visible = true;
+        }
     }
 }

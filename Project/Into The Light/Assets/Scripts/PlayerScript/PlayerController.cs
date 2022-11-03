@@ -14,10 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isCrouch = false;
     public bool isForward;
-    //public bool isWalk = false;
-    //public bool isRun = false;
 
-    public float speed = 1f;
+    public float speed = 1.2f;
     public float runSpeed = 3.75f;
     //public float gravity = -18.81f;
     public float jumpHeight = 4f;
@@ -28,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+
+    //bool isWalkKeys = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+    //bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
 
     void Update()
     {

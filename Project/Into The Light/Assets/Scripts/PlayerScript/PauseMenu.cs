@@ -68,7 +68,7 @@ public class PauseMenu : MonoBehaviour
             //effect.gameObject.SetActive(true);
 
             //2022
-            icons.setCrossMouse();
+            icons.setCrossMouse(true);
             icons.enabled = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

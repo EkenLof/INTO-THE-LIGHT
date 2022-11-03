@@ -17,13 +17,16 @@ public class AnimCtrl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        bool isWalkKeys = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+        bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
+
+        if (isWalkKeys)
         {
             isWalk = true;
             isRun = false;
             AnimationPlay();
         }
-        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) // Kolla verför den ej blir OK
+        else if (isRunKeys && isWalkKeys) // Kolla verför den ej blir OK
         {
             isRun = true;
             isWalk = false;
