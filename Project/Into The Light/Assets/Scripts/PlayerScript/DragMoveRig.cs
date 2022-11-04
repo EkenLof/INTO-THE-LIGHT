@@ -9,13 +9,14 @@ public class DragMoveRig : MonoBehaviour
     public GameObject playerCamera;
 
     [Header("Action Values")]
-    public float interactionRange = 2;
-    public float interactionDoorRange = 3;
-    float distance;
-    public float holdingDistance;
+    public float interactionRange = 1.5f;
+    public float interactionDoorRange = 2.5f;
     public float holdingObjectDistance = 1.2f;
     public float holdingDoorDistance = 1;
+    [SerializeField] float holdingDistance;
     public float forceAmount = 50f;
+    float distance;
+    float distanceDoor;
 
     public Vector3 lockedRot;
 
@@ -70,8 +71,8 @@ public class DragMoveRig : MonoBehaviour
 
     void Update()
     {
-
         distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
+        distanceDoor = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
 
         // 2022
         lockedRot = rgDoor.transform.eulerAngles;
@@ -117,8 +118,8 @@ public class DragMoveRig : MonoBehaviour
         }
         else
         {
-            if (distance <= interactionRange) setOpenHand(true); 
-            else setCrossMouse(true); 
+            if (distance <= interactionRange || distanceDoor <= interactionDoorRange) setOpenHand(true); 
+            else setCrossMouse(true);
 
             kasta = false;
             //kastaDoor = false; //Tillfälligt av

@@ -10,6 +10,12 @@ public class AnimCtrl : MonoBehaviour
     static bool isWalk = false;
     static bool isRun = false;
 
+    static bool isLighter = false;
+
+    string isWalkName = "isWalking";
+    string isRunName = "isRunning";
+    string isLighterName = "isLighterOn";
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -19,6 +25,7 @@ public class AnimCtrl : MonoBehaviour
     {
         bool isWalkKeys = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
         bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
+        bool isLighterKeys = Input.GetKeyDown("f");
 
         if (isWalkKeys)
         {
@@ -38,18 +45,20 @@ public class AnimCtrl : MonoBehaviour
             AnimationPlay();
         }
 
+        if (isLighterKeys && !isLighter) isLighter = true;
+        else if (isLighterKeys && isLighter) isLighter = false;
+
     }
 
     void AnimationPlay()
     {
-        if (isWalk)
-            anim.SetBool("isWalking", true);
-        if (isRun)
-            anim.SetBool("isRunning", true);
+        if (isWalk) anim.SetBool(isWalkName, true);
+        if (!isWalk) anim.SetBool(isWalkName, false);
 
-        if (!isWalk)
-            anim.SetBool("isWalking", false);
-        if (!isRun)
-            anim.SetBool("isRunning", false);
+        if (isRun) anim.SetBool(isRunName, true);
+        if (!isRun) anim.SetBool(isRunName, false);
+
+        if (isLighter) anim.SetBool(isLighterName, true);
+        if (!isLighter) anim.SetBool(isLighterName, false);
     }
 }
