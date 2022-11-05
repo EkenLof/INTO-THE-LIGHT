@@ -2159,6 +2159,7 @@ GameObject:
   - component: {fileID: 8531506581211379197}
   - component: {fileID: 8531506581211379196}
   - component: {fileID: 8531506581211379198}
+  - component: {fileID: 415149076818454664}
   m_Layer: 5
   m_Name: MenuH
   m_TagString: Untagged
@@ -2182,7 +2183,7 @@ RectTransform:
   - {fileID: 8531506582135199730}
   - {fileID: 3324436456199761253}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2223,6 +2224,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 561d01206d9e7214eb1e6033e9c37c70, type: 2}
   resolutionDD: {fileID: 8531506581567789713}
+--- !u!114 &415149076818454664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531506581211379171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8d15a3f17ea394d9b2afcef4e72214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lighter: 0
+  lighterObj: {fileID: 0}
 --- !u!1 &8531506581240847794
 GameObject:
   m_ObjectHideFlags: 0
