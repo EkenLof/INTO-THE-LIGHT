@@ -10,7 +10,9 @@ public class SceneSystem : MonoBehaviour
 
     [SerializeField] bool active = false;
     [SerializeField] bool actionNext = false;
-    [SerializeField] bool actionPrev = false;  
+    [SerializeField] bool actionPrev = false;
+
+    public GameObject loadingScreenUi;
 
     void Update()
     {
@@ -18,6 +20,7 @@ public class SceneSystem : MonoBehaviour
 
         if (active && actionNext && sceneLoadKeys) LoadingScene(nextScene);
         else if (active && actionPrev && sceneLoadKeys) LoadingScene(prevScene);
+        else loadingScreenUi.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,8 +33,7 @@ public class SceneSystem : MonoBehaviour
     }
     public void LoadingScene(string sceneName)
     {
-        Debug.Log("BeforeScene");
+        if(active) loadingScreenUi.SetActive(true);
         SceneManager.LoadSceneAsync(sceneName);
-        Debug.Log("AfterScene");
     }
 }
