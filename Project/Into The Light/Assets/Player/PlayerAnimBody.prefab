@@ -334,10 +334,10 @@ MonoBehaviour:
   wallDistance: 0.3
   groundMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   wallMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   smoothRunTransition: 3
   isGrounded: 0
   isWall: 0
