@@ -325,14 +325,22 @@ MonoBehaviour:
   playerScale: {fileID: 1304042779320760966}
   isCrouch: 0
   isForward: 0
-  speed: 1.2
+  speed: 1.6
   runSpeed: 3.75
   jumpHeight: 4
   groundCheck: {fileID: 1304042780295020085}
-  groundDistance: 0.4
+  wallCheck: {fileID: 0}
+  groundDistance: 0.1
+  wallDistance: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 384
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 0
+  smoothRunTransition: 3
+  isGrounded: 0
+  isWall: 0
 --- !u!114 &1304042779320760989
 MonoBehaviour:
   m_ObjectHideFlags: 0
