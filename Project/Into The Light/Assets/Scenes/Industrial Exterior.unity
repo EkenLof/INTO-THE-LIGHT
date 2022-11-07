@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30792195, g: 0.39995867, b: 0.44850108, a: 1}
+  m_IndirectSpecularColor: {r: 0.30789655, g: 0.39993003, b: 0.44838244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -81036,6 +81036,36 @@ PrefabInstance:
       propertyPath: lighterObj
       value: 
       objectReference: {fileID: 1405408406}
+    - target: {fileID: 1964134462964710924, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594883832989172198, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088864014281407675, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596622734687624121, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742398084123182332, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742398084123182332, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8531506581211379171, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
       propertyPath: m_Name
@@ -81189,6 +81219,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ba9307552a75a47b15dff5c6d04d1f, type: 3}
+--- !u!114 &1713725194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3684841836843191389, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1713725193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1713985293
 GameObject:
   m_ObjectHideFlags: 0
@@ -96940,6 +96982,8 @@ MonoBehaviour:
   actionNext: 1
   actionPrev: 0
   loadingScreenUi: {fileID: 1724648767}
+  progressBar: {fileID: 1713725194}
+  progressText: {fileID: 0}
 --- !u!65 &2088484245
 BoxCollider:
   m_ObjectHideFlags: 0
