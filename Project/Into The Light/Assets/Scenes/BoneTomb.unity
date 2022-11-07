@@ -13840,7 +13840,7 @@ PrefabInstance:
     - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
         type: 3}
       propertyPath: m_UseRayTracedShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
         type: 3}
@@ -13855,7 +13855,7 @@ PrefabInstance:
     - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
         type: 3}
       propertyPath: m_ShadowResolution.m_Level
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
         type: 3}
@@ -23508,6 +23508,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265524521170330954, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585362622840502261, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320745565561368952, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767016828231272928, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311307976016491838, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314847763080449341, guid: 4cfa1089273e2644d9360279598f0e21,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
