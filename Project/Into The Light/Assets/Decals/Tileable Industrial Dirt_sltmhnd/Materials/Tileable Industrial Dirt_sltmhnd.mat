@@ -34,12 +34,26 @@ Material:
   - _MATERIAL_AFFECTS_MASKMAP
   - _MATERIAL_AFFECTS_NORMAL
   - _NORMALMAP
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHATEST_ON
+  - _DISPLACEMENT_LOCK_TILING_SCALE
+  - _DOUBLESIDED_ON
+  - _HEIGHTMAP
+  - _METALLICGLOSSMAP
+  - _METALLICSPECGLOSSMAP
+  - _NORMALMAP_TANGENT_SPACE
+  - _OCCLUSIONMAP
+  - _PARALLAXMAP
+  - _PIXEL_DISPLACEMENT
+  - _PIXEL_DISPLACEMENT_LOCK_OBJECT_SCALE
+  - _SUBSURFACE_MASK_MAP
+  - _THICKNESSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 2004
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - DistortionVectors
   - TransparentDepthPostpass
@@ -183,7 +197,7 @@ Material:
     - _AORemapMin: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
-    - _AffectAO: 0
+    - _AffectAO: 1
     - _AffectAlbedo: 1
     - _AffectEmission: 0
     - _AffectMetal: 1
@@ -204,13 +218,13 @@ Material:
     - _BumpScale: 1
     - _CoatMask: 0
     - _CullMode: 0
-    - _CullModeForward: 0
+    - _CullModeForward: 2
     - _Cutoff: 0.33
     - _DecalBlend: 1
     - _DecalColorMask0: 15
     - _DecalColorMask1: 15
-    - _DecalColorMask2: 11
-    - _DecalColorMask3: 8
+    - _DecalColorMask2: 15
+    - _DecalColorMask3: 12
     - _DecalMaskMapBlueScale: 1
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
@@ -231,7 +245,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DrawOrder: 4
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -319,7 +333,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
