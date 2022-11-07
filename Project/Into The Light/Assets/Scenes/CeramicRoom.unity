@@ -7139,19 +7139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-    albedo: {r: 1, g: 1, b: 1, a: 1}
+    albedo: {r: 0.47405657, g: 0.6060488, b: 0.6320754, a: 1}
     meanFreePath: 3.82
     anisotropy: 0
     volumeMask: {fileID: 0}
     textureScrollingSpeed: {x: 0, y: 0, z: 0}
     textureTiling: {x: 1, y: 1, z: 1}
-    positiveFade: {x: 0.0702417, y: 0.15024233, z: 0.06904232}
-    negativeFade: {x: 0.0702417, y: 0.15024233, z: 0.06904232}
+    positiveFade: {x: 0.0702417, y: 0.13098592, z: 0.06904232}
+    negativeFade: {x: 0.0702417, y: 0.13098592, z: 0.06904232}
     m_EditorUniformFade: 0.93
     m_EditorPositiveFade: {x: 0, y: 0, z: 0}
     m_EditorNegativeFade: {x: 0, y: 0, z: 0}
     m_EditorAdvancedFade: 0
-    size: {x: 13.24, y: 6.19, z: 13.47}
+    size: {x: 13.24, y: 7.1, z: 13.47}
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
