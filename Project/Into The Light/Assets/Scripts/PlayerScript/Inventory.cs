@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
     public void LighterSystem()
     {
         if(lighter) lighterObj.SetActive(true);
-        if(!lighter) lighterObj.SetActive(false);
+        else if(!lighter) lighterObj.SetActive(false);
 
     }
 }
