@@ -30,6 +30,7 @@ Material:
   m_ValidKeywords:
   - _DISABLE_DECALS
   - _ENABLE_FOG_ON_TRANSPARENT
+  - _MATERIAL_FEATURE_TRANSMISSION
   - _NORMALMAP_TANGENT_SPACE
   - _REFRACTION_PLANE
   - _SURFACE_TYPE_TRANSPARENT
@@ -200,7 +201,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
-    - _MaterialID: 1
+    - _MaterialID: 5
     - _Metallic: 0.338
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
@@ -218,7 +219,7 @@ Material:
     - _RefractionModel: 1
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.94
+    - _Smoothness: 0.791
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -241,7 +242,7 @@ Material:
     - _T: 0.943
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
-    - _Thickness: 1
+    - _Thickness: 0.3
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -260,9 +261,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.4433962, g: 0.40764195, b: 0.36801887, a: 0.20784314}
+    - _BaseColor: {r: 0.44339618, g: 0.40764192, b: 0.36801884, a: 0.48235294}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.44339618, g: 0.40764192, b: 0.36801884, a: 0.20784314}
+    - _Color: {r: 0.44339615, g: 0.4076419, b: 0.3680188, a: 0.48235294}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
