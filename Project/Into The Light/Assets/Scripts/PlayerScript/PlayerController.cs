@@ -12,21 +12,30 @@ public class PlayerController : MonoBehaviour
     public bool isCrouch = false;
     public bool isForward;
 
-    public float speed = 1.2f;
+    public float speed = 1.6f;
     public float runSpeed = 3.75f;
     public float jumpHeight = 4f;
 
     public Transform groundCheck;
-    public float groundDistance = .4f;
+    public Transform wallCheck;
+    public float groundDistance = .1f;
+    public float wallDistance = .3f;
     public LayerMask groundMask;
+    public LayerMask wallMask;
+
+    public float smoothRunTransition = 3f;
 
     Vector3 velocity;
-    bool isGrounded;
+    [SerializeField] bool isGrounded;
+    [SerializeField] bool isWall;
 
     void Update()
     {
         bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
+        bool isJump = Input.GetButtonDown("Jump");
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isWall = Physics.CheckSphere(wallCheck.position, wallDistance, wallMask);
 
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
@@ -39,11 +48,13 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 moveVector;
 
-            if (isRunKeys && isGrounded && !isCrouch) moveVector = transform.TransformDirection(controllInput) * runSpeed;
-            else moveVector = transform.TransformDirection(controllInput) * speed;
+            if (!isWall && isGrounded || isWall && isGrounded || isGrounded)
+            {
+                if (isRunKeys && isGrounded && !isCrouch) moveVector = transform.TransformDirection(controllInput) * runSpeed;
+                else moveVector = transform.TransformDirection(controllInput) * speed;
 
-            controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
-
+                controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
+            }
             // Sprinting controll Smooth
             //for (float i = 1.2f; i < runSpeed; i+=1 * Time.deltaTime)
             //{
@@ -51,7 +62,7 @@ public class PlayerController : MonoBehaviour
             //}
 
 
-            if (Input.GetButtonDown("Jump") && isGrounded && !isCrouch) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            if (isJump && isGrounded && !isCrouch) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }
 }
