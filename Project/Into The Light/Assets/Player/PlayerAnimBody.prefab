@@ -329,7 +329,7 @@ MonoBehaviour:
   runSpeed: 3.75
   jumpHeight: 4
   groundCheck: {fileID: 1304042780295020085}
-  wallCheck: {fileID: 0}
+  wallCheck: {fileID: 1304042779320760986}
   groundDistance: 0.1
   wallDistance: 0.3
   groundMask:
