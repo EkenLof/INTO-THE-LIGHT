@@ -322,7 +322,7 @@ Transform:
   - {fileID: 5889366551056645373}
   - {fileID: 171336898449528540}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765114626798139844
 GameObject:
@@ -1617,7 +1617,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6b7e13de4473b948934d20be7e596df, type: 2}
+  - {fileID: 2100000, guid: b989fedacad8d0a479919e8b218bea76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
