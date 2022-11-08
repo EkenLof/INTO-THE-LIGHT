@@ -4996,8 +4996,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
         type: 3}
+      propertyPath: m_Intensity
+      value: 68.27466
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
+        type: 3}
+      propertyPath: useVolumetric
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
+        type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822824098567217748, guid: b414252bee7b85048aa74ead1d4a971c,
+        type: 3}
       propertyPath: m_UseContactShadow.m_Override
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822824098567217751, guid: b414252bee7b85048aa74ead1d4a971c,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 5.4331245
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
