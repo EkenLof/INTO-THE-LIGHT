@@ -1,18 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-//[RequireComponent(typeof (NavMeshAgent))]
-
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 [RequireComponent(typeof(AI1Character))]
 
 public class AiChaseSystem : MonoBehaviour
 {
-
     public float timeChase = 15.0f;
     public float maxTimeChase = 15.0f;
+
     public bool exitTimeTrigger;
     public bool resetTime;
+
     private string animFadeSmoth = "Armature|Idle";
 
     AudioSource idleAudio;
@@ -25,7 +24,6 @@ public class AiChaseSystem : MonoBehaviour
     public bool chase;
     public bool chaseTriggerEvent;
     // 2020 test end
-
 
     void Start()
     {
@@ -65,8 +63,7 @@ public class AiChaseSystem : MonoBehaviour
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
 
             GetComponent<Animation>().Play("Armature|Run");
-            
-            
+              
             // 2020 s
             if (target != null)
                 agent.SetDestination(target.position);
@@ -99,8 +96,6 @@ public class AiChaseSystem : MonoBehaviour
             idleAudio.Stop();
 
             chase = false;
-
-
         }
 
         if (resetTime)
