@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 06389c180b784ba45b9d96b457ab836c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: 107a1803ae9824a44a6c363bf4a17ac6, type: 2}
+  _fileAsset: {instanceID: 0}
+  _assetPath: Assets/Art/SBSAR/embossed_glass_fan_pattern.sbsar
