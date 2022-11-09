@@ -13,10 +13,9 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _COLORMAP
-  - _MATERIAL_AFFECTS_ALBEDO
+  - _MASKMAP
   - _MATERIAL_AFFECTS_MASKMAP
   - _MATERIAL_AFFECTS_NORMAL
-  - _NORMALMAP
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
@@ -42,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: c51619a3c93f5ee498875a5351f3b9a0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 077c2eac18425ce41be84474ef16dd97, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -82,11 +81,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 706fab163595c4d46bce907e27ffddad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 4719aec8ec194df4c8f5b62083e5de89, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -131,15 +130,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AO: 1
+    - _AO: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AffectAO: 1
-    - _AffectAlbedo: 1
+    - _AffectAlbedo: 0
     - _AffectEmission: 0
-    - _AffectMetal: 1
+    - _AffectMetal: 0
     - _AffectNormal: 1
     - _AffectSmoothness: 1
     - _AlbedoAffectEmissive: 0
@@ -159,10 +158,10 @@ Material:
     - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DecalBlend: 1
-    - _DecalColorMask0: 15
+    - _DecalColorMask0: 0
     - _DecalColorMask1: 15
-    - _DecalColorMask2: 15
-    - _DecalColorMask3: 12
+    - _DecalColorMask2: 7
+    - _DecalColorMask3: 4
     - _DecalMaskMapBlueScale: 1
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
@@ -208,7 +207,7 @@ Material:
     - _MaskBlendSrc: 0
     - _MaterialID: 1
     - _Metallic: 0
-    - _MetallicRemapMax: 1
+    - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _NormalBlendSrc: 0
     - _NormalMapSpace: 0
@@ -224,7 +223,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.5
-    - _SmoothnessRemapMax: 0.99999994
+    - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
