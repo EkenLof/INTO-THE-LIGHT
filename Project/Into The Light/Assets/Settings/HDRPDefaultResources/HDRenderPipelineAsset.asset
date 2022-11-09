@@ -33,14 +33,14 @@ MonoBehaviour:
     colorBufferFormat: 74
     supportCustomPass: 1
     customBufferFormat: 12
-    supportedLitShaderMode: 2
+    supportedLitShaderMode: 3
     planarReflectionResolution:
       m_Values: 000100000004000000040000
       m_SchemaId:
         m_Id: With3Levels
     supportDecals: 1
     supportDecalLayers: 0
-    supportSurfaceGradient: 0
+    supportSurfaceGradient: 1
     decalNormalBufferHP: 0
     msaaSampleCount: 1
     supportMotionVectors: 1
@@ -112,9 +112,9 @@ MonoBehaviour:
       screenSpaceShadowBufferFormat: 48
     decalSettings:
       drawDistance: 1000
-      atlasWidth: 4096
-      atlasHeight: 4096
-      perChannelMask: 0
+      atlasWidth: 2048
+      atlasHeight: 2048
+      perChannelMask: 1
     postProcessSettings:
       m_LutSize: 32
       lutFormat: 48
