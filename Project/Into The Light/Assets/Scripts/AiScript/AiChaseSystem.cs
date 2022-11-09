@@ -6,13 +6,26 @@ using UnityEngine;
 
 public class AiChaseSystem : MonoBehaviour
 {
+    //2022
+
+    [Header("AI Anim Controller")]
+    static Animator animatorAi;
+
+    [SerializeField] bool isMoving = false;
+    [SerializeField] bool isTooNear = false;
+    [SerializeField] bool isSneakPeeking = false;
+
+    string isMoveName = "isWalk";
+    string isTooNearName = "isToNear";
+    string isSneakPeekName = "isSneakPeek";
+
+    //2022
+
     public float timeChase = 15.0f;
     public float maxTimeChase = 15.0f;
 
     public bool exitTimeTrigger;
     public bool resetTime;
-
-    private string animFadeSmoth = "Armature|Idle";
 
     AudioSource idleAudio;
 
@@ -27,7 +40,18 @@ public class AiChaseSystem : MonoBehaviour
 
     void Start()
     {
-        // 2020 s
+        //2022
+
+        animatorAi = GetComponent<Animator>();
+
+        exitTimeTrigger = false;
+        resetTime = false;
+
+        idleAudio = GetComponent<AudioSource>();
+        idleAudio.Stop();
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+
+        //2022
         agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
         character = GetComponent<AI1Character>();
 
@@ -36,18 +60,6 @@ public class AiChaseSystem : MonoBehaviour
 
         chase = false;
         chaseTriggerEvent = false;
-        // 2020 e
-
-        idleAudio = GetComponent<AudioSource>();
-        idleAudio.Stop();
-        GetComponent<Animation>()[animFadeSmoth].speed = 1;
-        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        GetComponent<Animation>().Play("Armature|Idle");
-        GetComponent<Animation>()["Armature|Idle"].wrapMode = WrapMode.Loop;
-        GetComponent<Animation>()["Armature|Run"].wrapMode = WrapMode.Loop;
-        exitTimeTrigger = false;
-        resetTime = false;
-        GetComponent<Animation>().CrossFade(animFadeSmoth);
     }
 
     void Update()
@@ -62,7 +74,10 @@ public class AiChaseSystem : MonoBehaviour
         {
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
 
-            GetComponent<Animation>().Play("Armature|Run");
+            //2022
+            isMoving = true;
+            AnimPlay();
+            //2022
               
             // 2020 s
             if (target != null)
@@ -91,7 +106,10 @@ public class AiChaseSystem : MonoBehaviour
         if (timeChase <= 0)
         {
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-            GetComponent<Animation>().Play("Armature|Idle");
+            //2022
+            isMoving = false;
+            AnimPlay();
+            //2022
             resetTime = true;
             idleAudio.Stop();
 
@@ -131,4 +149,16 @@ public class AiChaseSystem : MonoBehaviour
         this.target = target;
     }
     // 2020 e
+
+    void AnimPlay()
+    {
+        if (isMoving) animatorAi.SetBool(isMoveName, true);
+        if (!isMoving) animatorAi.SetBool(isMoveName, false);
+
+        if (isSneakPeeking) animatorAi.SetBool(isSneakPeekName, true);
+        if (!isSneakPeeking) animatorAi.SetBool(isSneakPeekName, false);
+
+        if (isTooNear) animatorAi.SetBool(isTooNearName, true);
+        if (!isTooNear) animatorAi.SetBool(isTooNearName, false);
+    }
 }
