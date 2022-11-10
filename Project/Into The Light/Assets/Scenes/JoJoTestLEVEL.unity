@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -1792,6 +1792,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1354321565405813808, guid: b414252bee7b85048aa74ead1d4a971c,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 154210511}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b414252bee7b85048aa74ead1d4a971c, type: 3}
@@ -2056,37 +2061,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1155215946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1304042778784502684, guid: b414252bee7b85048aa74ead1d4a971c,
-    type: 3}
-  m_PrefabInstance: {fileID: 351070197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1155215947 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1304042778784502679, guid: b414252bee7b85048aa74ead1d4a971c,
     type: 3}
   m_PrefabInstance: {fileID: 351070197}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155215946}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4d1797135ce8b548a573153adc8975b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1155215952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155215946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78c9cb33dd059942845bb29be0c7503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 154210511}
 --- !u!1 &1308696836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8552790977896187666, guid: b414252bee7b85048aa74ead1d4a971c,
