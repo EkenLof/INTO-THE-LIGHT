@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &537542956363852416
 Transform:
@@ -53,7 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1390,7 +1390,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8936465219792750813
 Transform:
@@ -2530,7 +2530,7 @@ Transform:
   - {fileID: 8936465221204347800}
   - {fileID: 8936465219674731366}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8936465220337873031
 GameObject:
@@ -3582,7 +3582,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &8936465221137879103
 Transform:
@@ -3618,7 +3618,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4213,6 +4213,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8936465221204347800}
     m_Modifications:
+    - target: {fileID: 7607360894359777797, guid: 0a5e67cfcb7ebcb468273ef1bf9c591c,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8780306995113412970, guid: 0a5e67cfcb7ebcb468273ef1bf9c591c,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -6449,6 +6454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5f40509c55a4d94785aac9408e5278b, type: 2}
@@ -8264,6 +8274,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7607360894359777797, guid: 0a5e67cfcb7ebcb468273ef1bf9c591c,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607360894359777797, guid: 0a5e67cfcb7ebcb468273ef1bf9c591c,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5f40509c55a4d94785aac9408e5278b, type: 2}
@@ -8584,6 +8599,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8936465221204347800}
     m_Modifications:
+    - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9679,6 +9699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
@@ -12306,6 +12331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5f40509c55a4d94785aac9408e5278b, type: 2}
@@ -13019,6 +13049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
@@ -13820,6 +13855,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8936465221204347800}
     m_Modifications:
+    - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15944,7 +15984,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LightmapParameters
       value: 
-      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 7760550943734013225, guid: 1825e6dc739e7f34c9363b8cef80ccca,
         type: 3}
       propertyPath: m_Name
@@ -16719,6 +16759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
       propertyPath: m_RayTraceProcedural
       value: 0
       objectReference: {fileID: 0}
@@ -16842,6 +16887,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8936465221204347800}
     m_Modifications:
+    - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -24022,6 +24072,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dd5ec613f8acb8d478bb6a292e56ac4b, type: 2}
@@ -24790,6 +24845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
@@ -33923,6 +33983,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5f40509c55a4d94785aac9408e5278b, type: 2}
@@ -35716,6 +35781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
@@ -39557,6 +39627,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8936465221204347800}
     m_Modifications:
+    - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 885985638628994385, guid: 14b0c3497f50ff345a4045c391ceb73f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -43479,6 +43554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: f950acb043a20ce4cacd4b64d3f00716,
         type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f950acb043a20ce4cacd4b64d3f00716,
+        type: 3}
       propertyPath: m_StaticShadowCaster
       value: 1
       objectReference: {fileID: 0}
@@ -44165,6 +44245,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 88eeb55ebc7866f489b0fc4534d06ea3,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 88eeb55ebc7866f489b0fc4534d06ea3,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 10.46
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 88eeb55ebc7866f489b0fc4534d06ea3,
         type: 3}
@@ -45385,6 +45475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
+        type: 3}
+      propertyPath: m_RayTracingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953176111561509735, guid: b5cddc6791cbdaa40ae4c7e58fe4632f,
         type: 3}
