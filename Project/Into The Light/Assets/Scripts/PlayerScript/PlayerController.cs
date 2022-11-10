@@ -55,13 +55,6 @@ public class PlayerController : MonoBehaviour
 
                 controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
             }
-            // Sprinting controll Smooth
-            //for (float i = 1.2f; i < runSpeed; i+=1 * Time.deltaTime)
-            //{
-                //Debug.Log(i);
-            //}
-
-
             if (isJump && isGrounded && !isCrouch) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }

@@ -38,8 +38,8 @@ public class DragMoveRig : MonoBehaviour
     private GameObject objectHold;
     private bool isObjectHold = false;
 
-    Rigidbody rgBody;
-    Rigidbody rgDoor;
+    Rigidbody rgBody = null;
+    Rigidbody rgDoor = null;
 
     private string objName = "ObjectToPickUp";
     private string doorName = "Door";
@@ -60,7 +60,7 @@ public class DragMoveRig : MonoBehaviour
         distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
         distanceDoor = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
 
-        // 2022
+        // 2022 Lock???
         lockedRot = rgDoor.transform.eulerAngles;
         if (lockedRot.x == 270 && lockedDoor) rgDoor.isKinematic = true;
         rgDoor.isKinematic = false;

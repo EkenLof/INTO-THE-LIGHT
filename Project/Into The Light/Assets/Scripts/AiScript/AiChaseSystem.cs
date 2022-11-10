@@ -71,38 +71,21 @@ public class AiChaseSystem : MonoBehaviour
             exitTimeTrigger = false;
             timeChase = maxTimeChase;
             chase = true;
+            //Chase();
             
         }
         else exitTimeTrigger = true;
 
-        if (chase)
+        if (chase) Chase();
+        else
         {
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-            //2022
-            isMoving = true;
-            AnimPlay();
-            //2022              
-            // 2020 s
-            if (target != null)
-                agent.SetDestination(target.position);
-            if (agent.remainingDistance > agent.stoppingDistance)
-                character.Move(agent.desiredVelocity, false, false);
-            else
-                character.Move(Vector3.zero, false, false);
-            // 2020 e
-        } else
-        {
-            if (timeChase < maxTimeChase)
-            {
-                resetTime = true;
-            }
+            if (timeChase < maxTimeChase) resetTime = true;
         }
         
 
         if (exitTimeTrigger)
         {
-            timeChase -= Time.deltaTime;
-            
+            timeChase -= Time.deltaTime;  
         }
 
         if (timeChase <= 0)
@@ -116,14 +99,9 @@ public class AiChaseSystem : MonoBehaviour
             chase = false;
         }
 
-        if (resetTime)
-        {
-            timeChase = maxTimeChase;
-        }
-        if (timeChase == maxTimeChase)
-        {
-            resetTime = false;
-        }
+        if (resetTime) timeChase = maxTimeChase;
+
+        if (timeChase == maxTimeChase) resetTime = false;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -149,6 +127,19 @@ public class AiChaseSystem : MonoBehaviour
         this.target = target;
     }
     // 2020 e
+
+    void Chase()
+    {
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+        //2022
+        isMoving = true;
+        AnimPlay();
+        //2022              
+        // 2020 s
+        if (target != null) agent.SetDestination(target.position);
+        if (agent.remainingDistance > agent.stoppingDistance) character.Move(agent.desiredVelocity, false, false);
+        else character.Move(Vector3.zero, false, false);
+    }
 
     void AnimPlay()
     {
