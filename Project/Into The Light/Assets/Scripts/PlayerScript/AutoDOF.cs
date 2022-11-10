@@ -10,27 +10,23 @@ public class AutoDOF : MonoBehaviour
     Ray rayCast;
     RaycastHit rayHit;
 
-    bool isHit;
+    //bool isHit;
     float depth;
 
     public Volume volume;
-    DepthOfField depthOfField;
-
-    private void Start()
-    {
-        volume.profile.TryGet(out depthOfField);
-    }
+    //DepthOfField depthOfField;
 
     public void Update()
     {
+        
         rayCast = new Ray(transform.position, transform.forward * 100);
-        isHit = false;
+        //isHit = false;
 
         if (Physics.Raycast(rayCast, out rayHit, 100f))
         {
-            isHit = true;
+            //isHit = true;
             depth = Vector3.Distance(transform.position, rayHit.point);
-            Debug.Log("Hitting");
+            Debug.Log("Hitting" + depth);
         }
         else
         {
@@ -42,19 +38,7 @@ public class AutoDOF : MonoBehaviour
 
     void SetFocus()
     {
-        depthOfField.focusDistance.value = depth;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (isHit)
-        {
-            Gizmos.DrawSphere(rayHit.point, 0.1f);
-            Debug.DrawRay(transform.position, transform.forward * Vector3.Distance(transform.position, rayHit.point));
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.forward * 100f);
-        }
+        if (volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField))
+            depthOfField.focusDistance.Override(depth);
     }
 }
