@@ -1,114 +1,121 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AI1Character))]
 
 public class AiChaseSystem : MonoBehaviour
 {
-    //2022
-
     [Header("AI Anim Controller")]
     static Animator animatorAi;
 
     [SerializeField] bool isMoving = false;
-    [SerializeField] bool isTooNear = false;
     [SerializeField] bool isSneakPeeking = false;
+    [SerializeField] bool isStare = false;
+    [SerializeField] bool isKill = false;
 
     string isMoveName = "isWalk";
-    string isTooNearName = "isToNear";
     string isSneakPeekName = "isSneakPeek";
+    string isTooNearName = "isToNear";
+    string isKillName = "isKill";
 
     float distance;
     [SerializeField] float interactionRange = 3f;
+    [Header("Chase Value")]
+    public float timeChase = 30.0f;
+    public float maxTimeChase = 30.0f;
 
-    //2022
+    public bool chase = false;
+    public bool exitTimeTrigger = false;
+    public bool resetTime = false;
 
-    public float timeChase = 15.0f;
-    public float maxTimeChase = 15.0f;
+    [Header("Stare To Kill Value")]
+    public float timeKill = 15.0f;
+    public float maxTimeKill = 15.0f;
 
-    public bool exitTimeTrigger;
-    public bool resetTime;
+    public bool stare = false;
+    public bool kill = false;
+    public bool exitKillTimeTrigger = false;
+    public bool resetKillTime = false;
 
     AudioSource chaseAudio;
 
     // 2020 test start
-    public UnityEngine.AI.NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
+    public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
     public AI1Character character { get; private set; } // the character we are controlling
     public Transform target; // target to aim for
-
-    public bool chase;
     // 2020 test end
 
     void Start()
     {
-        //2022
         animatorAi = GetComponent<Animator>();
-
-        exitTimeTrigger = false;
-        resetTime = false;
-
         chaseAudio = GetComponent<AudioSource>();
-        chaseAudio.Stop();
-        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        //2022
-
-        agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
         character = GetComponent<AI1Character>();
-
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        agent = GetComponentInChildren<NavMeshAgent>();
+        chaseAudio.Stop();
         agent.updateRotation = false;
         agent.updatePosition = true;
-
-        chase = false;
     }
 
     void Update()
     {
         distance = Vector3.Distance(target.position, gameObject.transform.position);
 
+        //Chase
         if (distance <= interactionRange)
         {
             exitTimeTrigger = false;
             timeChase = maxTimeChase;
             chase = true;
-            //Chase();
-            
         }
         else exitTimeTrigger = true;
 
+        //Timer
         if (chase) Chase();
-        else
-        {
-            if (timeChase < maxTimeChase) resetTime = true;
-        }
-        
+        else if (timeChase < maxTimeChase) resetTime = true;
 
-        if (exitTimeTrigger)
-        {
-            timeChase -= Time.deltaTime;  
-        }
+        if (exitTimeTrigger) timeChase -= Time.deltaTime;
 
         if (timeChase <= 0)
         {
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-            //2022
-            isMoving = false;
+            IdleState();
             AnimPlay();
-            //2022
-            resetTime = true;
-            chase = false;
         }
 
         if (resetTime) timeChase = maxTimeChase;
-
         if (timeChase == maxTimeChase) resetTime = false;
+
+        //Stare
+        if (stare) StareState();
+        else if (timeKill < maxTimeKill) resetKillTime = true;
+
+        if (exitKillTimeTrigger) timeKill -= Time.deltaTime;
+        if (!exitKillTimeTrigger) isStare = false;
+
+        //Kill
+        if(timeKill < 0)
+        {
+            KillState();
+            AnimPlay();
+            gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        }
+
+        if (resetKillTime) timeKill = maxTimeKill;
+        if (timeKill == maxTimeKill) //////////////////////////////+ // 15 walk again after kill
+        {
+            resetKillTime = false;
+            
+        }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            isTooNear = true;
-            isMoving = false;
+            stare = true;
+            exitKillTimeTrigger = true;
+            isMoving = false; //
             AnimPlay();
         }
     }
@@ -116,26 +123,47 @@ public class AiChaseSystem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            isTooNear = false;
-            AnimPlay();
+            stare = false;
+            exitKillTimeTrigger = false;
+            isMoving = true;
+            Chase();
+            AnimPlay();           
         }
     }
 
-    // 2020 s
+    // 2020 s ???????????????
     public void SetTarget(Transform target)
     {
         this.target = target;
     }
-    // 2020 e
+
+    void StareState()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        isStare = true;
+        resetTime = true;
+        chase = false;
+    }
+    void KillState()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        isKill = true;
+        resetTime = true;
+        chase = false;
+    }
+    void IdleState()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        isMoving = false;
+        resetTime = true;
+        chase = false;
+    }
 
     void Chase()
     {
-        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-        //2022
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
         isMoving = true;
         AnimPlay();
-        //2022              
-        // 2020 s
         if (target != null) agent.SetDestination(target.position);
         if (agent.remainingDistance > agent.stoppingDistance) character.Move(agent.desiredVelocity, false, false);
         else character.Move(Vector3.zero, false, false);
@@ -149,8 +177,11 @@ public class AiChaseSystem : MonoBehaviour
         if (isSneakPeeking) animatorAi.SetBool(isSneakPeekName, true);
         if (!isSneakPeeking) animatorAi.SetBool(isSneakPeekName, false);
 
-        if (isTooNear) animatorAi.SetBool(isTooNearName, true);
-        if (!isTooNear) animatorAi.SetBool(isTooNearName, false);
+        if (isStare) animatorAi.SetBool(isTooNearName, true);
+        if (!isStare) animatorAi.SetBool(isTooNearName, false);
+
+        if (isKill) animatorAi.SetBool(isKillName, true);
+        if (!isKill) animatorAi.SetBool(isKillName, false);
     }
 
     void AudioPlay()
