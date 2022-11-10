@@ -14,14 +14,19 @@ public class AiChaseSystem : MonoBehaviour
     [SerializeField] bool isSneakPeeking = false;
     [SerializeField] bool isStare = false;
     [SerializeField] bool isKill = false;
+    [SerializeField] bool isFaceCovering = false;
+
+    public bool isLookingtoFace = false;
 
     string isMoveName = "isWalk";
     string isSneakPeekName = "isSneakPeek";
     string isTooNearName = "isToNear";
     string isKillName = "isKill";
+    string isFaceHideName = "isFaceHide";
 
     float distance;
     [SerializeField] float interactionRange = 3f;
+
     [Header("Chase Value")]
     public float timeChase = 30.0f;
     public float maxTimeChase = 30.0f;
@@ -137,6 +142,19 @@ public class AiChaseSystem : MonoBehaviour
         this.target = target;
     }
 
+    public void FaceHide()
+    {
+        if (isLookingtoFace) 
+        {
+            isFaceCovering = true;
+            AnimPlay();
+        }
+        else 
+        {
+            isFaceCovering = false;
+            AnimPlay();
+        }
+    }
     void StareState()
     {
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -182,6 +200,9 @@ public class AiChaseSystem : MonoBehaviour
 
         if (isKill) animatorAi.SetBool(isKillName, true);
         if (!isKill) animatorAi.SetBool(isKillName, false);
+
+        if (isFaceCovering) animatorAi.SetBool(isFaceHideName, true);
+        if (!isFaceCovering) animatorAi.SetBool(isFaceHideName, false);
     }
 
     void AudioPlay()
