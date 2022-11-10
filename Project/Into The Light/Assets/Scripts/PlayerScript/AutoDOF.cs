@@ -12,6 +12,7 @@ public class AutoDOF : MonoBehaviour
 
     //bool isHit;
     float depth;
+    float maxDepth = 100f;
 
     public Volume volume;
     //DepthOfField depthOfField;
@@ -19,18 +20,18 @@ public class AutoDOF : MonoBehaviour
     public void Update()
     {
         
-        rayCast = new Ray(transform.position, transform.forward * 100);
+        rayCast = new Ray(transform.position, transform.forward * maxDepth);
         //isHit = false;
 
-        if (Physics.Raycast(rayCast, out rayHit, 100f))
+        if (Physics.Raycast(rayCast, out rayHit, maxDepth))
         {
             //isHit = true;
             depth = Vector3.Distance(transform.position, rayHit.point);
-            Debug.Log("Hitting" + depth);
+            //Debug.Log("Hitting" + depth);
         }
         else
         {
-            if (depth < 100f) depth++;
+            if (depth < maxDepth) depth++;
         }
 
         SetFocus();
