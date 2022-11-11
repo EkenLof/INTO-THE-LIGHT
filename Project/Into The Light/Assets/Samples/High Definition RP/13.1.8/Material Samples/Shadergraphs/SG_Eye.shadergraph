@@ -3379,7 +3379,7 @@
     "m_TessellationBackFaceCullEpsilon": -0.25,
     "m_TessellationMaxDisplacement": 0.009999999776482582,
     "m_Version": 1,
-    "inspectorFoldoutMask": 1
+    "inspectorFoldoutMask": 9
 }
 
 {
@@ -4639,7 +4639,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.EyeData",
     "m_ObjectId": "60e13120709e4329af3515b50896a9c1",
-    "m_MaterialType": 0,
+    "m_MaterialType": 1,
     "m_SubsurfaceScattering": true,
     "m_IrisNormal": true
 }
