@@ -48,7 +48,7 @@ Material:
   - MOTIONVECTORS
   - DecalMeshForwardEmissive
   - DecalProjectorForwardEmissive
-  m_LockedProperties: 
+  m_LockedProperties: _NormalMap
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
