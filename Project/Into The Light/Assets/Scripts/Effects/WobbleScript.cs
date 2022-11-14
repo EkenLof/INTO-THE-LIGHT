@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wobble : MonoBehaviour
+public class WobbleScript : MonoBehaviour
 {
-    Renderer rend;
+    public Renderer rend;
     Vector3 lastPos;
     Vector3 velocity;
     Vector3 lastRot;
@@ -19,12 +19,14 @@ public class Wobble : MonoBehaviour
     float pulse;
     float time = 0.5f;
 
-    // Use this for initialization
+    string wobbleX = "_WobbleX";
+    string wobbleZ = "_WobbleZ";
+
     void Start()
     {
         rend = GetComponent<Renderer>();
     }
-    private void Update()
+    void Update()
     {
         time += Time.deltaTime;
         // decrease wobble over time
@@ -37,8 +39,8 @@ public class Wobble : MonoBehaviour
         wobbleAmountZ = wobbleAmountToAddZ * Mathf.Sin(pulse * time);
 
         // send it to the shader
-        rend.material.SetFloat("_WobbleX", wobbleAmountX);
-        rend.material.SetFloat("_WobbleZ", wobbleAmountZ);
+        rend.material.SetFloat(wobbleX, wobbleAmountX);
+        rend.material.SetFloat(wobbleZ, wobbleAmountZ);
 
         // velocity
         velocity = (lastPos - transform.position) / Time.deltaTime;
@@ -53,7 +55,4 @@ public class Wobble : MonoBehaviour
         lastPos = transform.position;
         lastRot = transform.rotation.eulerAngles;
     }
-
-
-
 }
