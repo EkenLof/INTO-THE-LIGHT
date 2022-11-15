@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &16180451319209241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5901875417715003387}
+  m_Layer: 0
+  m_Name: Metal Hand Truck_virqcfw_Var1 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &5901875417715003387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16180451319209241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6377878196280819092}
+  - {fileID: 3266269649052078453}
+  - {fileID: 2587499591437155719}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2536586642463285216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6377878196280819092}
+  m_Layer: 0
+  m_Name: Metal Hand Truck_LOD2__virqcfw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &6377878196280819092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536586642463285216}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3111033214738745955}
+  m_Father: {fileID: 5901875417715003387}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5883786026288947274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3111033214738745955}
+  - component: {fileID: 4679898351402259475}
+  - component: {fileID: 5857408150535356355}
+  m_Layer: 0
+  m_Name: Aset_industrial_construction_M_virqcfw_00_LOD2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &3111033214738745955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883786026288947274}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6377878196280819092}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4679898351402259475
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883786026288947274}
+  m_Mesh: {fileID: 6273026814496006519, guid: 707c562ed3840d24592cc2282cd06f4d, type: 3}
+--- !u!23 &5857408150535356355
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883786026288947274}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 1
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41ed6b917360c684fa0fec2bb48ef70c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &8056973564979246150
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 5901875417715003387}
+    m_Modifications:
+    - target: {fileID: 188666092787776275, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_Name
+      value: Metal Hand Truck_virqcfw_Var3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.46280003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c7081d58d0878b45bc7032a50761487, type: 3}
+--- !u!4 &3266269649052078453 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4792956134102099251, guid: 7c7081d58d0878b45bc7032a50761487,
+    type: 3}
+  m_PrefabInstance: {fileID: 8056973564979246150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8056973565157688233
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 5901875417715003387}
+    m_Modifications:
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.76905704
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00085395575
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.24071503
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963912128762565050, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_Name
+      value: Metal Hand Truck_virqcfw_Var2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577834470190633798, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577834470190633798, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00085395575
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577834470190633798, guid: 68f9d342d1ea102429b1afd6925bab7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.24071503
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68f9d342d1ea102429b1afd6925bab7a, type: 3}
+--- !u!4 &2587499591437155719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5492346377662610990, guid: 68f9d342d1ea102429b1afd6925bab7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8056973565157688233}
+  m_PrefabAsset: {fileID: 0}
