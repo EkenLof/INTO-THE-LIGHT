@@ -6,13 +6,16 @@ public class Inventory : MonoBehaviour
 {
     public bool inventory;
     public bool light = false;
-    [SerializeField] bool flashlight;
-    [SerializeField] bool lighter;
+    public bool isLightEquip; // samma för att sätta layer Värde
+    public bool flashlight;
+    public bool lighter;
     [SerializeField] bool timeFreeze;
 
     public GameObject inventoryMenu;
     public GameObject lighterObj;
     public GameObject flashlightObj;
+
+    public AnimCtrl animCtrl;
 
 
     void Start()
@@ -20,13 +23,15 @@ public class Inventory : MonoBehaviour
         inventoryMenu.SetActive(false);
         lighterObj.SetActive(false);
         flashlightObj.SetActive(false);
+
+        animCtrl = GameObject.FindWithTag("Player").GetComponent<AnimCtrl>();
     }
     void Update()
     {
         bool isLighterKeys = Input.GetKeyDown("f");
         bool isInventory = Input.GetKeyDown("tab");
 
-        if (isLighterKeys && !light)
+        if (isLighterKeys && !light && isLightEquip) // om man har igång Lighter eller Light
         {
             light = true; 
             LighterSystem();
@@ -82,12 +87,18 @@ public class Inventory : MonoBehaviour
 
     public void InventoryLighter()
     {
+        isLightEquip = true;
         lighter = true;
         flashlight = false;
+        animCtrl.isLighterObj = true;
+        animCtrl.isFlashlightObj = false;
     }
     public void InventoryFlashlight()
     {
+        isLightEquip = true;
         flashlight = true;
         lighter = false;
+        animCtrl.isFlashlightObj = true;
+        animCtrl.isLighterObj = false;
     }
 }

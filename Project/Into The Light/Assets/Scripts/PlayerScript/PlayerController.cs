@@ -5,15 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody controllerSystem;
-    private Vector3 controllInput;
-
-    public GameObject playerScale;
-
-    public bool isCrouch = false;
+    /*private Vector3 controllInput;
     public bool isForward;
 
     public float speed = 1.6f;
-    public float runSpeed = 3.75f;
+    public float runSpeed = 3.75f;*/
     public float jumpHeight = 4f;
 
     public Transform groundCheck;
@@ -23,15 +19,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     public LayerMask wallMask;
 
-    public float smoothRunTransition = 3f;
-
     Vector3 velocity;
     [SerializeField] bool isGrounded;
     [SerializeField] bool isWall;
 
     void Update()
     {
-        bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
+        //bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
         bool isJump = Input.GetButtonDown("Jump");
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -40,13 +34,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
         // RIGID
-        controllInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        //controllInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
         MovePlayer();
 
         void MovePlayer()
         {
-            Vector3 moveVector;
+            /*Vector3 moveVector;
 
             if (!isWall && isGrounded || isWall && isGrounded || isGrounded)
             {
@@ -54,8 +48,8 @@ public class PlayerController : MonoBehaviour
                 else moveVector = transform.TransformDirection(controllInput) * speed;
 
                 controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
-            }
-            if (isJump && isGrounded && !isCrouch) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            }*/
+            if (isJump && isGrounded) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }
 }

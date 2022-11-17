@@ -37,6 +37,7 @@ public class CamController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
+        // Zoom Controll
         if(Input.GetKeyDown(KeyCode.C))
         {
             isFovZoom = !isFovZoom;
