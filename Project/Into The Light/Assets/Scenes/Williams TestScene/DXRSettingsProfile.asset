@@ -108,6 +108,25 @@ MonoBehaviour:
   buildMode:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-1930166732938711659
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464ccca2a3ef3ce429c63a5b5cd3be58, type: 3}
+  m_Name: SubSurfaceScattering
+  m_EditorClassIdentifier: 
+  active: 1
+  rayTracing:
+    m_OverrideState: 1
+    m_Value: 1
+  sampleCount:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +146,7 @@ MonoBehaviour:
   - {fileID: 7952808685565619085}
   - {fileID: -6249187184168228373}
   - {fileID: -4004148679813255814}
+  - {fileID: -1930166732938711659}
 --- !u!114 &2761618898094082810
 MonoBehaviour:
   m_ObjectHideFlags: 3
