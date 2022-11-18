@@ -38,8 +38,8 @@ public class AnimCtrl : MonoBehaviour
     static bool isCrouchLeft = false;
     static bool isCrouchRight = false;
 
-    static bool isLighter = false;
-    static bool isFlashlight = false;
+    public bool isLighter = false;
+    public bool isFlashlight = false;
 
     string isWalkFrontName = "isWalking";
     string isWalkBackName = "isWalkingBack";
@@ -82,6 +82,7 @@ public class AnimCtrl : MonoBehaviour
         bool isLightKeys = Input.GetKeyDown("f");
         bool isJumpKeys = Input.GetKey("space");
         bool isCrouchKeys = Input.GetKeyDown(KeyCode.LeftControl);
+        bool timefreeze = Time.timeScale <= 0;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         AnimationPlay();
@@ -213,9 +214,9 @@ public class AnimCtrl : MonoBehaviour
             isCrouchLeft = false;
             isCrouchRight = false;
         }
-
         // Crouch
 
+        // Jump
         if (isJumpKeys) isJump = true;
         else isJump = false;
 
@@ -224,12 +225,15 @@ public class AnimCtrl : MonoBehaviour
 
         if (isJumpKeys && isRun) isRunJump = true;
         else isRunJump = false;
+        // Jump
 
-        if (isLightKeys && !isLighter && isLighterObj) isLighter = true;
-        else if (isLightKeys && isLighter) isLighter = false;
+        // Equip
+        if (!timefreeze && isLightKeys && !isLighter && isLighterObj) isLighter = true;
+        else if (!timefreeze && isLightKeys && isLighter) isLighter = false;
 
-        if (isLightKeys && !isFlashlight && isFlashlightObj) isFlashlight = true;
-        else if (isLightKeys && isFlashlight) isFlashlight = false;
+        if (!timefreeze && isLightKeys && !isFlashlight && isFlashlightObj) isFlashlight = true;
+        else if (!timefreeze && isLightKeys && isFlashlight) isFlashlight = false;
+        // Equip
 
         /*if (isLightKeys && isFlashlight) // fixa sen!!!!!
             anim.SetLayerWeight(leftArmLayer, 1);
