@@ -172,7 +172,7 @@ Material:
     - _AffectEmission: 0
     - _AffectMetal: 0
     - _AffectNormal: 1
-    - _AffectSmoothness: 0
+    - _AffectSmoothness: 1
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.33
     - _AlphaCutoffEnable: 1
@@ -190,10 +190,10 @@ Material:
     - _CullMode: 0
     - _CullModeForward: 0
     - _Cutoff: 0.33
-    - _DecalBlend: 1
+    - _DecalBlend: 0.42
     - _DecalColorMask0: 15
     - _DecalColorMask1: 15
-    - _DecalColorMask2: 4
+    - _DecalColorMask2: 7
     - _DecalColorMask3: 4
     - _DecalMaskMapBlueScale: 1
     - _DecalMeshBiasType: 0
@@ -263,7 +263,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.5
-    - _SmoothnessRemapMax: 0.99999994
+    - _SmoothnessRemapMax: 0.10258949
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1
