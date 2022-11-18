@@ -7833,7 +7833,7 @@ PrefabInstance:
     - target: {fileID: 8531506581211379171, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Inventory
       objectReference: {fileID: 0}
     - target: {fileID: 8531506581211379196, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
@@ -8373,6 +8373,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerFullBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 600611442023769821, guid: 61e406b14fa6a6d4d812b5d694a302c1,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 598049016}
+    - target: {fileID: 600611442023769821, guid: 61e406b14fa6a6d4d812b5d694a302c1,
+        type: 3}
+      propertyPath: leftArmlayerSpeed
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 600611443554739175, guid: 61e406b14fa6a6d4d812b5d694a302c1,
         type: 3}
@@ -11261,6 +11271,10 @@ MonoBehaviour:
     m_Bits: 0
   isLighterObj: 0
   isFlashlightObj: 0
+  isLighter: 0
+  isFlashlight: 0
+  leftArmlayerSpeed: 0.2
+  inventory: {fileID: 0}
 --- !u!95 &8822824097945841467
 Animator:
   serializedVersion: 4

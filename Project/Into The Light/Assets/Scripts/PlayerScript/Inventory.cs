@@ -61,8 +61,7 @@ public class Inventory : MonoBehaviour
             TimeFreeze();
         }
 
-        if (animator.GetBool(lightLighterName) == true || animator.GetBool(lightFlashlightName) == true)
-            light = true;
+        if (animator.GetBool(lightLighterName) == true || animator.GetBool(lightFlashlightName) == true) light = true;
         else light = false;
     }
 

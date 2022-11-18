@@ -62,18 +62,21 @@ public class AnimCtrl : MonoBehaviour
     string isFlashlightName = "isFlashlightOn";
 
     private int leftArmLayer;
+    private float leftArmlayerVelocity;
+    [SerializeField]private float leftArmlayerSpeed = 0.35f;
+    bool isLayer;
+
+    public Inventory inventory;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         leftArmLayer = anim.GetLayerIndex("Left Arm");
+        inventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
     void Update()
     {
-        /*if(isGrounded) anim.applyRootMotion = false;
-        else anim.applyRootMotion = true;*/
-
         bool isWalkKeysFordward = Input.GetKey("w");
         bool isWalkKeysBackward = Input.GetKey("s");
         bool isWalkKeysLeft = Input.GetKey("a");
@@ -234,11 +237,21 @@ public class AnimCtrl : MonoBehaviour
         if (!timefreeze && isLightKeys && !isFlashlight && isFlashlightObj) isFlashlight = true;
         else if (!timefreeze && isLightKeys && isFlashlight) isFlashlight = false;
         // Equip
-
-        /*if (isLightKeys && isFlashlight) // fixa sen!!!!!
-            anim.SetLayerWeight(leftArmLayer, 1);
-        else if (!isFlashlight) 
-            anim.SetLayerWeight(leftArmLayer, 0);*/
+        /*
+        float currentLeftArmLayer = anim.GetLayerWeight(leftArmLayer);
+        float targetLeftArmLayer = 0;
+        if (isLightKeys && isFlashlight && isLayer || isLightKeys && isLighter && isLayer)  // Kolla FEELLL???
+        {
+            anim.SetLayerWeight(leftArmLayer, 0.9f);
+            if(inventory.light == false)
+                isLayer = false; // Kolla Fel???
+        }
+        else if (!isFlashlight && !isLayer || !isLighter && !isLayer) 
+        {
+            anim.SetLayerWeight(leftArmLayer, Mathf.SmoothDamp(currentLeftArmLayer, targetLeftArmLayer, ref leftArmlayerVelocity, leftArmlayerSpeed));
+            if (isLightKeys)
+                isLayer = true;
+        }*/
     }
 
     void AnimationPlay()
