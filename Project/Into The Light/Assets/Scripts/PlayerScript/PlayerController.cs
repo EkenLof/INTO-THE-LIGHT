@@ -22,34 +22,32 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     [SerializeField] bool isGrounded;
     [SerializeField] bool isWall;
+    [SerializeField] bool isJump;
 
     void Update()
     {
         //bool isRunKeys = Input.GetKey(KeyCode.LeftShift);
-        bool isJump = Input.GetButtonDown("Jump");
+        isJump = Input.GetButtonDown("Jump");
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isWall = Physics.CheckSphere(wallCheck.position, wallDistance, wallMask);
 
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
-
-        // RIGID
         //controllInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        MovePlayer(); 
+    }
 
-        MovePlayer();
+    void MovePlayer()
+    {
+        /*Vector3 moveVector;
 
-        void MovePlayer()
+        if (!isWall && isGrounded || isWall && isGrounded || isGrounded)
         {
-            /*Vector3 moveVector;
+            if (isRunKeys && isGrounded && !isCrouch) moveVector = transform.TransformDirection(controllInput) * runSpeed;
+            else moveVector = transform.TransformDirection(controllInput) * speed;
 
-            if (!isWall && isGrounded || isWall && isGrounded || isGrounded)
-            {
-                if (isRunKeys && isGrounded && !isCrouch) moveVector = transform.TransformDirection(controllInput) * runSpeed;
-                else moveVector = transform.TransformDirection(controllInput) * speed;
-
-                controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
-            }*/
-            if (isJump && isGrounded) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        }
+            controllerSystem.velocity = new Vector3(moveVector.x, controllerSystem.velocity.y, moveVector.z);
+        }*/
+        if (isJump && isGrounded) controllerSystem.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 }

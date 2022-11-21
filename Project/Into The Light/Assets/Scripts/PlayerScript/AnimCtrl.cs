@@ -60,6 +60,7 @@ public class AnimCtrl : MonoBehaviour
 
     string isLighterName = "isLighterOn";
     string isFlashlightName = "isFlashlightOn";
+    string isLightsName = "isLights";
 
     private int leftArmLayer;
     private float leftArmlayerVelocity;
@@ -237,21 +238,24 @@ public class AnimCtrl : MonoBehaviour
         if (!timefreeze && isLightKeys && !isFlashlight && isFlashlightObj) isFlashlight = true;
         else if (!timefreeze && isLightKeys && isFlashlight) isFlashlight = false;
         // Equip
-        /*
+
+        // Weight Ctrl
         float currentLeftArmLayer = anim.GetLayerWeight(leftArmLayer);
         float targetLeftArmLayer = 0;
-        if (isLightKeys && isFlashlight && isLayer || isLightKeys && isLighter && isLayer)  // Kolla FEELLL???
+        if (isLighter && anim.GetBool(isLightsName) || isFlashlight && anim.GetBool(isLightsName)) anim.SetLayerWeight(leftArmLayer, 0.9f);
+        else if (!anim.GetBool(isLightsName)) anim.SetLayerWeight(leftArmLayer, Mathf.SmoothDamp(currentLeftArmLayer, targetLeftArmLayer, ref leftArmlayerVelocity, leftArmlayerSpeed));
+
+        if (isLighter && isLightKeys && !isLayer || isFlashlight && isLightKeys && !isLayer)
         {
-            anim.SetLayerWeight(leftArmLayer, 0.9f);
-            if(inventory.light == false)
-                isLayer = false; // Kolla Fel???
+            anim.SetBool(isLightsName, true);
+            isLayer = true;
         }
-        else if (!isFlashlight && !isLayer || !isLighter && !isLayer) 
+        else if (isLightKeys && isLayer)
         {
-            anim.SetLayerWeight(leftArmLayer, Mathf.SmoothDamp(currentLeftArmLayer, targetLeftArmLayer, ref leftArmlayerVelocity, leftArmlayerSpeed));
-            if (isLightKeys)
-                isLayer = true;
-        }*/
+            anim.SetBool(isLightsName, false);
+            isLayer = false;
+        }
+        // Weight Ctrl
     }
 
     void AnimationPlay()
