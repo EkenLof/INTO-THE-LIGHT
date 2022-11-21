@@ -259,7 +259,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 1
-    - _SSS_Mask_Factor: 0.259
+    - _SSS_Mask_Factor: 0.333
     - _Smoothness: 0.59999996
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
