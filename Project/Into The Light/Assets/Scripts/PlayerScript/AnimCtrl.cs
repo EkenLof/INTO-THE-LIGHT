@@ -12,11 +12,19 @@ public class AnimCtrl : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] float walkableDistance;
 
-    [SerializeField] private bool isGrounded;
+    [Header("Setup")]
+    public Inventory menuHInventory;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundDistance = .1f;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private float leftArmlayerSpeed = 0.35f;
+    private int leftArmLayer;
+    private float leftArmlayerVelocity;
 
+    bool isLayer;
+
+    [Header("Actions")]
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private float groundDistance = .1f;
     public bool isLighterObj;
     public bool isFlashlightObj;
 
@@ -24,6 +32,9 @@ public class AnimCtrl : MonoBehaviour
     static bool isWalkBack = false;
     static bool isWalkLeft = false;
     static bool isWalkRight = false;
+
+    static bool isWalkFrontLeft = false;
+    static bool isWalkFrontRight = false;
 
     static bool isRun = false;
     static bool isRunLeft = false;
@@ -46,6 +57,9 @@ public class AnimCtrl : MonoBehaviour
     string isWalkLeftName = "isWalkingLeft";
     string isWalkRightName = "isWalkingRight";
 
+    string isWalkFrontLeftName = "isWalkingLF";
+    string isWalkFrontRightName = "isWalkingRF";
+
     string isRunFrontName = "isRunning";
     string isRunLeftName = "isRunningLeft";
     string isRunRightName = "isRunningRight";
@@ -62,18 +76,11 @@ public class AnimCtrl : MonoBehaviour
     string isFlashlightName = "isFlashlightOn";
     string isLightsName = "isLights";
 
-    private int leftArmLayer;
-    private float leftArmlayerVelocity;
-    [SerializeField]private float leftArmlayerSpeed = 0.35f;
-    bool isLayer;
-
-    public Inventory inventory;
-
     void Start()
     {
         anim = GetComponent<Animator>();
         leftArmLayer = anim.GetLayerIndex("Left Arm");
-        inventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
+        menuHInventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
     void Update()
@@ -137,6 +144,22 @@ public class AnimCtrl : MonoBehaviour
             isRunRight = false;          
         }
         else
+        {  
+            isWalk = false;
+            isWalkBack = false;
+            isWalkLeft = false;
+            isWalkRight = false;
+
+            isWalkFrontLeft = false;
+            isWalkFrontRight = false;
+
+            isRun = false;
+            isRunLeft = false;
+            isRunRight = false;           
+        }
+        // Walk
+        // Walk Front-Sideways
+        if (isWalkKeysFordward && isWalkKeysLeft)
         {
             isWalk = false;
             isWalkBack = false;
@@ -145,9 +168,27 @@ public class AnimCtrl : MonoBehaviour
 
             isRun = false;
             isRunLeft = false;
-            isRunRight = false;           
+            isRunRight = false;
+            isWalkFrontLeft = true;
         }
-        // Walk
+        else if (isWalkKeysFordward && isWalkKeysRight)
+        {
+            isWalk = false;
+            isWalkBack = false;
+            isWalkLeft = false;
+            isWalkRight = false;
+
+            isRun = false;
+            isRunLeft = false;
+            isRunRight = false;
+            isWalkFrontRight = true;
+        }
+        else
+        {
+            isWalkFrontLeft = false;
+            isWalkFrontRight = false;
+        }
+        // Walk Front-Sideways
         // Run
         if (isWalkKeysFordward && isRunKeys)
         {
@@ -273,7 +314,14 @@ public class AnimCtrl : MonoBehaviour
         if (isWalkRight) anim.SetBool(isWalkRightName, true);
         if (!isWalkRight) anim.SetBool(isWalkRightName, false);
         // Walk
-
+        // Walk Left-Front
+        if (isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, true);
+        if (!isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, false);
+        // Walk Left-Front
+        // Walk Right-Front
+        if (isWalkFrontRight) anim.SetBool(isWalkFrontRightName, true);
+        if (!isWalkFrontRight) anim.SetBool(isWalkFrontRightName, false);
+        // Walk Right-Front
         // Run
         if (isRun) anim.SetBool(isRunFrontName, true);
         if (!isRun) anim.SetBool(isRunFrontName, false);

@@ -7,7 +7,7 @@ public class AI1Character : MonoBehaviour
 {
 	[SerializeField] float movingTurnSpeed = 360;
 	[SerializeField] float stationaryTurnSpeed = 180;
-	[SerializeField] float jumpPower = 12f;
+	//[SerializeField] float jumpPower = 12f;
 	[SerializeField] float groundCheckDistance = 0.1f;
 
 	Rigidbody rigidbodyAi;

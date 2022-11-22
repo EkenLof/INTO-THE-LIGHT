@@ -1,9 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory Prefab:")]
+    public GameObject inventoryMenu;
+
+    [Header ("Items from Inventory:")]
+    public GameObject lighterObj;
+    public GameObject flashlightObj;
+
+    [Header ("Player:")]
+    public AnimCtrl animCtrl;
+    public Animator animator;
+
+    [Header("Actions:")]
     public bool inventory;
     public bool light = false;
     [SerializeField] bool lightLighter;
@@ -12,13 +25,6 @@ public class Inventory : MonoBehaviour
     public bool flashlight;
     public bool lighter;
     [SerializeField] bool timeFreeze;
-
-    public GameObject inventoryMenu;
-    public GameObject lighterObj;
-    public GameObject flashlightObj;
-
-    public AnimCtrl animCtrl;
-    public Animator animator;
 
     string lightLighterName = "isLighterOn";
     string lightFlashlightName = "isFlashlightOn";

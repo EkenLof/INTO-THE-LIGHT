@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class DragMoveRig : MonoBehaviour
@@ -9,96 +10,176 @@ public class DragMoveRig : MonoBehaviour
     public GameObject playerCamera;
 
     [Header("Action Values")]
-    public float interactionRange = 1.5f;
-    public float interactionDoorRange = 2.5f;
-    public float holdingObjectDistance = 1.2f;
-    public float holdingDoorDistance = 1;
+    [SerializeField] float interactionRange = 1.5f;
+    [SerializeField] float interactionDoorRange = 2.5f;
+    [SerializeField] float holdingObjectDistance = 1.2f;
+    [SerializeField] float holdingDoorDistance = 1;
     [SerializeField] float holdingDistance;
-    public float forceAmount = 50f;
+    [SerializeField] float forceAmount = 50f;
+
     float distance;
     float distanceDoor;
 
-    public Vector3 lockedRot;
+    private CursorMode cursorMode = CursorMode.Auto;
+    private Vector2 hotspot = Vector2.zero;
 
-    public bool lookOnObject = false;
-
+    [Header ("Actions")]
+    //[SerializeField] bool lookOnObject = false; // Replace - Raycast view
     [SerializeField] bool door = false;
     [SerializeField] bool obj = false;
     [SerializeField] bool kasta = false;
-    [SerializeField] bool lockedDoor = true;
+    public bool lockedDoor;
 
     [Header("Icons")]
     public Texture2D cross;
     public Texture2D grabHand;
     public Texture2D openHand;
 
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotspot = Vector2.zero;
-    
     private GameObject objectHold;
+    private GameObject doorHold;
     private bool isObjectHold = false;
+    private bool isDoorHold = false;
 
-    Rigidbody rgBody = null;
-    Rigidbody rgDoor = null;
+    private Rigidbody rgBody = null;
+    private Rigidbody rgDoor = null;
 
     private string objName = "ObjectToPickUp";
     private string doorName = "Door";
+
+    [Header("Asign")]
+    public GameObject doorLock;
+    public GameObject doorUnlock;
+
+    [Header("Checkboxes")]
+    public bool isObjectsInScene;
+    public bool isDoorsInScene;
+
+    Ray playerAim;
+    RaycastHit hit;
 
     void Start()
     {
         objectHold = null;
         setCrossMouse(true);
 
+        doorLock = GameObject.FindGameObjectWithTag("ClosedOrLocked");
+        doorUnlock = GameObject.FindGameObjectWithTag("OpenOrUnlocked");
+
         Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
-        rgBody = GameObject.FindGameObjectWithTag(objName).GetComponent<Rigidbody>(); //2022ITTL
-        objectHold = GameObject.FindGameObjectWithTag(objName);
-        rgDoor = GameObject.FindGameObjectWithTag(doorName).GetComponent<Rigidbody>(); //2022ITTL
+
+        if (isObjectsInScene)
+            rgBody = GameObject.FindGameObjectWithTag(objName).GetComponent<Rigidbody>(); //2022ITTL
+        if (isObjectsInScene)
+            objectHold = GameObject.FindGameObjectWithTag(objName);
+        if (isDoorsInScene)
+            rgDoor = GameObject.FindGameObjectWithTag(doorName).GetComponent<Rigidbody>(); //2022ITTL
+        if (isDoorsInScene)
+            doorHold = GameObject.FindGameObjectWithTag(doorName);
     }
 
-    void Update()
+    void LateUpdate()
     {
-        distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
-        distanceDoor = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
+        bool leftClick = Input.GetMouseButton(0);
+        bool rightClick = Input.GetMouseButton(1);
+        bool leftClickUp = Input.GetMouseButtonUp(0);
 
-        // 2022 Lock???
-        lockedRot = rgDoor.transform.eulerAngles;
-        if (lockedRot.x == 270 && lockedDoor) rgDoor.isKinematic = true;
-        rgDoor.isKinematic = false;
+        playerAim = playerCamera.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-        if (Input.GetMouseButton(0))
+        if (isObjectsInScene) distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
+        if(isDoorsInScene) distanceDoor = Vector3.Distance(playerCamera.transform.position, doorHold.transform.position); //2022ITTL
+
+        if(isDoorsInScene) // 2022 Lock???
         {
-            if (!isObjectHold) tryPickObject();
-            else holdObject();
-            
-            // 2022
-            if (Input.GetMouseButton(1) && kasta)
+            // Sepparat script har värdet för låsning av dörren. lockedDoor true/false;
+            if (lockedDoor) rgDoor.isKinematic = true;
+            else rgDoor.isKinematic = false;
+
+            if (Physics.Raycast(playerAim, out hit, interactionDoorRange))
             {
-                rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //2022ITTL
+                if (hit.collider.tag == doorName)
+                {
+                    if (leftClick) 
+                    {
+                        doorLock.SetActive(false);
+                        doorUnlock.SetActive(true);
+                    }
+                    else 
+                    {
+                        doorLock.SetActive(true);
+                        doorUnlock.SetActive(false);
+                    }
+                }
+            }
+        }
+
+        if(isObjectsInScene)
+        {
+            if (leftClick)
+            {
+                if (!isObjectHold) tryPickObject();
+                else holdObject();
+                
+                if (rightClick && kasta)
+                {
+                    rgBody.AddForce(transform.forward * forceAmount, ForceMode.Acceleration); //2022ITTL
+                    isObjectHold = false;
+                    setCrossMouse(true);
+                    objectHold.GetComponent<Rigidbody>().useGravity = true;
+                }
+            }
+            else
+            {
+                if (Physics.Raycast(playerAim, out hit, interactionRange))
+                {
+                    if (hit.collider.tag == objName)
+                    {
+                        if (distance <= interactionRange) setOpenHand(true); ///
+                    }
+                }
+                else setCrossMouse(true); ///
+                kasta = false;
+            }
+
+            if (leftClickUp && isObjectHold)
+            {
                 isObjectHold = false;
                 setCrossMouse(true);
                 objectHold.GetComponent<Rigidbody>().useGravity = true;
             }
         }
-        else
-        {
-            if (distance <= interactionRange || distanceDoor <= interactionDoorRange) setOpenHand(true); 
-            else setCrossMouse(true);
-            kasta = false;
-            lockedDoor = true;
-        }
 
-        if (Input.GetMouseButtonUp(0) && isObjectHold)
+        if (isDoorsInScene)
         {
-            isObjectHold = false;
-            setCrossMouse(true);
-            objectHold.GetComponent<Rigidbody>().useGravity = true;
+            if (leftClick)
+            {
+                if (!isDoorHold) tryPickObject();
+                else holdDoor();
+            }
+            else
+            {
+                if (Physics.Raycast(playerAim, out hit, interactionDoorRange))
+                {
+                    if (hit.collider.tag == doorName)
+                    {
+                        if (distanceDoor <= interactionDoorRange) setOpenHand(true); ///
+                    }
+                }
+                
+                else setCrossMouse(true); ///
+            }
+
+            if (leftClickUp && isDoorHold)
+            {
+                isDoorHold = false;
+                setCrossMouse(true);
+                doorHold.GetComponent<Rigidbody>().useGravity = true;
+            }
         }
     }
 
     private void tryPickObject()
     {
-        Ray playerAim = playerCamera.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
+        playerAim = playerCamera.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         if (Physics.Raycast (playerAim, out hit, interactionRange))
         {
@@ -106,7 +187,6 @@ public class DragMoveRig : MonoBehaviour
             {
                 isObjectHold = true;
                 obj = true;
-                door = false;
                 kasta = true;
                 if (obj) holdingDistance = holdingObjectDistance;
                 objectHold = hit.collider.gameObject;
@@ -120,14 +200,12 @@ public class DragMoveRig : MonoBehaviour
         {
             if (hit.collider.tag == doorName)
             {
-                isObjectHold = true;
+                isDoorHold = true;
                 door = true;
-                obj = false;
-                kasta = false;
                 lockedDoor = false;
                 if (door) holdingDistance = holdingDoorDistance;
-                objectHold = hit.collider.gameObject;
-                objectHold.GetComponent<Rigidbody>().useGravity = false;
+                doorHold = hit.collider.gameObject;
+                doorHold.GetComponent<Rigidbody>().useGravity = false;
                 setGrabHand(true);
             }
         }
@@ -140,6 +218,15 @@ public class DragMoveRig : MonoBehaviour
         Vector3 currPos = objectHold.transform.position;
 
         objectHold.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * 10; 
+    }
+
+    private void holdDoor()
+    {
+        Ray playerAim = playerCamera.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Vector3 nextPos = playerCamera.transform.position + playerAim.direction * holdingDistance;
+        Vector3 currPos = doorHold.transform.position;
+
+        doorHold.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * 10;
     }
 
     public void setCrossMouse(bool isCrossMouse)
