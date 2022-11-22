@@ -36,7 +36,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   extendCameraCulling:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   directionalShadowRayLength:
     m_OverrideState: 0
