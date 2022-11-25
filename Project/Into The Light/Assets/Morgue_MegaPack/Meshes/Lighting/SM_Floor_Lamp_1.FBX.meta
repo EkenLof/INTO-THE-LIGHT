@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 19862e09cd4e6ac44ae800f9fc4bd6ca
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Floor_Lamp_1_body
+    100002: Floor_Lamp_1_element_1
+    100004: Floor_Lamp_1_element_2
+    100006: Floor_Lamp_1_element_3
+    100008: Floor_Lamp_1_element_4
+    100010: Floor_Lamp_1_element_4 1
+    100012: Floor_Lamp_1_element_5
+    100014: Floor_Lamp_1_element_6
+    100016: Floor_Lamp_1_element_7
+    100018: Floor_Lamp_1_element_8
+    100020: Floor_Lamp_1_element_small
+    100022: Floor_Lamp_1_switcher
+    100024: Floor_Lamp_1_wheel_1
+    100026: Floor_Lamp_1_wheel_2
+    100028: Floor_Lamp_1_wheel_3
+    100030: //RootNode
+    100032: SOCKET_1
+    100034: wg_lp
+    400000: Floor_Lamp_1_body
+    400002: Floor_Lamp_1_element_1
+    400004: Floor_Lamp_1_element_2
+    400006: Floor_Lamp_1_element_3
+    400008: Floor_Lamp_1_element_4
+    400010: Floor_Lamp_1_element_4 1
+    400012: Floor_Lamp_1_element_5
+    400014: Floor_Lamp_1_element_6
+    400016: Floor_Lamp_1_element_7
+    400018: Floor_Lamp_1_element_8
+    400020: Floor_Lamp_1_element_small
+    400022: Floor_Lamp_1_switcher
+    400024: Floor_Lamp_1_wheel_1
+    400026: Floor_Lamp_1_wheel_2
+    400028: Floor_Lamp_1_wheel_3
+    400030: //RootNode
+    400032: SOCKET_1
+    400034: wg_lp
+    2100000: 'Material #1'
+    2100002: 'Material #0'
+    2100004: LampFloor01
+    2300000: Floor_Lamp_1_body
+    2300002: Floor_Lamp_1_element_1
+    2300004: Floor_Lamp_1_element_2
+    2300006: Floor_Lamp_1_element_3
+    2300008: Floor_Lamp_1_element_4
+    2300010: Floor_Lamp_1_element_4 1
+    2300012: Floor_Lamp_1_element_5
+    2300014: Floor_Lamp_1_element_6
+    2300016: Floor_Lamp_1_element_7
+    2300018: Floor_Lamp_1_element_8
+    2300020: Floor_Lamp_1_element_small
+    2300022: Floor_Lamp_1_switcher
+    2300024: Floor_Lamp_1_wheel_1
+    2300026: Floor_Lamp_1_wheel_2
+    2300028: Floor_Lamp_1_wheel_3
+    2300030: wg_lp
+    3300000: Floor_Lamp_1_body
+    3300002: Floor_Lamp_1_element_1
+    3300004: Floor_Lamp_1_element_2
+    3300006: Floor_Lamp_1_element_3
+    3300008: Floor_Lamp_1_element_4
+    3300010: Floor_Lamp_1_element_4 1
+    3300012: Floor_Lamp_1_element_5
+    3300014: Floor_Lamp_1_element_6
+    3300016: Floor_Lamp_1_element_7
+    3300018: Floor_Lamp_1_element_8
+    3300020: Floor_Lamp_1_element_small
+    3300022: Floor_Lamp_1_switcher
+    3300024: Floor_Lamp_1_wheel_1
+    3300026: Floor_Lamp_1_wheel_2
+    3300028: Floor_Lamp_1_wheel_3
+    3300030: wg_lp
+    4300000: Floor_Lamp_1_body
+    4300002: wg_lp
+    4300004: Floor_Lamp_1_switcher
+    4300006: Floor_Lamp_1_element_4
+    4300008: Floor_Lamp_1_element_4
+    4300010: Floor_Lamp_1_element_3
+    4300012: Floor_Lamp_1_element_1
+    4300014: Floor_Lamp_1_element_2
+    4300016: Floor_Lamp_1_element_small
+    4300018: Floor_Lamp_1_element_8
+    4300020: Floor_Lamp_1_wheel_1
+    4300022: Floor_Lamp_1_element_5
+    4300024: Floor_Lamp_1_wheel_2
+    4300026: Floor_Lamp_1_wheel_3
+    4300028: Floor_Lamp_1_element_7
+    4300030: Floor_Lamp_1_element_6
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

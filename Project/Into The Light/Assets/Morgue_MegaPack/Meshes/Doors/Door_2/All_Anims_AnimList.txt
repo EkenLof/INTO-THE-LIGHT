@@ -1,0 +1,9 @@
+0-187 - Idle_Closed
+188 - 255 - Open
+256 - 371 - Idle_Opened
+372 - 435 - Close
+436 - 529 - Broken_Open
+530 - 641 - Broken_Close
+642 - 749 - Broken_Fast_Open
+750 - 877 - Broken_Fast_Close
+878 - 1126 - Glitch

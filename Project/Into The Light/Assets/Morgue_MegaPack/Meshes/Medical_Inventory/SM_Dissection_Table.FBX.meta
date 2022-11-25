@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 68124e905e8fc0d4691c57553db67469
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bucket_body
+    100002: Bucket_handle
+    100004: Dissection_Table_body
+    100006: Dissection_Table_cap_1
+    100008: Dissection_Table_cap_2
+    100010: Dissection_Table_handle
+    100012: Dissection_Table_legs
+    100014: Dissection_Table_wheel_1
+    100016: Dissection_Table_wheel_2
+    100018: Dissection_Table_wheel_3
+    100020: Dissection_Table_wheel_4
+    100022: Dissection_Table_wheel_element_1
+    100024: Dissection_Table_wheel_element_2
+    100026: Dissection_Table_wheel_element_3
+    100028: Dissection_Table_wheel_element_4
+    100030: Hose
+    100032: //RootNode
+    400000: Bucket_body
+    400002: Bucket_handle
+    400004: Dissection_Table_body
+    400006: Dissection_Table_cap_1
+    400008: Dissection_Table_cap_2
+    400010: Dissection_Table_handle
+    400012: Dissection_Table_legs
+    400014: Dissection_Table_wheel_1
+    400016: Dissection_Table_wheel_2
+    400018: Dissection_Table_wheel_3
+    400020: Dissection_Table_wheel_4
+    400022: Dissection_Table_wheel_element_1
+    400024: Dissection_Table_wheel_element_2
+    400026: Dissection_Table_wheel_element_3
+    400028: Dissection_Table_wheel_element_4
+    400030: Hose
+    400032: //RootNode
+    2100000: 02 - Default
+    2100002: 03 - Default
+    2300000: Bucket_body
+    2300002: Bucket_handle
+    2300004: Dissection_Table_body
+    2300006: Dissection_Table_cap_1
+    2300008: Dissection_Table_cap_2
+    2300010: Dissection_Table_handle
+    2300012: Dissection_Table_legs
+    2300014: Dissection_Table_wheel_1
+    2300016: Dissection_Table_wheel_2
+    2300018: Dissection_Table_wheel_3
+    2300020: Dissection_Table_wheel_4
+    2300022: Dissection_Table_wheel_element_1
+    2300024: Dissection_Table_wheel_element_2
+    2300026: Dissection_Table_wheel_element_3
+    2300028: Dissection_Table_wheel_element_4
+    2300030: Hose
+    3300000: Bucket_body
+    3300002: Bucket_handle
+    3300004: Dissection_Table_body
+    3300006: Dissection_Table_cap_1
+    3300008: Dissection_Table_cap_2
+    3300010: Dissection_Table_handle
+    3300012: Dissection_Table_legs
+    3300014: Dissection_Table_wheel_1
+    3300016: Dissection_Table_wheel_2
+    3300018: Dissection_Table_wheel_3
+    3300020: Dissection_Table_wheel_4
+    3300022: Dissection_Table_wheel_element_1
+    3300024: Dissection_Table_wheel_element_2
+    3300026: Dissection_Table_wheel_element_3
+    3300028: Dissection_Table_wheel_element_4
+    3300030: Hose
+    4300000: Dissection_Table_wheel_element_1
+    4300002: Dissection_Table_cap_1
+    4300004: Dissection_Table_legs
+    4300006: Dissection_Table_wheel_1
+    4300008: Dissection_Table_handle
+    4300010: Bucket_handle
+    4300012: Hose
+    4300014: Dissection_Table_body
+    4300016: Bucket_body
+    4300018: Dissection_Table_cap_2
+    4300020: Dissection_Table_wheel_2
+    4300022: Dissection_Table_wheel_element_2
+    4300024: Dissection_Table_wheel_3
+    4300026: Dissection_Table_wheel_4
+    4300028: Dissection_Table_wheel_element_3
+    4300030: Dissection_Table_wheel_element_4
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

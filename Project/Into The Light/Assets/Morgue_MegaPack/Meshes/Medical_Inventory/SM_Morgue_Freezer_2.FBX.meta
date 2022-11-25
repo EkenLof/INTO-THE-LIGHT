@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 3123acc4cf9cc624db7ddeff6fa97e06
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BodyTray1
+    100002: BodyTray2
+    100004: BodyTray3
+    100006: BodyTray4
+    100008: Fridge_Body
+    100010: Fridge_Door1
+    100012: Fridge_Door2
+    100014: Fridge_Door3
+    100016: Fridge_Door4
+    100018: Rails1
+    100020: Rails2
+    100022: Rails3
+    100024: Rails4
+    100026: Refr
+    100028: SM_Chamber1
+    100030: SM_Chamber2
+    100032: SM_Chamber3
+    100034: SM_Chamber4
+    100036: //RootNode
+    400000: BodyTray1
+    400002: BodyTray2
+    400004: BodyTray3
+    400006: BodyTray4
+    400008: Fridge_Body
+    400010: Fridge_Door1
+    400012: Fridge_Door2
+    400014: Fridge_Door3
+    400016: Fridge_Door4
+    400018: Rails1
+    400020: Rails2
+    400022: Rails3
+    400024: Rails4
+    400026: Refr
+    400028: SM_Chamber1
+    400030: SM_Chamber2
+    400032: SM_Chamber3
+    400034: SM_Chamber4
+    400036: //RootNode
+    2100000: Chamber
+    2100002: Body
+    2100004: Tile
+    2100006: Refr
+    2300000: BodyTray1
+    2300002: BodyTray2
+    2300004: BodyTray3
+    2300006: BodyTray4
+    2300008: Fridge_Body
+    2300010: Fridge_Door1
+    2300012: Fridge_Door2
+    2300014: Fridge_Door3
+    2300016: Fridge_Door4
+    2300018: Rails1
+    2300020: Rails2
+    2300022: Rails3
+    2300024: Rails4
+    2300026: Refr
+    2300028: SM_Chamber1
+    2300030: SM_Chamber2
+    2300032: SM_Chamber3
+    2300034: SM_Chamber4
+    3300000: BodyTray1
+    3300002: BodyTray2
+    3300004: BodyTray3
+    3300006: BodyTray4
+    3300008: Fridge_Body
+    3300010: Fridge_Door1
+    3300012: Fridge_Door2
+    3300014: Fridge_Door3
+    3300016: Fridge_Door4
+    3300018: Rails1
+    3300020: Rails2
+    3300022: Rails3
+    3300024: Rails4
+    3300026: Refr
+    3300028: SM_Chamber1
+    3300030: SM_Chamber2
+    3300032: SM_Chamber3
+    3300034: SM_Chamber4
+    4300000: BodyTray1
+    4300002: Rails1
+    4300004: Fridge_Body
+    4300006: SM_Chamber1
+    4300008: Refr
+    4300010: Fridge_Door1
+    4300012: Fridge_Door3
+    4300014: Fridge_Door2
+    4300016: Fridge_Door4
+    4300018: Rails2
+    4300020: SM_Chamber2
+    4300022: BodyTray2
+    4300024: Rails3
+    4300026: SM_Chamber3
+    4300028: BodyTray3
+    4300030: Rails4
+    4300032: SM_Chamber4
+    4300034: BodyTray4
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
