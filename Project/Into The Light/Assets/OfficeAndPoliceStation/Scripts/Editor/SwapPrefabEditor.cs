@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
+
 
 //*****  (©) Finward Studios 2021. All rights reserved. *****\\
 
@@ -31,7 +31,7 @@ namespace PrefabSwapper
 
             if (!_target.placed)
             {
-                if (!PrefabUtility.IsPartOfPrefabAsset(_target.gameObject) && PrefabStageUtility.GetPrefabStage(_target.gameObject) == null)
+                if (!PrefabUtility.IsPartOfPrefabAsset(_target.gameObject) && UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(_target.gameObject) == null)
                 {
                     _target.placed = true;
                     SpawnAlongs();
@@ -63,7 +63,7 @@ namespace PrefabSwapper
             else if (!_target.gameObject.activeInHierarchy)
                 return;
 
-            if (PrefabStageUtility.GetPrefabStage(_target.gameObject) != null)
+            if (UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(_target.gameObject) != null)
                 return;
 
             if (_target.transform.parent != null && PrefabUtility.GetOutermostPrefabInstanceRoot(_target.transform) != null)
