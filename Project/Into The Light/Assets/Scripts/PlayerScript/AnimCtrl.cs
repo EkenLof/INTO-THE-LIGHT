@@ -361,7 +361,8 @@ public class AnimCtrl : MonoBehaviour
         if (isFlashlight) anim.SetBool(isFlashlightName, true);
         if (!isFlashlight) anim.SetBool(isFlashlightName, false);
     }
-
+    
+    /*
     private void OnAnimatorIK(int layerIndex)
     {
         if (anim)
@@ -395,5 +396,5 @@ public class AnimCtrl : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }
