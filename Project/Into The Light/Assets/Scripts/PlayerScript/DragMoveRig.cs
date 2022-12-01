@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
@@ -30,6 +30,8 @@ public class DragMoveRig : MonoBehaviour
     [SerializeField] bool kasta = false;
     public bool lockedDoor;
 
+    public bool doorOpen;
+
     [Header("Icons")]
     public Texture2D cross;
     public Texture2D grabHand;
@@ -47,8 +49,6 @@ public class DragMoveRig : MonoBehaviour
     private string doorName = "Door";
 
     [Header("Asign")]
-    public GameObject doorLock;
-    public GameObject doorUnlock;
 
     [Header("Checkboxes")]
     public bool isObjectsInScene;
@@ -61,9 +61,7 @@ public class DragMoveRig : MonoBehaviour
     {
         objectHold = null;
         setCrossMouse(true);
-
-        doorLock = GameObject.FindGameObjectWithTag("ClosedOrLocked");
-        doorUnlock = GameObject.FindGameObjectWithTag("OpenOrUnlocked");
+        doorOpen = false;
 
         Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
 
@@ -98,16 +96,8 @@ public class DragMoveRig : MonoBehaviour
             {
                 if (hit.collider.tag == doorName)
                 {
-                    if (leftClick) 
-                    {
-                        doorLock.SetActive(false);
-                        doorUnlock.SetActive(true);
-                    }
-                    else 
-                    {
-                        doorLock.SetActive(true);
-                        doorUnlock.SetActive(false);
-                    }
+                    if (leftClick) doorOpen = true; //DMR Door Open
+                    else doorOpen = false; //DMR Door closed
                 }
             }
         }

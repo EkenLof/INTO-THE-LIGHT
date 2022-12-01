@@ -8089,6 +8089,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1488919279916828899, guid: c8c57af5ca0c0ce409c81b8a69b2928a,
         type: 3}
+      propertyPath: doorLock
+      value: 
+      objectReference: {fileID: 697649370}
+    - target: {fileID: 1488919279916828899, guid: c8c57af5ca0c0ce409c81b8a69b2928a,
+        type: 3}
+      propertyPath: doorUnlock
+      value: 
+      objectReference: {fileID: 751149260}
+    - target: {fileID: 1488919279916828899, guid: c8c57af5ca0c0ce409c81b8a69b2928a,
+        type: 3}
       propertyPath: dragMoveRig
       value: 
       objectReference: {fileID: 194957947}
