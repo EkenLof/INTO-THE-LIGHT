@@ -47,6 +47,77 @@ MonoBehaviour:
   buildMode:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-2395649798489471130
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: 
+  active: 1
+  type:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.3
+  response:
+    m_OverrideState: 1
+    m_Value: 0.4
+  texture:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+--- !u!114 &-2237397090930353232
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 2
+  threshold:
+    m_OverrideState: 1
+    m_Value: 2
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.725
+  scatter:
+    m_OverrideState: 1
+    m_Value: 0.9
+  tint:
+    m_OverrideState: 1
+    m_Value: {r: 0.9292453, g: 1, b: 0.9992928, a: 1}
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+  anamorphic:
+    m_OverrideState: 0
+    m_Value: 1
+  m_Resolution:
+    m_OverrideState: 1
+    m_Value: 2
+  m_HighQualityPrefiltering:
+    m_OverrideState: 1
+    m_Value: 1
+  m_HighQualityFiltering:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &-1162494090614080113
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -116,6 +187,8 @@ MonoBehaviour:
   - {fileID: -5630062227751681930}
   - {fileID: 2928992022670657534}
   - {fileID: -1162494090614080113}
+  - {fileID: -2237397090930353232}
+  - {fileID: -2395649798489471130}
 --- !u!114 &227341023745494335
 MonoBehaviour:
   m_ObjectHideFlags: 3
