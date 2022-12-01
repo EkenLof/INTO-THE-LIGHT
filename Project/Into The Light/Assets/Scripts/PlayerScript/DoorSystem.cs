@@ -13,6 +13,13 @@ public class DoorSystem : MonoBehaviour
     string doorLockClose = "ClosedOrLocked";
     string doorUnlockOpen = "OpenOrUnlocked";
 
+    [Header("Asign")]
+    public GameObject doorLock;
+    public GameObject doorUnlock;
+
+    public bool isLockDoor;
+    public bool isUnlockDoor;
+
 
     void Start()
     {
@@ -21,30 +28,31 @@ public class DoorSystem : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!openDoor)
+        if(!openDoor) dragMoveRig.lockedDoor = true; // Closed - Locked
+        else if (openDoor) dragMoveRig.lockedDoor = false; // Open - Unlocked
+
+        if(dragMoveRig.doorOpen == true) // DoorSystem Door Open
         {
-            dragMoveRig.lockedDoor = true;
+            doorLock.SetActive(false);
+            doorUnlock.SetActive(true);
         }
-        else if (openDoor)
+        else //DoorSystem Door Closed
         {
-            dragMoveRig.lockedDoor = false;
+            doorLock.SetActive(true);
+            doorUnlock.SetActive(false);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == doorLockClose)
+        if (other.gameObject.tag == doorLockClose) // Closed - Locked
         {           
-            Debug.Log("Locked" + openDoor);
             openDoor = false;
-
             if (!keyToDoor) unlockDoor = false;
         }
-        if (other.gameObject.tag == doorUnlockOpen)
+        if (other.gameObject.tag == doorUnlockOpen) // Open - Unlocked
         {
-            Debug.Log("Unlock" + openDoor);
             openDoor = true;
-
             if (!keyToDoor) unlockDoor = false;
         }
     }
