@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07080137, g: 0.085687965, b: 0.104404986, a: 1}
+  m_IndirectSpecularColor: {r: 0.09133091, g: 0.116431296, b: 0.14941643, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -114014,6 +114014,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerFullBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
+        type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
+        type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 0.934
       objectReference: {fileID: 0}
     - target: {fileID: 600611442023769821, guid: 61e406b14fa6a6d4d812b5d694a302c1,
         type: 3}
