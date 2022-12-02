@@ -33,7 +33,7 @@ MonoBehaviour:
     colorBufferFormat: 48
     supportCustomPass: 1
     customBufferFormat: 12
-    supportedLitShaderMode: 3
+    supportedLitShaderMode: 2
     planarReflectionResolution:
       m_Values: 000100000004000000080000
       m_SchemaId:
@@ -116,9 +116,9 @@ MonoBehaviour:
       atlasHeight: 2048
       perChannelMask: 1
     postProcessSettings:
-      m_LutSize: 33
+      m_LutSize: 32
       lutFormat: 48
-      bufferFormat: 48
+      bufferFormat: 74
     dynamicResolutionSettings:
       enabled: 1
       useMipBias: 1

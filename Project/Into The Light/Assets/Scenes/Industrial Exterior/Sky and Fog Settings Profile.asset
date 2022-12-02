@@ -265,8 +265,8 @@ MonoBehaviour:
   globalWindSpeed:
     m_OverrideState: 1
     m_Value:
-      mode: 1
-      customValue: 2694.5
+      mode: 0
+      customValue: 80.6
       additiveValue: 0
       multiplyValue: 1
   orientation:
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88178bb13f64a54f90d6cd6ef7aa9a1, type: 3}
   m_Name: CloudLayer
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   opacity:
     m_OverrideState: 1
     m_Value: 1
@@ -537,7 +537,7 @@ MonoBehaviour:
       m_OverrideState: 1
       m_Value:
         mode: 1
-        customValue: 100000
+        customValue: 100
         additiveValue: 0
         multiplyValue: 1
     flowmap:
@@ -605,12 +605,12 @@ MonoBehaviour:
       m_Value: 1
     steps:
       m_OverrideState: 1
-      m_Value: 6
+      m_Value: 8
     thickness:
       m_OverrideState: 1
       m_Value: 1
     castShadows:
-      m_OverrideState: 1
+      m_OverrideState: 0
       m_Value: 1
 --- !u!114 &-5929641433984196113
 MonoBehaviour:
@@ -690,28 +690,6 @@ MonoBehaviour:
   m_DenoiserRadius:
     m_OverrideState: 1
     m_Value: 0.5
---- !u!114 &-5660688846247950264
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0775cbb206825d541bf6c0297ee524ca, type: 3}
-  m_Name: SplitToning
-  m_EditorClassIdentifier: 
-  active: 1
-  shadows:
-    m_OverrideState: 1
-    m_Value: {r: 0.3558902, g: 0.4484016, b: 0.5019608, a: 1}
-  highlights:
-    m_OverrideState: 1
-    m_Value: {r: 0.57254905, g: 0.36078432, b: 0.2901961, a: 1}
-  balance:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!114 &-5517005316953428664
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -739,7 +717,7 @@ MonoBehaviour:
     m_Value: 0
   compensation:
     m_OverrideState: 1
-    m_Value: -0.7
+    m_Value: 0
   limitMin:
     m_OverrideState: 1
     m_Value: 2.2093472
@@ -863,25 +841,6 @@ MonoBehaviour:
   proceduralSoftness:
     m_OverrideState: 0
     m_Value: 0.5
---- !u!114 &-4107078993369924715
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51a78e223a2e504bb88a059b55229ea, type: 3}
-  m_Name: WhiteBalance
-  m_EditorClassIdentifier: 
-  active: 1
-  temperature:
-    m_OverrideState: 1
-    m_Value: -15.1
-  tint:
-    m_OverrideState: 1
-    m_Value: -14.3
 --- !u!114 &-3703135738275265814
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -943,19 +902,19 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.12
+    m_Value: 0.2
   contrast:
     m_OverrideState: 1
-    m_Value: -5.8
+    m_Value: 5
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.9198113, g: 0.9462039, b: 1, a: 1}
+    m_Value: {r: 0.6627451, g: 0.7882353, b: 0.8784314, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: -48
+    m_Value: -34
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,9 +942,6 @@ MonoBehaviour:
   - {fileID: 4592301835987584051}
   - {fileID: -5517005316953428664}
   - {fileID: -1915069390177499265}
-  - {fileID: -5660688846247950264}
-  - {fileID: 8086321494354179188}
-  - {fileID: -4107078993369924715}
 --- !u!114 &1505149522780714298
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -998,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d877a03bef431a847adca8ab343db3e1, type: 3}
   m_Name: RayTracingSettings
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   rayBias:
     m_OverrideState: 0
     m_Value: 0
@@ -1041,10 +997,10 @@ MonoBehaviour:
     m_Value: 1
   windOrientation:
     m_OverrideState: 1
-    m_Value: 305
+    m_Value: 0
   windSpeed:
-    m_OverrideState: 1
-    m_Value: 372.47
+    m_OverrideState: 0
+    m_Value: 100
   fogType:
     m_OverrideState: 1
     m_Value: 0
@@ -1365,7 +1321,7 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -4.4
   maximumHeight:
     m_OverrideState: 1
     m_Value: 44.6
@@ -1380,10 +1336,10 @@ MonoBehaviour:
     m_Value: {r: 0.9858491, g: 0.99723846, b: 1, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
-    m_Value: 0.94
+    m_Value: 1
   depthExtent:
     m_OverrideState: 1
-    m_Value: 19.94
+    m_Value: 29.55
   denoisingMode:
     m_OverrideState: 1
     m_Value: 2
@@ -1411,74 +1367,3 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &8086321494354179188
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f086a068d4c5889438831b3ae9afc11c, type: 3}
-  m_Name: Tonemapping
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 3
-  useFullACES:
-    m_OverrideState: 0
-    m_Value: 0
-  toeStrength:
-    m_OverrideState: 1
-    m_Value: 0.526
-  toeLength:
-    m_OverrideState: 1
-    m_Value: 0.603
-  shoulderStrength:
-    m_OverrideState: 1
-    m_Value: 0
-  shoulderLength:
-    m_OverrideState: 1
-    m_Value: 0.5
-  shoulderAngle:
-    m_OverrideState: 1
-    m_Value: 0.664
-  gamma:
-    m_OverrideState: 1
-    m_Value: 0.8
-  lutTexture:
-    m_OverrideState: 1
-    m_Value: {fileID: 8534537815417165676, guid: 13942c797bfbf0946b00c4d94707d378,
-      type: 3}
-  lutContribution:
-    m_OverrideState: 1
-    m_Value: 0
-  neutralHDRRangeReductionMode:
-    m_OverrideState: 0
-    m_Value: 2
-  acesPreset:
-    m_OverrideState: 0
-    m_Value: 3
-  fallbackMode:
-    m_OverrideState: 0
-    m_Value: 1
-  hueShiftAmount:
-    m_OverrideState: 0
-    m_Value: 0
-  detectPaperWhite:
-    m_OverrideState: 0
-    m_Value: 0
-  paperWhite:
-    m_OverrideState: 0
-    m_Value: 300
-  detectBrightnessLimits:
-    m_OverrideState: 0
-    m_Value: 1
-  minNits:
-    m_OverrideState: 0
-    m_Value: 0.005
-  maxNits:
-    m_OverrideState: 0
-    m_Value: 1000

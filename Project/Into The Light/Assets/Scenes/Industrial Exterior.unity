@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38128805, g: 0.4782722, b: 0.49481487, a: 1}
+  m_IndirectSpecularColor: {r: 0.09133091, g: 0.116431296, b: 0.14941643, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -57167,7 +57167,7 @@ PrefabInstance:
     - target: {fileID: 5071909169361942827, guid: d9ada53673b8f934a96dbffbf937692f,
         type: 3}
       propertyPath: m_VolumetricDimmer
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5071909169361942827, guid: d9ada53673b8f934a96dbffbf937692f,
         type: 3}
@@ -74585,7 +74585,7 @@ PrefabInstance:
     - target: {fileID: 5071909169361942827, guid: d9ada53673b8f934a96dbffbf937692f,
         type: 3}
       propertyPath: m_VolumetricDimmer
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5071909169361942827, guid: d9ada53673b8f934a96dbffbf937692f,
         type: 3}
@@ -114017,60 +114017,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
         type: 3}
-      propertyPath: m_IESSpot
-      value: 
-      objectReference: {fileID: 2783696840127130650, guid: 95fa38fcb83bd48479c1c9a4d0590e87,
-        type: 3}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_IESPoint
-      value: 
-      objectReference: {fileID: 1405323314860406041, guid: 95fa38fcb83bd48479c1c9a4d0590e87,
-        type: 3}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 1322.9316
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_ShadowUpdateMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
       propertyPath: m_VolumetricDimmer
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_VolumetricFadeDistance
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
         type: 3}
       propertyPath: m_VolumetricShadowDimmer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591432, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_UpdateShadowOnLightMovement
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591433, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 801.4196
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591433, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 600611441786591433, guid: 61e406b14fa6a6d4d812b5d694a302c1,
-        type: 3}
-      propertyPath: m_UseViewFrustumForShadowCasterCull
-      value: 0
+      value: 0.934
       objectReference: {fileID: 0}
     - target: {fileID: 600611442023769821, guid: 61e406b14fa6a6d4d812b5d694a302c1,
         type: 3}
