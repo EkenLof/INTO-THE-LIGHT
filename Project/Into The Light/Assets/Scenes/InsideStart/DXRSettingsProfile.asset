@@ -77,7 +77,7 @@ MonoBehaviour:
   active: 1
   screenFadeDistance:
     m_OverrideState: 1
-    m_Value: 0.023
+    m_Value: 0.014
 --- !u!114 &-3798536747869353581
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -250,7 +250,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_SampleCount:
     m_OverrideState: 0
-    m_Value: 10
+    m_Value: 8
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,13 +519,13 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   rayTracing:
     m_OverrideState: 1
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 1
   directLightingStrength:
     m_OverrideState: 1
     m_Value: 0
@@ -572,7 +572,7 @@ MonoBehaviour:
     m_Value: 4
   m_RayLength:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 7.34
   m_SampleCount:
     m_OverrideState: 1
     m_Value: 8
@@ -621,19 +621,19 @@ MonoBehaviour:
     m_Value: 20
   m_NearSampleCount:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 5
   m_NearMaxBlur:
     m_OverrideState: 1
-    m_Value: 7
+    m_Value: 4
   m_FarSampleCount:
     m_OverrideState: 1
-    m_Value: 14
+    m_Value: 7
   m_FarMaxBlur:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 8
   m_Resolution:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   m_HighQualityFiltering:
     m_OverrideState: 1
     m_Value: 1

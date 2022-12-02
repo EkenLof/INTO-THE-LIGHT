@@ -33,7 +33,7 @@ MonoBehaviour:
     colorBufferFormat: 48
     supportCustomPass: 1
     customBufferFormat: 12
-    supportedLitShaderMode: 2
+    supportedLitShaderMode: 3
     planarReflectionResolution:
       m_Values: 000100000004000000080000
       m_SchemaId:
@@ -116,11 +116,11 @@ MonoBehaviour:
       atlasHeight: 2048
       perChannelMask: 1
     postProcessSettings:
-      m_LutSize: 32
+      m_LutSize: 33
       lutFormat: 48
-      bufferFormat: 74
+      bufferFormat: 48
     dynamicResolutionSettings:
-      enabled: 1
+      enabled: 0
       useMipBias: 1
       enableDLSS: 1
       DLSSPerfQualitySetting: 0
@@ -144,17 +144,17 @@ MonoBehaviour:
       cameraJitter: 0
       allowMotionBlur: 1
     postProcessQualitySettings:
-      NearBlurSampleCount: 030000000500000008000000
+      NearBlurSampleCount: 030000000700000008000000
       NearBlurMaxRadius:
       - 2
-      - 4
+      - 5.714
       - 7
-      FarBlurSampleCount: 04000000070000000e000000
+      FarBlurSampleCount: 040000000c0000000e000000
       FarBlurMaxRadius:
       - 5
-      - 8
+      - 11.12
       - 13
-      DoFResolution: 040000000200000001000000
+      DoFResolution: 010000000100000001000000
       DoFHighQualityFiltering: 000101
       DoFPhysicallyBased: 000000
       MotionBlurSampleCount: 04000000080000000c000000
@@ -180,7 +180,7 @@ MonoBehaviour:
         m_Id: With3Levels
     lightingQualitySettings:
       AOStepCount: 040000000600000010000000
-      AOFullRes: 000001
+      AOFullRes: 000101
       AOMaximumRadiusPixels: 200000002800000050000000
       AOBilateralUpsample: 000101
       AODirectionCount: 010000000200000004000000
@@ -237,11 +237,11 @@ MonoBehaviour:
       - 0.8
       - 1
       - 1.2
-      RTRFullResolution: 000001
+      RTRFullResolution: 000101
       RTRRayMaxIterations: 200000003000000040000000
       RTRDenoise: 010101
       RTRDenoiserRadius: 080000000c00000010000000
-      RTRSmoothDenoising: 010000
+      RTRSmoothDenoising: 010001
       Fog_ControlMode: 000000000000000000000000
       Fog_Budget:
       - 0.25
@@ -250,7 +250,7 @@ MonoBehaviour:
       Fog_DepthRatio:
       - 0.5
       - 0.5
-      - 0.5
+      - 0.7216
     m_ObsoleteLightLayerName0: Light LayerDefault
     m_ObsoleteLightLayerName1: InteriorOnly
     m_ObsoleteLightLayerName2: ExteriorOnly
