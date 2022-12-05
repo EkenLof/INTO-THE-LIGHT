@@ -391,7 +391,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   m_Denoise:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   m_HalfResolutionDenoiser:
     m_OverrideState: 0
@@ -423,12 +423,12 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   enabled:
     m_OverrideState: 0
     m_Value: 1
   enabledTransparent:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   tracing:
     m_OverrideState: 1
@@ -438,7 +438,7 @@ MonoBehaviour:
     m_Value: 0
   m_SmoothnessFadeStart:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   reflectSky:
     m_OverrideState: 0
     m_Value: 1
@@ -467,25 +467,25 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   layerMask:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Bits: 4294967295
   textureLodBias:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   m_RayLength:
     m_OverrideState: 1
     m_Value: 50
   m_ClampValue:
     m_OverrideState: 1
-    m_Value: 1.2
+    m_Value: 10
   m_Denoise:
     m_OverrideState: 1
     m_Value: 1
   m_DenoiserRadius:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 14
   m_AffectSmoothSurfaces:
     m_OverrideState: 1
     m_Value: 1
@@ -572,7 +572,7 @@ MonoBehaviour:
     m_Value: 4
   m_RayLength:
     m_OverrideState: 1
-    m_Value: 7.34
+    m_Value: 2.75
   m_SampleCount:
     m_OverrideState: 1
     m_Value: 8
@@ -580,8 +580,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   m_DenoiserRadius:
-    m_OverrideState: 1
-    m_Value: 0.65
+    m_OverrideState: 0
+    m_Value: 0.001
 --- !u!114 &4496371506661665554
 MonoBehaviour:
   m_ObjectHideFlags: 3
