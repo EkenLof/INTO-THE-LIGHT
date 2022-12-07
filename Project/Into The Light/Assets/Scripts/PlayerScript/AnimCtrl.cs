@@ -19,6 +19,8 @@ public class AnimCtrl : MonoBehaviour
     [SerializeField] private float leftArmlayerSpeed = 0.35f;
     private int leftArmLayer;
     private float leftArmlayerVelocity;
+    [SerializeField] bool isCutscene = false;
+    [SerializeField] bool isInventoryInScene = false;
 
     bool isLayer;
 
@@ -52,6 +54,8 @@ public class AnimCtrl : MonoBehaviour
     public bool isLighter = false;
     public bool isFlashlight = false;
 
+    string iSittingCarName = "isSittingCar";
+
     string isWalkFrontName = "isWalking";
     string isWalkBackName = "isWalkingBack";
     string isWalkLeftName = "isWalkingLeft";
@@ -80,7 +84,7 @@ public class AnimCtrl : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         leftArmLayer = anim.GetLayerIndex("Left Arm");
-        menuHInventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
+        if(isInventoryInScene) menuHInventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
     void Update()
@@ -301,65 +305,68 @@ public class AnimCtrl : MonoBehaviour
 
     void AnimationPlay()
     {
+        if (isCutscene) anim.SetBool(iSittingCarName, true);
+        if (!isCutscene) anim.SetBool(iSittingCarName, false);
+
         // Walk
-        if (isWalk) anim.SetBool(isWalkFrontName, true);
-        if (!isWalk) anim.SetBool(isWalkFrontName, false);
+        if (!isCutscene && isWalk) anim.SetBool(isWalkFrontName, true);
+        if (!isCutscene && !isWalk) anim.SetBool(isWalkFrontName, false);
 
-        if (isWalkBack) anim.SetBool(isWalkBackName, true);
-        if (!isWalkBack) anim.SetBool(isWalkBackName, false);
+        if (!isCutscene && isWalkBack) anim.SetBool(isWalkBackName, true);
+        if (!isCutscene && !isWalkBack) anim.SetBool(isWalkBackName, false);
 
-        if (isWalkLeft) anim.SetBool(isWalkLeftName, true);
-        if (!isWalkLeft) anim.SetBool(isWalkLeftName, false);
+        if (!isCutscene && isWalkLeft) anim.SetBool(isWalkLeftName, true);
+        if (!isCutscene && !isWalkLeft) anim.SetBool(isWalkLeftName, false);
 
-        if (isWalkRight) anim.SetBool(isWalkRightName, true);
-        if (!isWalkRight) anim.SetBool(isWalkRightName, false);
+        if (!isCutscene && isWalkRight) anim.SetBool(isWalkRightName, true);
+        if (!isCutscene && !isWalkRight) anim.SetBool(isWalkRightName, false);
         // Walk
         // Walk Left-Front
-        if (isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, true);
-        if (!isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, false);
+        if (!isCutscene && isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, true);
+        if (!isCutscene && !isWalkFrontLeft) anim.SetBool(isWalkFrontLeftName, false);
         // Walk Left-Front
         // Walk Right-Front
-        if (isWalkFrontRight) anim.SetBool(isWalkFrontRightName, true);
-        if (!isWalkFrontRight) anim.SetBool(isWalkFrontRightName, false);
+        if (!isCutscene && isWalkFrontRight) anim.SetBool(isWalkFrontRightName, true);
+        if (!isCutscene && !isWalkFrontRight) anim.SetBool(isWalkFrontRightName, false);
         // Walk Right-Front
         // Run
-        if (isRun) anim.SetBool(isRunFrontName, true);
-        if (!isRun) anim.SetBool(isRunFrontName, false);
+        if (!isCutscene && isRun) anim.SetBool(isRunFrontName, true);
+        if (!isCutscene && !isRun) anim.SetBool(isRunFrontName, false);
 
-        if (isRunLeft) anim.SetBool(isRunLeftName, true);
-        if (!isRunLeft) anim.SetBool(isRunLeftName, false);
+        if (!isCutscene && isRunLeft) anim.SetBool(isRunLeftName, true);
+        if (!isCutscene && !isRunLeft) anim.SetBool(isRunLeftName, false);
 
-        if (isRunRight) anim.SetBool(isRunRightName, true);
-        if (!isRunRight) anim.SetBool(isRunRightName, false);
+        if (!isCutscene && isRunRight) anim.SetBool(isRunRightName, true);
+        if (!isCutscene && !isRunRight) anim.SetBool(isRunRightName, false);
         // Run
         // Jump
-        if(isJump) anim.SetBool(isJumpName, true);
-        if(!isJump) anim.SetBool(isJumpName, false);
+        if(!isCutscene && isJump) anim.SetBool(isJumpName, true);
+        if(!isCutscene && !isJump) anim.SetBool(isJumpName, false);
 
-        if (isRunJump) anim.SetBool(isRunJumpName, true);
-        if (!isRunJump) anim.SetBool(isRunJumpName, false);
-        if (isJumpWalk) anim.SetBool(isJumpWalkName, true);
-        if (!isJumpWalk) anim.SetBool(isJumpWalkName, false);
+        if (!isCutscene && isRunJump) anim.SetBool(isRunJumpName, true);
+        if (!isCutscene && !isRunJump) anim.SetBool(isRunJumpName, false);
+        if (!isCutscene && isJumpWalk) anim.SetBool(isJumpWalkName, true);
+        if (!isCutscene && !isJumpWalk) anim.SetBool(isJumpWalkName, false);
 
         // Crouch
-        if (isCrouch) anim.SetBool(isCrouchName, true);
-        if (!isCrouch) anim.SetBool (isCrouchName, false);
+        if (!isCutscene && isCrouch) anim.SetBool(isCrouchName, true);
+        if (!isCutscene && !isCrouch) anim.SetBool (isCrouchName, false);
 
-        if (isCrouchFront) anim.SetBool(isCrouchWalkFrontName, true);
-        if (!isCrouchFront) anim.SetBool(isCrouchWalkFrontName, false);
+        if (!isCutscene && isCrouchFront) anim.SetBool(isCrouchWalkFrontName, true);
+        if (!isCutscene && !isCrouchFront) anim.SetBool(isCrouchWalkFrontName, false);
 
-        if (isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, true);
-        if (!isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, false);
+        if (!isCutscene && isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, true);
+        if (!isCutscene && !isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, false);
 
-        if (isCrouchRight) anim.SetBool(isCrouchWalkRightName, true);
-        if (!isCrouchRight) anim.SetBool(isCrouchWalkRightName, false);
+        if (!isCutscene && isCrouchRight) anim.SetBool(isCrouchWalkRightName, true);
+        if (!isCutscene && !isCrouchRight) anim.SetBool(isCrouchWalkRightName, false);
 
         // Light
-        if (isLighter) anim.SetBool(isLighterName, true);
-        if (!isLighter) anim.SetBool(isLighterName, false);
+        if (!isCutscene && isLighter) anim.SetBool(isLighterName, true);
+        if (!isCutscene && !isLighter) anim.SetBool(isLighterName, false);
 
-        if (isFlashlight) anim.SetBool(isFlashlightName, true);
-        if (!isFlashlight) anim.SetBool(isFlashlightName, false);
+        if (!isCutscene && isFlashlight) anim.SetBool(isFlashlightName, true);
+        if (!isCutscene && !isFlashlight) anim.SetBool(isFlashlightName, false);
     }
     
     /*

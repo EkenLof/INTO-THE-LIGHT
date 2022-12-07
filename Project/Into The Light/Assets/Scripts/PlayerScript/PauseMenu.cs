@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
     public CamController cam;
     public DragMoveRig icons;
 
+    [SerializeField] bool isIconsInScene;
+
     void Start()
     {
         menuUi.gameObject.SetActive(false);
@@ -27,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<CamController>();
-        icons = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
+        if(isIconsInScene) icons = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
     }
 
     void Update()
@@ -52,8 +54,12 @@ public class PauseMenu : MonoBehaviour
             menuUi.gameObject.SetActive(true);
             pausedMenuUi.gameObject.SetActive(true);
 
-            icons.setCrossMouse(true);
-            icons.enabled = false;
+            if(isIconsInScene)
+            {
+                icons.setCrossMouse(true);
+                icons.enabled = false;
+            }
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -64,7 +70,8 @@ public class PauseMenu : MonoBehaviour
             pausedMenuUi.gameObject.SetActive(false);
             optionsMenuUi.gameObject.SetActive(false);
 
-            icons.enabled = true;
+            if (isIconsInScene) icons.enabled = true;
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
         }
