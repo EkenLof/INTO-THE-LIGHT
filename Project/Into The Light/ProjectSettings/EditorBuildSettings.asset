@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Industrial Exterior.unity
     guid: a4626c12881a81142aa0aaf299afc8eb
+  - enabled: 1
+    path: Assets/Scenes/InsideStart.unity
+    guid: abae0f715db7e0e4dbd1b4412b0c0112
   m_configObjects: {}

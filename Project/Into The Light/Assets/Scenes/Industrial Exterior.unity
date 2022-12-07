@@ -75230,7 +75230,7 @@ PrefabInstance:
     - target: {fileID: 4596622734687624121, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7742398084123182332, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
@@ -75240,7 +75240,7 @@ PrefabInstance:
     - target: {fileID: 7742398084123182332, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8531506581211379171, guid: 61ba9307552a75a47b15dff5c6d04d1f,
         type: 3}
@@ -75429,6 +75429,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8d15a3f17ea394d9b2afcef4e72214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1713725197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5387940966203070166, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1713725193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1713725198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5316715663407778550, guid: 61ba9307552a75a47b15dff5c6d04d1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1713725193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713985293
 GameObject:
   m_ObjectHideFlags: 0
@@ -76070,12 +76088,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724026099}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1724648767 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4596622734687624121, guid: 61ba9307552a75a47b15dff5c6d04d1f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1713725193}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1726001658
 GameObject:
   m_ObjectHideFlags: 0
@@ -87354,15 +87366,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: 2
   prevScene: 0
-  objEntering: 
+  objEntering: Player
   timerToSceneFade: 50
   active: 0
   actionNext: 1
   actionPrev: 0
   isTimeTriggerd: 0
-  loadingScreenUi: {fileID: 1724648767}
+  loadingScreenUi: {fileID: 1713725198}
   progressBar: {fileID: 1713725194}
-  progressText: {fileID: 0}
+  progressText: {fileID: 1713725197}
 --- !u!65 &2088484245
 BoxCollider:
   m_ObjectHideFlags: 0
