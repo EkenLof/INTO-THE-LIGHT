@@ -10,7 +10,7 @@ public class CamController : MonoBehaviour
 
     public Transform playerBody;
 
-    float xRotation = 0f;
+    float xRotation = 0f; // Feet move (Tracks active lookpos)
 
     [SerializeField] float lookUp = -90f;
     [SerializeField] float lookDown = 90f;
@@ -19,6 +19,8 @@ public class CamController : MonoBehaviour
     int fovZoom = 20;
 
     bool isFovZoom;
+
+    [SerializeField] bool isLookSidewaysLimit;
 
     void Start()
     {
