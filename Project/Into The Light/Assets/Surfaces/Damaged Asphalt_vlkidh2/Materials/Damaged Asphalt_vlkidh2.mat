@@ -159,6 +159,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 059a0a0caa2527647a6c567d13f7cdcc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_63d0371f1b074a6eb614a5fc50130cf5_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 923730d930b6dba4382e6723263de15f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9534205204c6461a80f97234c378288b_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b118f7e6eaf6a4646adcc0be5218ddfd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c2b72de2098b4e31accbdca87cbf5ea8_Texture_1:
+        m_Texture: {fileID: 2800000, guid: cb041c580a0865844b6aa4d626d37ff8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -237,8 +249,9 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
-    - _Edge_Addition: 0.66
-    - _Edge_Fade: 0
+    - _Edge_Addition: 0.34
+    - _Edge_Awareness_Only_for_planar_projected_objects: 1
+    - _Edge_Fade: 0.09
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -270,6 +283,7 @@ Material:
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
     - _Mode: 0
+    - _Non_Edge_Noise_Scale: 167
     - _NormalMapSpace: 0
     - _NormalScale: 0.59
     - _Normal_Map_Strength: 1
@@ -288,11 +302,14 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _Scale: 1
-    - _Sharpness: 1
+    - _Sharpness: 0.61
+    - _Simplex_Noise_Override: 0
+    - _Simplex_Noise_SCale: 50
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
+    - _Snow_TIling: 0.38
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
@@ -322,6 +339,8 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
+    - _Triplanar: 1
+    - _Triplanar_Noise: 0
     - _Type: 1
     - _UVBase: 5
     - _UVDetail: 0
@@ -330,9 +349,9 @@ Material:
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
     - _Water_AO: 1
-    - _Water_Metallicity: 0
-    - _Water_Smoothness: 2.18
-    - _Width: 2.27
+    - _Water_Metallicity: 0.56
+    - _Water_Smoothness: 4.52
+    - _Width: 0.47
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
