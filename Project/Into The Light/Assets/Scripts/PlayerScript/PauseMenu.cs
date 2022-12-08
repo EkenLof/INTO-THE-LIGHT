@@ -144,6 +144,7 @@ public class PauseMenu : MonoBehaviour
     {
         loadingScreenUi.SetActive(true);
         loadingOperation = SceneManager.LoadSceneAsync(sceneIndex);
+        menuUi.gameObject.SetActive(false); //Test
         if (loadingOperation.isDone) loadingScreenUi.SetActive(false);
     }
 
