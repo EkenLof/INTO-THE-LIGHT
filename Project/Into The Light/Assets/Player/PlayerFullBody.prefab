@@ -39,7 +39,7 @@ Transform:
   - {fileID: 600611442733044687}
   - {fileID: 600611443554739174}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &6430956947307764546
 Animator:
@@ -111,14 +111,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 439
   walkableDistance: 0.08
-  isGrounded: 0
+  menuHInventory: {fileID: 0}
   groundCheck: {fileID: 600611442733044687}
-  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 128
+  leftArmlayerSpeed: 0.35
+  isCutscene: 0
+  isInventoryInScene: 0
+  isGrounded: 0
+  groundDistance: 0.1
   isLighterObj: 0
   isFlashlightObj: 0
+  isLighter: 0
+  isFlashlight: 0
 --- !u!114 &600611442023769823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,17 +144,16 @@ MonoBehaviour:
   holdingDoorDistance: 1
   holdingDistance: 0
   forceAmount: 50
-  lockedRot: {x: 0, y: 0, z: 0}
-  lookOnObject: 0
   door: 0
   obj: 0
   kasta: 0
   lockedDoor: 0
+  doorOpen: 0
   cross: {fileID: 2800000, guid: 9a6a208ec6684f643bf3896b74df04d9, type: 3}
   grabHand: {fileID: 2800000, guid: cdf1409f32b2ad841a9c757728b56d79, type: 3}
   openHand: {fileID: 2800000, guid: 62026675ee536a641afc636e7e36833b, type: 3}
-  cursorMode: 0
-  hotspot: {x: 0, y: 0}
+  isObjectsInScene: 0
+  isDoorsInScene: 0
 --- !u!114 &600611442023769819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +180,7 @@ MonoBehaviour:
     m_Bits: 256
   isGrounded: 0
   isWall: 0
+  isJump: 0
 --- !u!1 &449130799126843302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1216,7 @@ MonoBehaviour:
   playerBody: {fileID: 1143762099753828664}
   lookUp: -60
   lookDown: 62
+  isLookSidewaysLimit: 0
 --- !u!114 &600611443554739175
 MonoBehaviour:
   m_ObjectHideFlags: 0
