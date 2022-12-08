@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Damaged Asphalt_vlkidh2
-  m_Shader: {fileID: -6465566751694194690, guid: d1e16477f9e4bc4458b83e7f57a17010,
+  m_Shader: {fileID: -6465566751694194690, guid: c4e434ba9f9e2e544949d76e2fb271bf,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -59,6 +59,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 20fda1e66de8464488da99d4b7361b3d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -155,6 +159,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 285816f4752b12a4a981b3908c80e76f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Overlay_Albedo:
+        m_Texture: {fileID: 2800000, guid: 250ee30fcc582e04a91def885c01f549, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Overlay_MaskMap:
+        m_Texture: {fileID: 2800000, guid: b1b9e3c8a1cf419499e5b53f2a15ebd3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Overlay_Normal:
+        m_Texture: {fileID: 2800000, guid: b24d001604bd64e47ba953eca9c2399f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 2800000, guid: 059a0a0caa2527647a6c567d13f7cdcc, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -228,7 +244,9 @@ Material:
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
     - _Anisotropy: 0
+    - _Base_Normal_Strength: 0.3
     - _BlendMode: 0
+    - _Blend_Size: 3.33
     - _BumpScale: 1
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
@@ -259,6 +277,7 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
+    - _Enable_Overlay: 1
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -274,6 +293,7 @@ Material:
     - _HeightTessCenter: 0.5
     - _Height_Mix: 1
     - _InvTilingScale: 1
+    - _Invert_Smoothness: 1
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
@@ -283,12 +303,18 @@ Material:
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
     - _Mode: 0
+    - _Noise_2_Bias: 0
+    - _Noise_Bias: 0.372
+    - _Noise_Blend_Bias: -0.071
+    - _Noise_Generator_1_Scale: 5
+    - _Noise_Generator_2_Scale: 2
     - _Non_Edge_Noise_Scale: 167
     - _NormalMapSpace: 0
     - _NormalScale: 0.59
     - _Normal_Map_Strength: 1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
+    - _Overlay_Normal_Strength: 0.42
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -305,7 +331,7 @@ Material:
     - _Sharpness: 0.61
     - _Simplex_Noise_Override: 0
     - _Simplex_Noise_SCale: 50
-    - _Smoothness: 0.5
+    - _Smoothness: 0.797
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
