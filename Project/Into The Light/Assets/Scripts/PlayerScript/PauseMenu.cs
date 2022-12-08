@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -18,32 +20,46 @@ public class PauseMenu : MonoBehaviour
     public DragMoveRig icons;
 
     [SerializeField] bool isIconsInScene;
+    [SerializeField] bool isMainMenu = false;
+
+    [Header("Loading")]
+    AsyncOperation loadingOperation;
+    public GameObject loadingScreenUi;
+    public Slider progressBar;
+    float progressValue;
+    public Text progressText;
+    int sceneIndex = 1;
 
     void Start()
     {
-        menuUi.gameObject.SetActive(false);
+        if(!isMainMenu) menuUi.gameObject.SetActive(false);
         optionsMenuUi.gameObject.SetActive(false);
         saveMenuUi.gameObject.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
+        if (isMainMenu) Cursor.visible = true;
+        if (!isMainMenu) Cursor.lockState = CursorLockMode.Locked; //?? Låsa i mitten vid start ??
 
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        if (!isMainMenu) player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<CamController>();
         if(isIconsInScene) icons = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("escape") && !isPaused)
+        if (isMainMenu) Cursor.visible = true;
+        if (!isMainMenu)
         {
-            isPaused = true;
-            OnPausedController();
-        }
-        else if (Input.GetKeyDown("escape") && isPaused)
-        {
-            isPaused = false;          
-            OnPausedController();
-        }
+            if (Input.GetKeyDown("escape") && !isPaused)
+            {
+                isPaused = true;
+                OnPausedController();
+            }
+            else if (Input.GetKeyDown("escape") && isPaused)
+            {
+                isPaused = false;
+                OnPausedController();
+            }
+        }     
     }
 
     public void OnPausedController()
@@ -117,6 +133,18 @@ public class PauseMenu : MonoBehaviour
         transform.position = new Vector3(x, y, z);
 
         isPaused = false;
+    }
+
+    public void OnContinueGame()
+    {
+        //Future functions save mm...
+    }
+
+    public void OnNewGame()
+    {
+        loadingScreenUi.SetActive(true);
+        loadingOperation = SceneManager.LoadSceneAsync(sceneIndex);
+        if (loadingOperation.isDone) loadingScreenUi.SetActive(false);
     }
 
     public void OnExitGame()
