@@ -7,6 +7,12 @@ TagManager:
   - Door
   - ObjectToPickUp
   - Car
+  - ClosedOrLocked
+  - OpenOrUnlocked
+  - Inventory
+  - ActionObject
+  - lighterObject
+  - flashlightObject
   layers:
   - Default
   - TransparentFX

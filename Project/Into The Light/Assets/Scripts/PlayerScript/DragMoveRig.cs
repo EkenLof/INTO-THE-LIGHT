@@ -83,9 +83,9 @@ public class DragMoveRig : MonoBehaviour
         playerAim = playerCamera.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         if (isObjectsInScene) distance = Vector3.Distance(playerCamera.transform.position, objectHold.transform.position); //2022ITTL
-        if(isDoorsInScene) distanceDoor = Vector3.Distance(playerCamera.transform.position, doorHold.transform.position); //2022ITTL
+        if (isDoorsInScene) distanceDoor = Vector3.Distance(playerCamera.transform.position, doorHold.transform.position); //2022ITTL
 
-        if(isDoorsInScene) // 2022 Lock???
+        if (isDoorsInScene) // 2022 Lock???
         {
             // Sepparat script har värdet för låsning av dörren. lockedDoor true/false;
             if (lockedDoor) rgDoor.isKinematic = true;
@@ -101,7 +101,7 @@ public class DragMoveRig : MonoBehaviour
             }
         }
 
-        if(isObjectsInScene)
+        if (isObjectsInScene)
         {
             if (leftClick)
             {
