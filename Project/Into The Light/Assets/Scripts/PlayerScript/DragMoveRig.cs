@@ -88,8 +88,8 @@ public class DragMoveRig : MonoBehaviour
         if (isDoorsInScene) // 2022 Lock???
         {
             // Sepparat script har värdet för låsning av dörren. lockedDoor true/false;
-            if (lockedDoor) rgDoor.isKinematic = true;
-            else rgDoor.isKinematic = false;
+            //if (lockedDoor) rgDoor.isKinematic = true; ////////////////////////////////ÅTERKOM O FIXA
+            //else rgDoor.isKinematic = false; ////////////////////////////////ÅTERKOM O FIXA
 
             if (Physics.Raycast(playerAim, out hit, interactionDoorRange))
             {

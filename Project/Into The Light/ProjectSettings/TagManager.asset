@@ -13,6 +13,9 @@ TagManager:
   - ActionObject
   - lighterObject
   - flashlightObject
+  - Fuse10AHolderName
+  - Fuse16AHolderName
+  - DoorLocked1
   layers:
   - Default
   - TransparentFX
