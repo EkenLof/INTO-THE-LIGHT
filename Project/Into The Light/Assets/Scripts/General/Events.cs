@@ -23,14 +23,14 @@ public class Events : MonoBehaviour
     string fuse16AHolderName = "Fuse16AHolderName";
 
     string doorsLockedName1 = "DoorLocked1";
-    string doorsLockedName2 = "DoorLocked2";
+    /*string doorsLockedName2 = "DoorLocked2";
     string doorsLockedName3 = "DoorLocked3";
     string doorsLockedName4a = "DoorLocked4a";
     string doorsLockedName4b = "DoorLocked4b";
     string doorsLockedName5a = "DoorLocked5a";
     string doorsLockedName5b = "DoorLocked5b";
     string doorsLockedName6 = "DoorLocked6";
-    string doorsName = "Door";
+    string doorsName = "Door";*/
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -48,9 +48,9 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject key;
     [SerializeField] GameObject fuse_10A;
     [SerializeField] GameObject fuse_16A;
-    [SerializeField] GameObject step4;
-    [SerializeField] GameObject step5;
-    [SerializeField] GameObject step6;
+    //[SerializeField] GameObject step4;
+    //[SerializeField] GameObject step5;
+    //[SerializeField] GameObject step6;
 
     [Header("Player")]
     public GameObject cameraPlayer;
@@ -85,6 +85,7 @@ public class Events : MonoBehaviour
                     iconsPlayer.setOpenHand(true);
                     if(leftClick || leftClick && steps == 2 || leftClick && steps == 4 || leftClick && steps == 6 || leftClick && steps == 8) steps++;
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
 
             else if (hit.collider.tag == flashlightName)
@@ -100,6 +101,7 @@ public class Events : MonoBehaviour
                         isFlashlight = true;
                     }
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
             else if (hit.collider.tag == lighterName)
             {
@@ -114,6 +116,7 @@ public class Events : MonoBehaviour
                         isLighter = true;
                     }
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
             // Fuses
             else if (hit.collider.tag == fuse10AHolderName)
@@ -128,6 +131,7 @@ public class Events : MonoBehaviour
                         isFuse10A = false;
                     }
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
             else if (hit.collider.tag == fuse16AHolderName)
             {
@@ -141,29 +145,32 @@ public class Events : MonoBehaviour
                         isFuse16A = false;
                     }
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
-        }
-        // Fuses
-        // Doors
-        else if (hit.collider.tag == doorsLockedName1)
-        {
-            if (distance <= interactionRange)
+            // Fuses
+            // Doors
+            else if (hit.collider.tag == doorsLockedName1)
             {
-                iconsPlayer.setOpenHand(true);
-                if (leftClick && isKey1)
+                Debug.Log("L hit");
+                if (distance <= interactionRange)
                 {
-                    doorUnlocked1.SetActive(true);
-                    doorLocked1.SetActive(false);
-                    Debug.Log("Door Unlocked");
-                    isFuse16A = false;
+                    iconsPlayer.setOpenHand(true);
+                    if (leftClick && isKey1)
+                    {
+                        doorUnlocked1.SetActive(true);
+                        doorLocked1.SetActive(false);
+                        Debug.Log("Door Unlocked");
+                        isKey1 = false;
+                    }
                 }
+                else iconsPlayer.setCrossMouse(true);
             }
+            // Doors
+
         }
-        // Doors
+        else iconsPlayer.setCrossMouse(true); // Kanske rätt lagd, ANNARS innanför (ovan)
 
-        else iconsPlayer.setCrossMouse(true);
-
-
+        // STEPS starting
         if (steps == 1) 
         {
             Debug.Log("key Collected");
@@ -189,7 +196,7 @@ public class Events : MonoBehaviour
             isFuse16A = true;
             steps++;
         }
-        if (steps == 7)
+        /*if (steps == 7)
         {
             Debug.Log("item Collected");
             step4.SetActive(false); //Key
@@ -206,7 +213,7 @@ public class Events : MonoBehaviour
             Debug.Log("item Collected");
             step6.SetActive(false); //Key
             steps++;
-        }
+        }*/
     }
 
     /*void OnTriggerEnter(Collider other) // if (col1.CompareTag(player))

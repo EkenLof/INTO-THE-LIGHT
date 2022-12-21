@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
 
     [Header("Actions:")]
     public bool inventory;
-    public bool light = false;
+    public bool lights = false;
     [SerializeField] bool lightLighter;
     [SerializeField] bool lightFlashlight;
     public bool isLightEquip; // samma för att sätta layer Värde
@@ -43,14 +43,14 @@ public class Inventory : MonoBehaviour
         bool isLighterKeys = Input.GetKeyDown("f");
         bool isInventory = Input.GetKeyDown("tab");
 
-        if (isLighterKeys && !light && isLightEquip && !timeFreeze) // om man har igång Lighter eller Light
+        if (isLighterKeys && !lights && isLightEquip && !timeFreeze) // om man har igång Lighter eller Light
         {
-            light = true; 
+            lights = true; 
             LighterSystem();
         }
-        else if (isLighterKeys && light && !timeFreeze)
+        else if (isLighterKeys && lights && !timeFreeze)
         {
-            light = false;
+            lights = false;
             LighterSystem();
         }
 
@@ -67,8 +67,8 @@ public class Inventory : MonoBehaviour
             TimeFreeze();
         }
 
-        if (animator.GetBool(lightLighterName) == true || animator.GetBool(lightFlashlightName) == true) light = true;
-        else light = false;
+        if (animator.GetBool(lightLighterName) == true || animator.GetBool(lightFlashlightName) == true) lights = true;
+        else lights = false;
     }
 
     public void TimeFreeze()
@@ -93,11 +93,11 @@ public class Inventory : MonoBehaviour
 
     public void LighterSystem()
     {
-        if(light && lighter && !flashlight) lighterObj.SetActive(true);
-        else if(!light && lighter && !flashlight) lighterObj.SetActive(false);
+        if(lights && lighter && !flashlight) lighterObj.SetActive(true);
+        else if(!lights && lighter && !flashlight) lighterObj.SetActive(false);
 
-        if (light && flashlight && !lighter) flashlightObj.SetActive(true);
-        else if (!light && flashlight && !lighter) flashlightObj.SetActive(false);
+        if (lights && flashlight && !lighter) flashlightObj.SetActive(true);
+        else if (!lights && flashlight && !lighter) flashlightObj.SetActive(false);
     }
 
     public void InventoryLighter()

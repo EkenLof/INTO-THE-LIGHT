@@ -16,7 +16,6 @@ public class DoorSystem : MonoBehaviour
 
     string doorLockClose = "ClosedOrLocked";
     string doorUnlockOpen = "OpenOrUnlocked";
-    string doorName = "Door";
 
     [Header("Asign")]
     public GameObject doorLock;
