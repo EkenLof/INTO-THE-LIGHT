@@ -6,7 +6,7 @@ public class Events : MonoBehaviour
 {
     //string player = "Player";
 
-    [Header("active value")]
+    [Header("Active value")]
     public int steps;
     public bool isFlashlight;
     public bool isLighter;
@@ -22,15 +22,11 @@ public class Events : MonoBehaviour
     string fuse10AHolderName = "Fuse10AHolderName";
     string fuse16AHolderName = "Fuse16AHolderName";
 
-    string doorsLockedName1 = "DoorLocked1";
-    /*string doorsLockedName2 = "DoorLocked2";
-    string doorsLockedName3 = "DoorLocked3";
-    string doorsLockedName4a = "DoorLocked4a";
-    string doorsLockedName4b = "DoorLocked4b";
-    string doorsLockedName5a = "DoorLocked5a";
-    string doorsLockedName5b = "DoorLocked5b";
-    string doorsLockedName6 = "DoorLocked6";
-    string doorsName = "Door";*/
+    string doorsLockedName1 = "DoorLocked1"; // Office fuse 10A
+    string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
+    string doorsLockedNameF2 = "DoorLockedF2"; // To F2
+    string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
+    string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -42,8 +38,18 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject lighterInventory;
     [SerializeField] GameObject fuse10AToBox;
     [SerializeField] GameObject fuse16AToBox;
+    [Header("")]
     [SerializeField] GameObject doorUnlocked1;
     [SerializeField] GameObject doorLocked1;
+    [SerializeField] GameObject doorUnlocked2;
+    [SerializeField] GameObject doorLocked2;
+    [SerializeField] GameObject doorUnlockedF2;
+    [SerializeField] GameObject doorLockedF2;
+    [SerializeField] GameObject doorUnlockedGfDoubleL;
+    [SerializeField] GameObject doorUnlockedGfDoubleR;
+    [SerializeField] GameObject doorLockedGfDouble;
+    [SerializeField] GameObject doorUnlockedEnd;
+    [SerializeField] GameObject doorLockedEnd;
 
     [SerializeField] GameObject key;
     [SerializeField] GameObject fuse_10A;
@@ -67,6 +73,11 @@ public class Events : MonoBehaviour
         if (isIconsInScene) iconsPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
 
         doorUnlocked1.SetActive(false);
+        doorUnlocked2.SetActive(false);
+        doorUnlockedF2.SetActive(false);
+        doorUnlockedGfDoubleL.SetActive(false);
+        doorUnlockedGfDoubleR.SetActive(false);
+        doorUnlockedEnd.SetActive(false);
     }
 
     
@@ -149,7 +160,7 @@ public class Events : MonoBehaviour
             }
             // Fuses
             // Doors
-            else if (hit.collider.tag == doorsLockedName1)
+            else if (hit.collider.tag == doorsLockedName1) // After KEY1 collected
             {
                 Debug.Log("L hit");
                 if (distance <= interactionRange)

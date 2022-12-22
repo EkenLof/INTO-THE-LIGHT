@@ -316,7 +316,7 @@ Material:
     - _RimTexUV: 0
     - _RimWeightUI: 0
     - _Roughness: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.709
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
