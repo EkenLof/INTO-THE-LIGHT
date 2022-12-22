@@ -26,7 +26,7 @@ public class Events : MonoBehaviour
     string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
     string doorsLockedNameF2 = "DoorLockedF2"; // To F2
     string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
-    string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door
+    string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
