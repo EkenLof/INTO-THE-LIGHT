@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Events : MonoBehaviour
@@ -11,6 +12,9 @@ public class Events : MonoBehaviour
     public bool isKey1;
     public bool isFuse10A;
     public bool isFuse16A;
+    public bool isFalling = false;
+    public bool isF2PhoneRinging = false;
+    public bool isToF2Stairway = false;
 
     float interactionRange = 1.75f;
     float distance;
@@ -177,6 +181,7 @@ public class Events : MonoBehaviour
                     {
                         fuse10AToBox.SetActive(true);
                         Debug.Log("Fuse 10A Placed");
+                        steps++;
                         isFuse10A = false;
                     }
                 }
@@ -191,6 +196,7 @@ public class Events : MonoBehaviour
                     {
                         fuse16AToBox.SetActive(true);
                         Debug.Log("Fuse 16A Placed");
+                        steps++;
                         isFuse16A = false;
                     }
                 }
@@ -234,16 +240,45 @@ public class Events : MonoBehaviour
             isFuse10A = true;
             steps++;
         }
-        if (steps > 4)
+        if (steps == 5) // Fuse 10A in box
         {
             Debug.Log("fuse 10A in locker");
+            lightsF1.SetActive(true);
+            lightsF1Halls.SetActive(true);
+            lightsF1Off.SetActive(false);
+            lightsF1HallsOff.SetActive(false);
+            lightsOffice1.SetActive(true);
+            lightsOffice2.SetActive(true);
+            doorUnlockedF2.SetActive(true);
+            doorLockedF2.SetActive(false);
+            Debug.Log("DoorF2 Opens");
+            steps++;
         }
-        if (steps == 5)
+
+        if (steps == 6 && isToF2Stairway) // Door to F2 + sounds BOX TRIGGERD
+        {
+            
+
+        }
+
+        if (isF2PhoneRinging) // Phone rings BOX TRIGGERD
+        {
+            Debug.Log("Phone Rings");
+            //AudioPlay
+            steps++;
+        }
+
+        if (steps == 7)
         {
             Debug.Log("fuse 16A Collected");
             fuse_16A.SetActive(false); //fuse16a
             isFuse16A = true;
             steps++;
+        }
+        if (steps == 8) // Fuse 16A in box
+        {
+            Debug.Log("fuse 16A in locker");
+            
         }
         /*if (steps == 7)
         {
