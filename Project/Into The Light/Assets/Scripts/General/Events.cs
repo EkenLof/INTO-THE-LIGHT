@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Events : MonoBehaviour
 {
-    //string player = "Player";
-
     [Header("Active value")]
     public int steps;
     public bool isFlashlight;
@@ -16,17 +14,18 @@ public class Events : MonoBehaviour
 
     float interactionRange = 1.75f;
     float distance;
-    string objName = "ActionObject";
-    string flashlightName = "flashlightObject";
-    string lighterName = "lighterObject";
-    string fuse10AHolderName = "Fuse10AHolderName";
-    string fuse16AHolderName = "Fuse16AHolderName";
+    private string objName = "ActionObject";
+    private string flashlightName = "flashlightObject";
+    private string lighterName = "lighterObject";
+    private string fuse10AHolderName = "Fuse10AHolderName";
+    private string fuse16AHolderName = "Fuse16AHolderName";
 
-    string doorsLockedName1 = "DoorLocked1"; // Office fuse 10A
-    string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
-    string doorsLockedNameF2 = "DoorLockedF2"; // To F2
-    string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
-    string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
+    private string doorsLockedName1 = "DoorLocked1"; // Office fuse 10A
+    private string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
+    private string doorsLockedNameF2 = "DoorLockedF2"; // To F2
+    private string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
+    private string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
+    private string airductLockedName = "AirDuctLocked"; // Airduct Locked
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -38,7 +37,7 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject lighterInventory;
     [SerializeField] GameObject fuse10AToBox;
     [SerializeField] GameObject fuse16AToBox;
-    [Header("")]
+    [Header("-Doors-")]
     [SerializeField] GameObject doorUnlocked1;
     [SerializeField] GameObject doorLocked1;
     [SerializeField] GameObject doorUnlocked2;
@@ -50,7 +49,30 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject doorLockedGfDouble;
     [SerializeField] GameObject doorUnlockedEnd;
     [SerializeField] GameObject doorLockedEnd;
-
+    [SerializeField] GameObject airductUnlocked;
+    [SerializeField] GameObject airductLocked;
+    [Header("-Lights-")]
+    [SerializeField] GameObject lightsGF;
+    //[SerializeField] GameObject lightsGFOff; //Senare
+    [SerializeField] GameObject lightsF1;
+    [SerializeField] GameObject lightsF1Off;
+    [SerializeField] GameObject lightsF1Halls;
+    [SerializeField] GameObject lightsF1HallsOff;
+    [SerializeField] GameObject lightsF2;
+    [SerializeField] GameObject lightsF2Off;
+    [SerializeField] GameObject lightsWasherRoom;
+    //[SerializeField] GameObject lightsWasherRoomOff; /Fixa
+    [SerializeField] GameObject lightsDressingRoom;
+    //[SerializeField] GameObject lightsDressingRoomOff; /Fixa
+    [SerializeField] GameObject lightsNurseRoom;
+    //[SerializeField] GameObject lightsNurseRoomOff; /Fixa
+    [SerializeField] GameObject lightsLab;
+    //[SerializeField] GameObject lightsLabOff; /Fixa
+    [SerializeField] GameObject lightsOffice1;
+    //[SerializeField] GameObject lightsOffice1Off; /Fixa
+    [SerializeField] GameObject lightsOffice2;
+    //[SerializeField] GameObject lightsOffice2Off; /Fixa
+    [Header("-Items-")]
     [SerializeField] GameObject key;
     [SerializeField] GameObject fuse_10A;
     [SerializeField] GameObject fuse_16A;
@@ -78,6 +100,22 @@ public class Events : MonoBehaviour
         doorUnlockedGfDoubleL.SetActive(false);
         doorUnlockedGfDoubleR.SetActive(false);
         doorUnlockedEnd.SetActive(false);
+        airductUnlocked.SetActive(false);
+
+        lightsF1.SetActive(false);
+        lightsF1Halls.SetActive(false);
+        lightsF2.SetActive(false);
+
+        lightsF1Off.SetActive(true);
+        lightsF1HallsOff.SetActive(true);
+        lightsF2Off.SetActive(true);
+
+        lightsWasherRoom.SetActive(false);
+        lightsDressingRoom.SetActive(false);
+        lightsNurseRoom.SetActive(false);
+        lightsLab.SetActive(false);
+        lightsOffice1.SetActive(false);
+        lightsOffice2.SetActive(false);
     }
 
     
