@@ -19,6 +19,7 @@ public class AnimCtrl : MonoBehaviour
     [SerializeField] private float leftArmlayerSpeed = 0.35f;
     private int leftArmLayer;
     private float leftArmlayerVelocity;
+    [Header("Check Boxes")]
     [SerializeField] bool isCutscene = false;
     [SerializeField] bool isInventoryInScene = false;
 
@@ -27,6 +28,7 @@ public class AnimCtrl : MonoBehaviour
     [Header("Actions")]
     [SerializeField] private bool isGrounded;
     [SerializeField] private float groundDistance = .1f;
+    
     public bool isLighterObj;
     public bool isFlashlightObj;
 
@@ -47,9 +49,14 @@ public class AnimCtrl : MonoBehaviour
     static bool isRunJump = false;
     static bool isCrouch = false;
 
+    static bool isCrouchWithLight = false;
+
     static bool isCrouchFront = false;
     static bool isCrouchLeft = false;
     static bool isCrouchRight = false;
+
+    static bool isCrawl = false;
+    static bool isCrawlFront = false;
 
     public bool isLighter = false;
     public bool isFlashlight = false;
@@ -76,9 +83,20 @@ public class AnimCtrl : MonoBehaviour
     string isCrouchWalkLeftName = "isCrouchingWalkLeft";
     string isCrouchWalkRightName = "isCrouchingWalkRight";
 
+    string isCrawlName = "isCrawling";
+    string isCrawlFrontName = "isCrawlingForward";
+
     string isLighterName = "isLighterOn";
     string isFlashlightName = "isFlashlightOn";
     string isLightsName = "isLights";
+
+    [Header("Timers")]
+    [SerializeField] private float jumpTime = .8f;
+    [SerializeField] private float maxJumpTime = .8f;
+    [SerializeField] private float itemPickUpTime = .8f;
+    [SerializeField] private float maxItemPickUpTime = .8f;
+    [SerializeField] private float crawlingTime = 3f;
+    [SerializeField] private float maxCrawlingTime = 3f;
 
     void Start()
     {
@@ -97,6 +115,8 @@ public class AnimCtrl : MonoBehaviour
         bool isLightKeys = Input.GetKeyDown("f");
         bool isJumpKeys = Input.GetKey("space");
         bool isCrouchKeys = Input.GetKeyDown(KeyCode.LeftControl);
+        bool isCrouchDownKeys = Input.GetKey(KeyCode.LeftControl);
+        bool isCrouchUpKeys = Input.GetKeyUp(KeyCode.LeftControl);
         bool timefreeze = Time.timeScale <= 0;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -163,11 +183,11 @@ public class AnimCtrl : MonoBehaviour
         }
         // Walk
         // Walk Front-Sideways
-        if (isWalkKeysFordward && isWalkKeysLeft)
+        if (isWalkKeysFordward && isWalkKeysLeft) // Front Left
         {
-            isWalk = false;
+            isWalk = true;
             isWalkBack = false;
-            isWalkLeft = false;
+            isWalkLeft = true; // ??
             isWalkRight = false;
 
             isRun = false;
@@ -175,12 +195,12 @@ public class AnimCtrl : MonoBehaviour
             isRunRight = false;
             isWalkFrontLeft = true;
         }
-        else if (isWalkKeysFordward && isWalkKeysRight)
+        else if (isWalkKeysFordward && isWalkKeysRight) // Front Right
         {
-            isWalk = false;
+            isWalk = true;
             isWalkBack = false;
             isWalkLeft = false;
-            isWalkRight = false;
+            isWalkRight = true; // ??
 
             isRun = false;
             isRunLeft = false;
@@ -235,10 +255,36 @@ public class AnimCtrl : MonoBehaviour
         }
         // Run
 
-        // Crouch
-        if (isCrouchKeys && !isCrouch) isCrouch = true;
-        else if (isCrouchKeys && isCrouch) isCrouch = false;
+        // Crouch 
+        if (isCrouchKeys && !isCrouch)
+        {
+            isCrouch = true;
+            
+            
+        }
+        else if (isCrouchKeys && isCrouch) 
+        {
+            isCrouch = false;
+            isCrawl = false;
+        }
 
+        // Crawl
+        if (!isCrouchUpKeys && isCrouchDownKeys && isCrouch)
+        {
+            crawlingTime -= Time.deltaTime;
+            if (crawlingTime <= 0f)
+            {
+                isCrawl = true;
+            }
+        }
+        if (isCrouchUpKeys) crawlingTime = maxCrawlingTime;
+        if (isCrawl) crawlingTime = maxCrawlingTime;
+
+        // Crawl Move
+        if (isCrawl && isWalkKeysFordward) isCrawlFront = true;
+        else isCrawlFront = false;
+
+        // Crouch Move
         if (isCrouch && isWalkKeysFordward)
         {
             isCrouchFront = true;
@@ -343,8 +389,22 @@ public class AnimCtrl : MonoBehaviour
         if(!isCutscene && isJump) anim.SetBool(isJumpName, true);
         if(!isCutscene && !isJump) anim.SetBool(isJumpName, false);
 
-        if (!isCutscene && isRunJump) anim.SetBool(isRunJumpName, true);
-        if (!isCutscene && !isRunJump) anim.SetBool(isRunJumpName, false);
+        if (!isCutscene && isRunJump) 
+        {
+            anim.SetBool(isRunJumpName, true);
+            jumpTime -= Time.deltaTime;
+
+            if (jumpTime <= 0f)
+            {
+                anim.SetBool(isRunJumpName, false);
+            }
+        }
+        if (!isCutscene && !isRunJump) 
+        {
+            anim.SetBool(isRunJumpName, false);
+            jumpTime = maxJumpTime;
+        }
+
         if (!isCutscene && isJumpWalk) anim.SetBool(isJumpWalkName, true);
         if (!isCutscene && !isJumpWalk) anim.SetBool(isJumpWalkName, false);
 
@@ -360,6 +420,13 @@ public class AnimCtrl : MonoBehaviour
 
         if (!isCutscene && isCrouchRight) anim.SetBool(isCrouchWalkRightName, true);
         if (!isCutscene && !isCrouchRight) anim.SetBool(isCrouchWalkRightName, false);
+
+        // Crawl
+        if (!isCutscene && isCrawl) anim.SetBool(isCrawlName, true);
+        if (!isCutscene && !isCrawl) anim.SetBool(isCrawlName, false);
+
+        if (!isCutscene && isCrouchFront) anim.SetBool(isCrawlFrontName, true);
+        if (!isCutscene && !isCrouchFront) anim.SetBool(isCrawlFrontName, false);
 
         // Light
         if (!isCutscene && isLighter) anim.SetBool(isLighterName, true);
