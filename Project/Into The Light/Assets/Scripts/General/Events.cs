@@ -15,6 +15,7 @@ public class Events : MonoBehaviour
     public bool isFalling = false;
     public bool isF2PhoneRinging = false;
     public bool isToF2Stairway = false;
+    public bool isToGfPhone = false;
 
     float interactionRange = 1.75f;
     float distance;
@@ -251,13 +252,14 @@ public class Events : MonoBehaviour
             lightsOffice2.SetActive(true);
             doorUnlockedF2.SetActive(true);
             doorLockedF2.SetActive(false);
+            lightsF2.SetActive(true);
             Debug.Log("DoorF2 Opens");
             steps++;
         }
 
         if (steps == 6 && isToF2Stairway) // Door to F2 + sounds BOX TRIGGERD
         {
-            
+            Debug.Log("Kvävt Hostande -Cole-");
 
         }
 
@@ -268,36 +270,37 @@ public class Events : MonoBehaviour
             steps++;
         }
 
-        if (steps == 7)
+        if (steps == 7 && isToGfPhone) // Phones dead, but haning over table, blood mark on the Table // Trigger Box
+        {
+            Debug.Log("Sees Phone dead and hanging, Blood on Table");
+            steps++;
+        }
+
+        if (steps == 8)
+        {
+            Debug.Log("Scream!!! From Upstairs Office 2");
+            steps++;
+        }
+
+        if(steps == 9) // Door Open Office 2 // 
+        {
+            Debug.Log("Door Open Office 2");
+            doorUnlocked2.SetActive(true);
+            doorLocked2.SetActive(false);
+        }
+
+        if (steps == 10)
         {
             Debug.Log("fuse 16A Collected");
             fuse_16A.SetActive(false); //fuse16a
             isFuse16A = true;
             steps++;
         }
-        if (steps == 8) // Fuse 16A in box
+        if (steps == 11) // Fuse 16A in box
         {
             Debug.Log("fuse 16A in locker");
             
         }
-        /*if (steps == 7)
-        {
-            Debug.Log("item Collected");
-            step4.SetActive(false); //Key
-            steps++;
-        }
-        if (steps == 9)
-        {
-            Debug.Log("item Collected");
-            step5.SetActive(false); //Key
-            steps++;
-        }
-        if (steps == 11)
-        {
-            Debug.Log("item Collected");
-            step6.SetActive(false); //Key
-            steps++;
-        }*/
     }
 
     /*void OnTriggerEnter(Collider other) // if (col1.CompareTag(player))

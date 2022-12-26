@@ -12,6 +12,7 @@ public class Triggers : MonoBehaviour
     [SerializeField] bool isToF2;
     [SerializeField] bool isF2PhoneRings;
     [SerializeField] bool isFallingAction;
+    [SerializeField] bool isGfPhone;
 
     [Header("Asign")]
     public Events events;
@@ -19,10 +20,12 @@ public class Triggers : MonoBehaviour
     public GameObject triggerToF2;
     public GameObject triggerF2Phone;
     public GameObject triggerFalling;
+    public GameObject triggerGfPhone;
 
     void Start()
     {
         if (isEventsInScene) events = GameObject.FindGameObjectWithTag("Actions").GetComponent<Events>();
+        triggerGfPhone.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -39,7 +42,16 @@ public class Triggers : MonoBehaviour
                 Debug.Log("F2 Phone Rings");
                 events.isF2PhoneRinging = true;
                 triggerF2Phone.SetActive(false);
+                triggerGfPhone.SetActive(true);
             }
+            if (isGfPhone)
+            {
+                Debug.Log("Phone Dead, sees Blood, Hears -Cole- Scream");
+                events.isToGfPhone = true;
+                triggerGfPhone.SetActive(false);
+            }
+
+
             if (isFallingAction)
             {
                 Debug.Log("Falling Scene");

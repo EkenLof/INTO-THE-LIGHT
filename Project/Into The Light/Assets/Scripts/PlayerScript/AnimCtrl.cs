@@ -52,6 +52,7 @@ public class AnimCtrl : MonoBehaviour
     static bool isCrouchWithLight = false;
 
     static bool isCrouchFront = false;
+    static bool isCrouchBack = false;
     static bool isCrouchLeft = false;
     static bool isCrouchRight = false;
 
@@ -80,6 +81,7 @@ public class AnimCtrl : MonoBehaviour
     string isRunJumpName = "isRunningJump";
     string isCrouchName = "isCrouching";
     string isCrouchWalkFrontName = "isCrouchingWalkFront";
+    string isCrouchWalkBackName = "isCrouchingWalkBack";
     string isCrouchWalkLeftName = "isCrouchingWalkLeft";
     string isCrouchWalkRightName = "isCrouchingWalkRight";
 
@@ -288,24 +290,35 @@ public class AnimCtrl : MonoBehaviour
         if (isCrouch && isWalkKeysFordward)
         {
             isCrouchFront = true;
+            isCrouchBack = false;
             isCrouchLeft = false;
             isCrouchRight = false;
         }
         else if (isCrouch && isWalkKeysLeft)
         {
             isCrouchFront = false;
+            isCrouchBack = false;
             isCrouchLeft = true;
             isCrouchRight = false;
         }
         else if (isCrouch && isWalkKeysRight)
         {
             isCrouchFront = false;
+            isCrouchBack = false;
             isCrouchLeft = false;
             isCrouchRight = true;
+        }
+        else if (isCrouch && isWalkKeysBackward)
+        {
+            isCrouchFront = false;
+            isCrouchBack = true;
+            isCrouchLeft = false;
+            isCrouchRight = false;
         }
         else
         {
             isCrouchFront = false;
+            isCrouchBack = false;
             isCrouchLeft = false;
             isCrouchRight = false;
         }
@@ -414,6 +427,9 @@ public class AnimCtrl : MonoBehaviour
 
         if (!isCutscene && isCrouchFront) anim.SetBool(isCrouchWalkFrontName, true);
         if (!isCutscene && !isCrouchFront) anim.SetBool(isCrouchWalkFrontName, false);
+
+        if (!isCutscene && isCrouchBack) anim.SetBool(isCrouchWalkBackName, true);
+        if (!isCutscene && !isCrouchBack) anim.SetBool(isCrouchWalkBackName, false);
 
         if (!isCutscene && isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, true);
         if (!isCutscene && !isCrouchLeft) anim.SetBool(isCrouchWalkLeftName, false);
