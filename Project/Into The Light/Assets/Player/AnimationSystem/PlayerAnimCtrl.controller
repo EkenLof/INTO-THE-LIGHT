@@ -26,7 +26,7 @@ AnimatorStateMachine:
     m_Position: {x: -100, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -413486604877868742}
-    m_Position: {x: -360, y: -100, z: 0}
+    m_Position: {x: -400, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6164239855998893992}
     m_Position: {x: -100, y: 300, z: 0}
@@ -65,7 +65,7 @@ AnimatorStateMachine:
     m_Position: {x: 690, y: -690, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8248625367236126686}
-    m_Position: {x: -225.9299, y: -220.45729, z: 0}
+    m_Position: {x: -100, y: -580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6265448855940585715}
     m_Position: {x: 690, y: -560, z: 0}
@@ -78,6 +78,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8709562691201521191}
     m_Position: {x: 650, y: -350, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1486511582510353936}
+    m_Position: {x: -400, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -529,9 +532,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.4
   m_TransitionOffset: 0
-  m_ExitTime: 0.78571427
+  m_ExitTime: 0.07874647
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1145,6 +1148,33 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-1486511582510353936
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PickUpFront
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 8229651769685403848}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 1b3cdaa12897aed4facaea3899a92741, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-1424805390968191204
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1527,6 +1557,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: isPickUpItems
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1635,6 +1671,7 @@ AnimatorState:
   - {fileID: -5655246896433044490}
   - {fileID: -2700246394165418317}
   - {fileID: 7633733250745109412}
+  - {fileID: 8725875872376675445}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
@@ -2401,6 +2438,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &8229651769685403848
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: isPickUpItems
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 582454642916993254}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.8972603
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &8709562691201521191
 AnimatorState:
   serializedVersion: 6
@@ -2428,6 +2490,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &8725875872376675445
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: isPickUpItems
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -1486511582510353936}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.96575344
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &9025112033557874799
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -16,7 +16,7 @@ public class Triggers : MonoBehaviour
 
     [Header("Asign")]
     public Events events;
-    [Header("Asign")]
+    [Header("Asign Trigger")]
     public GameObject triggerToF2;
     public GameObject triggerF2Phone;
     public GameObject triggerFalling;

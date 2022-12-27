@@ -16,12 +16,24 @@ public class Events : MonoBehaviour
     public bool isF2PhoneRinging = false;
     public bool isToF2Stairway = false;
     public bool isToGfPhone = false;
+    public bool isItemPickedUp = false;
+
+    public bool isKey1PickUp;
+    public bool isFlashlightPickUp;
+    public bool isLighterPickUp;
+    public bool isFuse10aPickUp;
+    public bool isFuse16aPickUp;
+    public bool isKeyCardPickUp;
 
     float interactionRange = 1.75f;
     float distance;
     private string objName = "ActionObject";
+    private string itemName = "Items";
+    private string key1Name = "Key1";
     private string flashlightName = "flashlightObject";
     private string lighterName = "lighterObject";
+    private string fuse10AName = "Fuse10AName";
+    private string fuse16AName = "Fuse16AName";
     private string fuse10AHolderName = "Fuse10AHolderName";
     private string fuse16AHolderName = "Fuse16AHolderName";
 
@@ -31,6 +43,10 @@ public class Events : MonoBehaviour
     private string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
     private string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
     private string airductLockedName = "AirDuctLocked"; // Airduct Locked
+
+    [Header("Timers")]
+    [SerializeField] private float itemPickUpTime = 1f;
+    [SerializeField] private float maxItemPickUpTime = 1f;
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -81,13 +97,14 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject key;
     [SerializeField] GameObject fuse_10A;
     [SerializeField] GameObject fuse_16A;
-    //[SerializeField] GameObject step4;
-    //[SerializeField] GameObject step5;
-    //[SerializeField] GameObject step6;
+    [Header("-Obejcts-")]
+    [SerializeField] GameObject phoneDefault;
+    [SerializeField] GameObject phoneDead;
 
     [Header("Player")]
     public GameObject cameraPlayer;
     public DragMoveRig iconsPlayer;
+    public AnimCtrl animPlayer;
 
     Ray playerAim;
     RaycastHit hit;
@@ -98,6 +115,7 @@ public class Events : MonoBehaviour
         steps = 0;
 
         if (isIconsInScene) iconsPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<DragMoveRig>();
+        if (isIconsInScene) animPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<AnimCtrl>();
 
         doorUnlocked1.SetActive(false);
         doorUnlocked2.SetActive(false);
@@ -121,126 +139,197 @@ public class Events : MonoBehaviour
         lightsLab.SetActive(false);
         lightsOffice1.SetActive(false);
         lightsOffice2.SetActive(false);
+        phoneDead.SetActive(false);
     }
 
     
     void Update()
     {
         bool leftClick = Input.GetMouseButton(0);
+        bool leftClickDown = Input.GetMouseButtonDown(0);
 
         playerAim = cameraPlayer.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
+        if (itemPickUpTime <= -0.6f) isItemPickedUp = false;
+
         if (Physics.Raycast(playerAim, out hit, interactionRange))
         {
-            if (hit.collider.tag == objName)
+            if (hit.collider.tag == objName && distance <= interactionRange)
             {
-                if (distance <= interactionRange) 
+                iconsPlayer.setOpenHand(true);
+                if(leftClick && steps == 2 || leftClick && steps == 4 || leftClick && steps == 6 || leftClick && steps == 8) steps++;
+            }
+            // Key
+            else if (hit.collider.tag == key1Name && distance <= interactionRange ||
+                    hit.collider.tag == fuse10AName && distance <= interactionRange ||
+                    hit.collider.tag == fuse16AName && distance <= interactionRange)
+            { // && steps == 3 //10
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown) 
                 {
-                    iconsPlayer.setOpenHand(true);
-                    if(leftClick || leftClick && steps == 2 || leftClick && steps == 4 || leftClick && steps == 6 || leftClick && steps == 8) steps++;
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
                 }
-                else iconsPlayer.setCrossMouse(true);
+                if (itemPickUpTime <= 0.1f)
+                {
+                    Debug.Log("key Collected");
+                    key.SetActive(false); //Key
+                    isKey1 = true;
+                    steps++;
+                }
+                if (itemPickUpTime <= 0.1f && steps == 3)
+                {
+                    Debug.Log("fuse 10A Collected");
+                    fuse_10A.SetActive(false); //fuse10a
+                    isFuse10A = true;
+                    steps++;
+                }
+                if (itemPickUpTime <= 0.1f && steps == 10)
+                {
+                    Debug.Log("fuse 16A Collected");
+                    fuse_16A.SetActive(false); //fuse16a
+                    isFuse16A = true;
+                    steps++;
+                }
+                if (itemPickUpTime <= 0f) // TIME 0
+                {
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
+                }
+            }
+            // Flashlight
+            else if (hit.collider.tag == flashlightName && distance <= interactionRange)
+            {
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown) 
+                {
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
+                }
+                if (itemPickUpTime <= 0.1f)
+                {
+                    flashlight.SetActive(false);
+                    Debug.Log("Flashlight Collected");
+                    flashlightInventory.SetActive(true);
+                    isFlashlight = true;
+                }
+                if (itemPickUpTime <= 0f) // TIME 0
+                {
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
+                }
+            }
+            // Lighter
+            else if (hit.collider.tag == lighterName && distance <= interactionRange)
+            {
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown)
+                {
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
+                }
+                if (itemPickUpTime <= 0.1f)
+                {
+                    lighter.SetActive(false);
+                    Debug.Log("Lighter Collected");
+                    lighterInventory.SetActive(true);
+                    isLighter = true;
+                }
+                if (itemPickUpTime <= 0f) // TIME 0
+                {
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
+                }
+            }          
+            // Fuses
+            else if (hit.collider.tag == fuse10AHolderName && distance <= interactionRange)
+            {
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown && isFuse10A)
+                {
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
+                }
+                if (itemPickUpTime <= 0.1f)
+                {
+                    fuse10AToBox.SetActive(true);
+                    Debug.Log("Fuse 10A Placed");
+                    steps++;
+                    isFuse10A = false;
+                }
+                if (itemPickUpTime <= 0f) // TIME 0
+                {
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
+                }
             }
 
-            else if (hit.collider.tag == flashlightName)
+            else if (hit.collider.tag == fuse16AHolderName && distance <= interactionRange)
             {
-                if (distance <= interactionRange)
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown && isFuse16A)
                 {
-                    iconsPlayer.setOpenHand(true);
-                    if (leftClick) 
-                    {
-                        flashlight.SetActive(false);
-                        Debug.Log("Flashlight Collected");
-                        flashlightInventory.SetActive(true);
-                        isFlashlight = true;
-                    }
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
                 }
-                else iconsPlayer.setCrossMouse(true);
-            }
-            else if (hit.collider.tag == lighterName)
-            {
-                if (distance <= interactionRange)
+                if (itemPickUpTime <= 0.1f)
                 {
-                    iconsPlayer.setOpenHand(true);
-                    if (leftClick) 
-                    {
-                        lighter.SetActive(false);
-                        Debug.Log("Lighter Collected");
-                        lighterInventory.SetActive(true);
-                        isLighter = true;
-                    }
+                    fuse16AToBox.SetActive(true);
+                    Debug.Log("Fuse 16A Placed");
+                    steps++;
+                    isFuse16A = false;
                 }
-                else iconsPlayer.setCrossMouse(true);
-            }
-            // Fuses
-            else if (hit.collider.tag == fuse10AHolderName)
-            {
-                if (distance <= interactionRange)
+                if (itemPickUpTime <= 0f) // TIME 0
                 {
-                    iconsPlayer.setOpenHand(true);
-                    if (leftClick && isFuse10A)
-                    {
-                        fuse10AToBox.SetActive(true);
-                        Debug.Log("Fuse 10A Placed");
-                        steps++;
-                        isFuse10A = false;
-                    }
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
                 }
-                else iconsPlayer.setCrossMouse(true);
-            }
-            else if (hit.collider.tag == fuse16AHolderName)
-            {
-                if (distance <= interactionRange)
-                {
-                    iconsPlayer.setOpenHand(true);
-                    if (leftClick && isFuse16A)
-                    {
-                        fuse16AToBox.SetActive(true);
-                        Debug.Log("Fuse 16A Placed");
-                        steps++;
-                        isFuse16A = false;
-                    }
-                }
-                else iconsPlayer.setCrossMouse(true);
             }
             // Fuses
             // Doors
-            else if (hit.collider.tag == doorsLockedName1) // After KEY1 collected
+            else if (hit.collider.tag == doorsLockedName1 && distance <= interactionRange) // After KEY1 collected
             {
-                Debug.Log("L hit");
-                if (distance <= interactionRange)
+                iconsPlayer.setOpenHand(true);
+                if (leftClick && isKey1)
                 {
-                    iconsPlayer.setOpenHand(true);
-                    if (leftClick && isKey1)
-                    {
-                        doorUnlocked1.SetActive(true);
-                        doorLocked1.SetActive(false);
-                        Debug.Log("Door Unlocked");
-                        isKey1 = false;
-                    }
+                    doorUnlocked1.SetActive(true);
+                    doorLocked1.SetActive(false);
+                    Debug.Log("Door Unlocked");
+                    isKey1 = false;
                 }
-                else iconsPlayer.setCrossMouse(true);
+            }
+            else
+            {
+                iconsPlayer.setCrossMouse(true);
+                // ANIM STOP
+                animPlayer.isPickUpItem = false;
             }
             // Doors
+
+            // Timer for ALL items to be Picked Up.
+            if (isItemPickedUp) itemPickUpTime -= Time.deltaTime;
+            else itemPickUpTime = maxItemPickUpTime;
+            // Timer for ALL items to be Picked Up.
 
         }
         else iconsPlayer.setCrossMouse(true); // Kanske rätt lagd, ANNARS innanför (ovan)
 
         // STEPS starting
-        if (steps == 1) 
-        {
-            Debug.Log("key Collected");
-            key.SetActive(false); //Key
-            isKey1 = true;
-            steps++;
-        }
-        if (steps == 3)
-        {
-            Debug.Log("fuse 10A Collected");
-            fuse_10A.SetActive(false); //fuse10a
-            isFuse10A = true;
-            steps++;
-        }
         if (steps == 5) // Fuse 10A in box
         {
             Debug.Log("fuse 10A in locker");
@@ -267,6 +356,8 @@ public class Events : MonoBehaviour
         {
             Debug.Log("Phone Rings");
             //AudioPlay
+            phoneDefault.SetActive(false);
+            phoneDead.SetActive(true);
             steps++;
         }
 
@@ -289,13 +380,6 @@ public class Events : MonoBehaviour
             doorLocked2.SetActive(false);
         }
 
-        if (steps == 10)
-        {
-            Debug.Log("fuse 16A Collected");
-            fuse_16A.SetActive(false); //fuse16a
-            isFuse16A = true;
-            steps++;
-        }
         if (steps == 11) // Fuse 16A in box
         {
             Debug.Log("fuse 16A in locker");

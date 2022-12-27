@@ -62,6 +62,8 @@ public class AnimCtrl : MonoBehaviour
     public bool isLighter = false;
     public bool isFlashlight = false;
 
+    public bool isPickUpItem = false;
+
     string iSittingCarName = "isSittingCar";
 
     string isWalkFrontName = "isWalking";
@@ -91,6 +93,8 @@ public class AnimCtrl : MonoBehaviour
     string isLighterName = "isLighterOn";
     string isFlashlightName = "isFlashlightOn";
     string isLightsName = "isLights";
+
+    string isPickUpItemName = "isPickUpItems";
 
     [Header("Timers")]
     [SerializeField] private float jumpTime = .8f;
@@ -450,6 +454,10 @@ public class AnimCtrl : MonoBehaviour
 
         if (!isCutscene && isFlashlight) anim.SetBool(isFlashlightName, true);
         if (!isCutscene && !isFlashlight) anim.SetBool(isFlashlightName, false);
+
+        // Pick up Item
+        if (!isCutscene && isPickUpItem) anim.SetBool(isPickUpItemName, true); // TRIGGERD by other Scripts
+        if (!isCutscene && !isPickUpItem) anim.SetBool(isPickUpItemName, false); // TRIGGERD by other Scripts
     }
     
     /*
