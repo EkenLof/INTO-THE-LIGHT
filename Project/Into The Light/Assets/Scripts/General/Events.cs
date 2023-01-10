@@ -18,6 +18,7 @@ public class Events : MonoBehaviour
     public bool isToF2Stairway = false;
     public bool isToGfPhone = false;
     public bool isItemPickedUp = false;
+    public bool isCardReaderMenOpen = false;
 
     public bool isKey1PickUp;
     public bool isFlashlightPickUp;
@@ -38,6 +39,7 @@ public class Events : MonoBehaviour
     private string fuse16AName = "Fuse16AName";
     private string fuse10AHolderName = "Fuse10AHolderName";
     private string fuse16AHolderName = "Fuse16AHolderName";
+    private string cardReaderMensName = "CardReaderMenLocker";
 
     private string doorsLockedName1 = "DoorLocked1"; // Office fuse 10A
     private string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
@@ -74,6 +76,8 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject doorLockedEnd;
     [SerializeField] GameObject airductUnlocked;
     [SerializeField] GameObject airductLocked;
+    [SerializeField] GameObject doorLockerUnlocked;
+    [SerializeField] GameObject doorLockerLocked;
     [Header("-Lights-")]
     [SerializeField] GameObject lightsGF;
     //[SerializeField] GameObject lightsGFOff; //Senare
@@ -144,6 +148,7 @@ public class Events : MonoBehaviour
         doorUnlockedGfDoubleR.SetActive(false);
         doorUnlockedEnd.SetActive(false);
         airductUnlocked.SetActive(false);
+        doorLockerUnlocked.SetActive(false);
 
         lightsF1.SetActive(false);
         lightsF1Halls.SetActive(false);
@@ -183,7 +188,8 @@ public class Events : MonoBehaviour
             else if (hit.collider.tag == key1Name && distance <= interactionRange ||
                     hit.collider.tag == fuse10AName && distance <= interactionRange ||
                     hit.collider.tag == fuse16AName && distance <= interactionRange ||
-                    hit.collider.tag == keyCardName && distance <= interactionRange)
+                    hit.collider.tag == keyCardName && distance <= interactionRange ||
+                    hit.collider.tag == cardReaderMensName && distance <= interactionRange)
             { // && steps == 3 //10
                 iconsPlayer.setOpenHand(true);
                 if (leftClickDown) 
@@ -214,12 +220,21 @@ public class Events : MonoBehaviour
                     isFuse16A = true;
                     steps++;
                 }
-                if (itemPickUpTime <= 0.1f && steps == 12)
+                if (itemPickUpTime <= 0.1f && steps == 12) //NEW
                 {
                     Debug.Log("KeyCard Collected");
                     keyCard.SetActive(false); //KeyCard
                     isKeyCard = true;
                     steps++;
+                }
+                if (itemPickUpTime <= 0.1f && steps == 13 && isKeyCard) //NEW
+                {
+                    Debug.Log("KeyCard used on Mens Locker");
+                    cardReaderRedToLocker.SetActive(false); //KeyCardReaderMEN
+                    cardReaderGreenToLocker.SetActive(true);
+
+                    isCardReaderMenOpen = true;
+                    steps++; // Steps 14
                 }
                 if (itemPickUpTime <= 0f) // TIME 0
                 {
@@ -377,7 +392,6 @@ public class Events : MonoBehaviour
         if (steps == 6 && isToF2Stairway) // Door to F2 + sounds BOX TRIGGERD
         {
             Debug.Log("Kvävt Hostande -Cole-");
-
         }
 
         if (isF2PhoneRinging) // Phone rings BOX TRIGGERD
@@ -432,9 +446,16 @@ public class Events : MonoBehaviour
             steps++;
         }
 
-        if(steps == 13) // KeyCard To Locker
+        if(isCardReaderMenOpen)
         {
-            Debug.Log("Keycard To Locker");
+            doorLockerUnlocked.SetActive(true);
+            doorLockerLocked.SetActive(false);
+        }
+
+        if (steps == 14)
+        {
+            Debug.Log("Mens Locker Open");
+            steps++;
         }
     }
 

@@ -31,7 +31,7 @@ public class Triggers : MonoBehaviour
     {
         if (other.CompareTag(player))
         {
-            if (isToF2) 
+            if (isToF2) //
             {
                 Debug.Log("to F2");
                 events.isToF2Stairway = true;
@@ -41,8 +41,9 @@ public class Triggers : MonoBehaviour
             {
                 Debug.Log("F2 Phone Rings");
                 events.isF2PhoneRinging = true;
-                triggerF2Phone.SetActive(false);
                 triggerGfPhone.SetActive(true);
+                triggerF2Phone.SetActive(false);
+
             }
             if (isGfPhone)
             {
