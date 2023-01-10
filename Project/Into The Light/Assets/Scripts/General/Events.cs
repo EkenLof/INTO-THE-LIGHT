@@ -10,6 +10,7 @@ public class Events : MonoBehaviour
     public bool isFlashlight;
     public bool isLighter;
     public bool isKey1;
+    public bool isKeyCard;
     public bool isFuse10A;
     public bool isFuse16A;
     public bool isFalling = false;
@@ -30,6 +31,7 @@ public class Events : MonoBehaviour
     private string objName = "ActionObject";
     private string itemName = "Items";
     private string key1Name = "Key1";
+    private string keyCardName = "KeyCard";
     private string flashlightName = "flashlightObject";
     private string lighterName = "lighterObject";
     private string fuse10AName = "Fuse10AName";
@@ -95,11 +97,29 @@ public class Events : MonoBehaviour
     //[SerializeField] GameObject lightsOffice2Off; /Fixa
     [Header("-Items-")]
     [SerializeField] GameObject key;
+    [SerializeField] GameObject keyCard;
     [SerializeField] GameObject fuse_10A;
     [SerializeField] GameObject fuse_16A;
     [Header("-Obejcts-")]
     [SerializeField] GameObject phoneDefault;
     [SerializeField] GameObject phoneDead;
+    [Header("-Card Readers-")]
+    [SerializeField] GameObject cardReaderDefaultToLab;
+    [SerializeField] GameObject cardReaderGreenToLab;
+    [Header("")]
+    [SerializeField] GameObject cardReaderDefaultFromVent;
+    [SerializeField] GameObject cardReaderGreenFromVent;
+    [Header("")]
+    [SerializeField] GameObject cardReaderDefaultToLocker;
+    [SerializeField] GameObject cardReaderGreenToLocker;
+    [SerializeField] GameObject cardReaderRedToLocker;
+    [Header("")]
+    [SerializeField] GameObject cardReaderDefaultToLockerW;
+    [SerializeField] GameObject cardReaderRedToLockerW;
+    [Header("")]
+    [SerializeField] GameObject cardReaderDefaultToEnd;
+    [SerializeField] GameObject cardReaderGreenToEnd;
+    [SerializeField] GameObject cardReaderRedToEnd;
 
     [Header("Player")]
     public GameObject cameraPlayer;
@@ -162,7 +182,8 @@ public class Events : MonoBehaviour
             // Key
             else if (hit.collider.tag == key1Name && distance <= interactionRange ||
                     hit.collider.tag == fuse10AName && distance <= interactionRange ||
-                    hit.collider.tag == fuse16AName && distance <= interactionRange)
+                    hit.collider.tag == fuse16AName && distance <= interactionRange ||
+                    hit.collider.tag == keyCardName && distance <= interactionRange)
             { // && steps == 3 //10
                 iconsPlayer.setOpenHand(true);
                 if (leftClickDown) 
@@ -191,6 +212,13 @@ public class Events : MonoBehaviour
                     Debug.Log("fuse 16A Collected");
                     fuse_16A.SetActive(false); //fuse16a
                     isFuse16A = true;
+                    steps++;
+                }
+                if (itemPickUpTime <= 0.1f && steps == 12)
+                {
+                    Debug.Log("KeyCard Collected");
+                    keyCard.SetActive(false); //KeyCard
+                    isKeyCard = true;
                     steps++;
                 }
                 if (itemPickUpTime <= 0f) // TIME 0
@@ -383,7 +411,30 @@ public class Events : MonoBehaviour
         if (steps == 11) // Fuse 16A in box
         {
             Debug.Log("fuse 16A in locker");
-            
+            // Cardreaders Active
+            cardReaderDefaultToLab.SetActive(false);
+            cardReaderGreenToLab.SetActive(true);
+            cardReaderDefaultToLocker.SetActive(false);
+            cardReaderRedToLocker.SetActive(true);
+            cardReaderDefaultToLockerW.SetActive(false);
+            cardReaderRedToLockerW.SetActive(true);
+            cardReaderDefaultToEnd.SetActive(false);
+            cardReaderRedToEnd.SetActive(true);
+            cardReaderGreenFromVent.SetActive(true);
+            cardReaderDefaultFromVent.SetActive(false);
+            //Doors
+            doorUnlockedGfDoubleL.SetActive(true);
+            doorUnlockedGfDoubleR.SetActive(true);
+            doorLockedGfDouble.SetActive(false);
+            //Lights
+            lightsLab.SetActive(true);
+
+            steps++;
+        }
+
+        if(steps == 13) // KeyCard To Locker
+        {
+            Debug.Log("Keycard To Locker");
         }
     }
 
