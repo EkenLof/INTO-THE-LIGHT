@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
+//using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Triggers : MonoBehaviour
@@ -11,27 +11,27 @@ public class Triggers : MonoBehaviour
     [SerializeField] bool isEventsInScene;
     [SerializeField] bool isToF2;
     [SerializeField] bool isF2PhoneRings;
-    [SerializeField] bool isFallingAction;
     [SerializeField] bool isGfPhone;
+    [SerializeField] bool isFallingAction;
 
     [Header("Asign")]
-    public Events events;
+    [SerializeField] Events events;
     [Header("Asign Trigger")]
     public GameObject triggerToF2;
     public GameObject triggerF2Phone;
-    public GameObject triggerFalling;
     public GameObject triggerGfPhone;
+    public GameObject triggerFalling;
+    
 
     void Start()
     {
-        if (isEventsInScene) events = GameObject.FindGameObjectWithTag("Actions").GetComponent<Events>();
-        triggerGfPhone.SetActive(false);
+        if (isEventsInScene) events = GameObject.FindWithTag("Actions").GetComponent<Events>();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(player))
         {
-            if (isToF2) //
+            if (isToF2)
             {
                 Debug.Log("to F2");
                 events.isToF2Stairway = true;
@@ -41,11 +41,10 @@ public class Triggers : MonoBehaviour
             {
                 Debug.Log("F2 Phone Rings");
                 events.isF2PhoneRinging = true;
-                triggerGfPhone.SetActive(true);
                 triggerF2Phone.SetActive(false);
 
             }
-            if (isGfPhone)
+            if (isGfPhone && events.steps == 7)
             {
                 Debug.Log("Phone Dead, sees Blood, Hears -Cole- Scream");
                 events.isToGfPhone = true;

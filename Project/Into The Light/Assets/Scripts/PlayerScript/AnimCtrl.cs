@@ -64,6 +64,8 @@ public class AnimCtrl : MonoBehaviour
 
     public bool isPickUpItem = false;
 
+    public bool isFallClimb = false;
+
     string iSittingCarName = "isSittingCar";
 
     string isWalkFrontName = "isWalking";
@@ -95,6 +97,10 @@ public class AnimCtrl : MonoBehaviour
     string isLightsName = "isLights";
 
     string isPickUpItemName = "isPickUpItems";
+
+    string isFallClimbName = "isFallingClimbing";
+
+
 
     [Header("Timers")]
     [SerializeField] private float jumpTime = .8f;
@@ -458,6 +464,10 @@ public class AnimCtrl : MonoBehaviour
         // Pick up Item
         if (!isCutscene && isPickUpItem) anim.SetBool(isPickUpItemName, true); // TRIGGERD by other Scripts
         if (!isCutscene && !isPickUpItem) anim.SetBool(isPickUpItemName, false); // TRIGGERD by other Scripts
+
+        // FallingScene
+        if (!isCutscene && isFallClimb) anim.SetBool(isFallClimbName, true); // TRIGGERD by other Scripts
+        if (!isCutscene && !isFallClimb) anim.SetBool(isFallClimbName, false); // TRIGGERD by other Scripts
     }
     
     /*

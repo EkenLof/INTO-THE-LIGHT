@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+//using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Events : MonoBehaviour
@@ -19,6 +19,7 @@ public class Events : MonoBehaviour
     public bool isToGfPhone = false;
     public bool isItemPickedUp = false;
     public bool isCardReaderMenOpen = false;
+    public bool isFall = false;
 
     public bool isKey1PickUp;
     public bool isFlashlightPickUp;
@@ -30,7 +31,7 @@ public class Events : MonoBehaviour
     float interactionRange = 1.75f;
     float distance;
     private string objName = "ActionObject";
-    private string itemName = "Items";
+    //private string itemName = "Items";
     private string key1Name = "Key1";
     private string keyCardName = "KeyCard";
     private string flashlightName = "flashlightObject";
@@ -42,15 +43,18 @@ public class Events : MonoBehaviour
     private string cardReaderMensName = "CardReaderMenLocker";
 
     private string doorsLockedName1 = "DoorLocked1"; // Office fuse 10A
-    private string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
-    private string doorsLockedNameF2 = "DoorLockedF2"; // To F2
-    private string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
-    private string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
-    private string airductLockedName = "AirDuctLocked"; // Airduct Locked
+    //private string doorsLockedName2 = "DoorLocked2"; // Office fuse 16A
+    //private string doorsLockedNameF2 = "DoorLockedF2"; // To F2
+    //private string doorsLockedNameGfDouble = "DoorLockedGFDD"; // Double door GF
+    //private string doorsLockedNameEnd = "DoorLockedEnd"; // Last Door END
+    //private string airductLockedName = "AirDuctLocked"; // Airduct Locked
 
     [Header("Timers")]
     [SerializeField] private float itemPickUpTime = 1f;
     [SerializeField] private float maxItemPickUpTime = 1f;
+
+    [SerializeField] private float fallTime = 4f;
+    [SerializeField] private float maxFallTime = 4f;
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -102,6 +106,7 @@ public class Events : MonoBehaviour
     [Header("-Items-")]
     [SerializeField] GameObject key;
     [SerializeField] GameObject keyCard;
+    [SerializeField] GameObject keyCardInHand;
     [SerializeField] GameObject fuse_10A;
     [SerializeField] GameObject fuse_16A;
     [Header("-Obejcts-")]
@@ -124,6 +129,8 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject cardReaderDefaultToEnd;
     [SerializeField] GameObject cardReaderGreenToEnd;
     [SerializeField] GameObject cardReaderRedToEnd;
+    [Header("-Monster-")]
+    [SerializeField] GameObject maskedMonsterFallScene;
 
     [Header("Player")]
     public GameObject cameraPlayer;
@@ -179,18 +186,11 @@ public class Events : MonoBehaviour
 
         if (Physics.Raycast(playerAim, out hit, interactionRange))
         {
-            if (hit.collider.tag == objName && distance <= interactionRange)
-            {
-                iconsPlayer.setOpenHand(true);
-                if(leftClick && steps == 2 || leftClick && steps == 4 || leftClick && steps == 6 || leftClick && steps == 8) steps++;
-            }
-            // Key
-            else if (hit.collider.tag == key1Name && distance <= interactionRange ||
+            if (hit.collider.tag == key1Name && distance <= interactionRange ||
                     hit.collider.tag == fuse10AName && distance <= interactionRange ||
                     hit.collider.tag == fuse16AName && distance <= interactionRange ||
-                    hit.collider.tag == keyCardName && distance <= interactionRange ||
-                    hit.collider.tag == cardReaderMensName && distance <= interactionRange)
-            { // && steps == 3 //10
+                    hit.collider.tag == keyCardName && distance <= interactionRange)
+            { 
                 iconsPlayer.setOpenHand(true);
                 if (leftClickDown) 
                 {
@@ -199,42 +199,33 @@ public class Events : MonoBehaviour
                     // Time Bool Active
                     isItemPickedUp = true;
                 }
-                if (itemPickUpTime <= 0.1f)
+                if (itemPickUpTime <= 0.1f && steps == 0)
                 {
                     Debug.Log("key Collected");
                     key.SetActive(false); //Key
                     isKey1 = true;
-                    steps++;
+                    steps++; // 1 steps
                 }
-                if (itemPickUpTime <= 0.1f && steps == 3)
+                if (itemPickUpTime <= 0.1f && steps == 2)
                 {
                     Debug.Log("fuse 10A Collected");
                     fuse_10A.SetActive(false); //fuse10a
                     isFuse10A = true;
-                    steps++;
+                    steps++; // 3 steps
                 }
-                if (itemPickUpTime <= 0.1f && steps == 10)
+                if (itemPickUpTime <= 0.1f && steps == 10) 
                 {
                     Debug.Log("fuse 16A Collected");
                     fuse_16A.SetActive(false); //fuse16a
                     isFuse16A = true;
-                    steps++;
+                    steps++; // 11 steps
                 }
-                if (itemPickUpTime <= 0.1f && steps == 12) //NEW
+                if (itemPickUpTime <= 0.1f && steps == 13) //NEW /////////////////////
                 {
                     Debug.Log("KeyCard Collected");
                     keyCard.SetActive(false); //KeyCard
                     isKeyCard = true;
-                    steps++;
-                }
-                if (itemPickUpTime <= 0.1f && steps == 13 && isKeyCard) //NEW
-                {
-                    Debug.Log("KeyCard used on Mens Locker");
-                    cardReaderRedToLocker.SetActive(false); //KeyCardReaderMEN
-                    cardReaderGreenToLocker.SetActive(true);
-
-                    isCardReaderMenOpen = true;
-                    steps++; // Steps 14
+                    steps++; // 14 steps
                 }
                 if (itemPickUpTime <= 0f) // TIME 0
                 {
@@ -304,11 +295,11 @@ public class Events : MonoBehaviour
                     // Time Bool Active
                     isItemPickedUp = true;
                 }
-                if (itemPickUpTime <= 0.1f)
+                if (itemPickUpTime <= 0.1f && steps == 3)
                 {
                     fuse10AToBox.SetActive(true);
                     Debug.Log("Fuse 10A Placed");
-                    steps++;
+                    steps++;  // 4 steps
                     isFuse10A = false;
                 }
                 if (itemPickUpTime <= 0f) // TIME 0
@@ -329,11 +320,11 @@ public class Events : MonoBehaviour
                     // Time Bool Active
                     isItemPickedUp = true;
                 }
-                if (itemPickUpTime <= 0.1f)
+                if (itemPickUpTime <= 0.1f && steps == 11)
                 {
                     fuse16AToBox.SetActive(true);
                     Debug.Log("Fuse 16A Placed");
-                    steps++;
+                    steps++; // 12 steps
                     isFuse16A = false;
                 }
                 if (itemPickUpTime <= 0f) // TIME 0
@@ -350,12 +341,45 @@ public class Events : MonoBehaviour
                 iconsPlayer.setOpenHand(true);
                 if (leftClick && isKey1)
                 {
-                    doorUnlocked1.SetActive(true);
+                    doorUnlocked1.SetActive(true); // office 1
                     doorLocked1.SetActive(false);
                     Debug.Log("Door Unlocked");
                     isKey1 = false;
+                    steps++; // 2 steps
                 }
             }
+            // Doors END
+            // CardReader
+            else if (hit.collider.tag == cardReaderMensName && distance <= interactionRange)
+            {
+                iconsPlayer.setOpenHand(true);
+                if (leftClickDown && isKeyCard)
+                {
+                    // Card in hand ON
+                    keyCardInHand.SetActive(true);
+                    // ANIM PLAY
+                    animPlayer.isPickUpItem = true;
+                    // Time Bool Active
+                    isItemPickedUp = true;
+                }
+                if (itemPickUpTime <= 0.1f && steps == 14)
+                {
+                    Debug.Log("KeyCard used on Mens Locker");
+                    cardReaderRedToLocker.SetActive(false); //KeyCardReaderMEN
+                    cardReaderGreenToLocker.SetActive(true);
+                    isCardReaderMenOpen = true;
+                    steps++; // 15 steps
+                }
+                if (itemPickUpTime <= 0f) // TIME 0
+                {
+                    // Card in hand OFF
+                    keyCardInHand.SetActive(false);
+                    // RESET TIME // ANIM STOP
+                    isItemPickedUp = false;
+                    animPlayer.isPickUpItem = false;
+                }
+            }
+            // CardReader END
             else
             {
                 iconsPlayer.setCrossMouse(true);
@@ -369,11 +393,16 @@ public class Events : MonoBehaviour
             else itemPickUpTime = maxItemPickUpTime;
             // Timer for ALL items to be Picked Up.
 
+            // Timer for Falling Scene.
+            if (isFall) fallTime -= Time.deltaTime;
+            else fallTime = maxFallTime;
+            // Timer for Falling Scene.
+
         }
         else iconsPlayer.setCrossMouse(true); // Kanske rätt lagd, ANNARS innanför (ovan)
 
         // STEPS starting
-        if (steps == 5) // Fuse 10A in box
+        if (steps == 4) // Fuse 10A in box
         {
             Debug.Log("fuse 10A in locker");
             lightsF1.SetActive(true);
@@ -386,43 +415,46 @@ public class Events : MonoBehaviour
             doorLockedF2.SetActive(false);
             lightsF2.SetActive(true);
             Debug.Log("DoorF2 Opens");
-            steps++;
+            steps++; // 5 steps
         }
 
-        if (steps == 6 && isToF2Stairway) // Door to F2 + sounds BOX TRIGGERD
+        if (steps == 5 && isToF2Stairway) // Door to F2 + sounds BOX TRIGGERD
         {
             Debug.Log("Kvävt Hostande -Cole-");
+            //AudioPlay
+            steps++; // 6 steps
         }
 
-        if (isF2PhoneRinging) // Phone rings BOX TRIGGERD
+        if (isF2PhoneRinging && steps == 6) // Phone rings BOX TRIGGERD
         {
             Debug.Log("Phone Rings");
             //AudioPlay
             phoneDefault.SetActive(false);
             phoneDead.SetActive(true);
-            steps++;
+            steps++; // 7 steps
         }
 
         if (steps == 7 && isToGfPhone) // Phones dead, but haning over table, blood mark on the Table // Trigger Box
         {
             Debug.Log("Sees Phone dead and hanging, Blood on Table");
-            steps++;
+            steps++; // 8 steps
         }
 
         if (steps == 8)
         {
             Debug.Log("Scream!!! From Upstairs Office 2");
-            steps++;
+            steps++; // 9 steps
         }
 
-        if(steps == 9) // Door Open Office 2 // 
+        if(steps == 9) // Door Open Office 2
         {
             Debug.Log("Door Open Office 2");
             doorUnlocked2.SetActive(true);
             doorLocked2.SetActive(false);
+            steps++; // 10 steps ///////////////////////////////
         }
 
-        if (steps == 11) // Fuse 16A in box
+        if (steps == 12) // Fuse 16A in box
         {
             Debug.Log("fuse 16A in locker");
             // Cardreaders Active
@@ -443,39 +475,51 @@ public class Events : MonoBehaviour
             //Lights
             lightsLab.SetActive(true);
 
-            steps++;
+            steps++; // 13 steps
         }
 
-        if(isCardReaderMenOpen)
+        if(isCardReaderMenOpen) // KeyCard used??
         {
             doorLockerUnlocked.SetActive(true);
             doorLockerLocked.SetActive(false);
         }
 
-        if (steps == 14)
+        if (steps == 15)
         {
             Debug.Log("Mens Locker Open");
+            steps++; // steps 16
+        }
+        // 16 steps NEXT???????
+        if (steps == 16)
+        {
+            Debug.Log("Now to Falling before mens locker");
+            steps++; // 17 steps
+        }
+
+        // isFalling
+
+        if (steps == 17 && isFalling)
+        {
+            // ANIM PLAY
+            animPlayer.isFallClimb = true;
+            // Time Bool Active
+            isFall = true; // Is Falling
+            // MM Visable
+            maskedMonsterFallScene.SetActive(true);
+        }
+        if (fallTime <= 0.1f)
+        {
+            //flashlight.SetActive(false); // Drops Flashlight
+            Debug.Log("Now Falling");
             steps++;
         }
-    }
-
-    /*void OnTriggerEnter(Collider other) // if (col1.CompareTag(player))
-    {
-
-        if (other.CompareTag(player))
+        if (fallTime <= 0f && steps == 18) // TIME 0
         {
-
-            Debug.Log("Enter");
-            Destroy(step1);
-            steps++;
+            // RESET TIME // ANIM STOP
+            isFall = false; // Not Falling
+            animPlayer.isFallClimb = false;
+            // MM Not Visable
+            maskedMonsterFallScene.SetActive(false);
         }
     }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == player)
-        {
-            Debug.Log("Exit");
-            
-        }
-    }*/
 }
