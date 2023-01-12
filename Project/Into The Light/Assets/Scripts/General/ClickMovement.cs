@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class ClickMovement : MonoBehaviour
 {
+    [Header("Asign")]
     public Camera camera;
 
     private NavMeshAgent agent;

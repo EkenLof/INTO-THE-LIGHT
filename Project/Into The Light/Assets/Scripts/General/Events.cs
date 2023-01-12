@@ -53,8 +53,8 @@ public class Events : MonoBehaviour
     [SerializeField] private float itemPickUpTime = 1f;
     [SerializeField] private float maxItemPickUpTime = 1f;
 
-    [SerializeField] private float fallTime = 4f;
-    [SerializeField] private float maxFallTime = 4f;
+    [SerializeField] private float fallTime = 2f;
+    [SerializeField] private float maxFallTime = 2f;
 
     [Header("checkboxes")]
     [SerializeField] bool isIconsInScene;
@@ -131,11 +131,17 @@ public class Events : MonoBehaviour
     [SerializeField] GameObject cardReaderRedToEnd;
     [Header("-Monster-")]
     [SerializeField] GameObject maskedMonsterFallScene;
+    [Header("-Falling Scene-")]
+    [SerializeField] GameObject fallCollider;
+    [SerializeField] GameObject pushCollider;
+    [SerializeField] GameObject floorDestroyed;
 
     [Header("Player")]
     public GameObject cameraPlayer;
     public DragMoveRig iconsPlayer;
     public AnimCtrl animPlayer;
+
+    public Rigidbody rigidPush;
 
     Ray playerAim;
     RaycastHit hit;
@@ -498,7 +504,7 @@ public class Events : MonoBehaviour
 
         // isFalling
 
-        if (steps == 17 && isFalling)
+        if (steps == 17 && isFalling) ///////// LookAt Script ////////
         {
             // ANIM PLAY
             animPlayer.isFallClimb = true;
@@ -506,20 +512,32 @@ public class Events : MonoBehaviour
             isFall = true; // Is Falling
             // MM Visable
             maskedMonsterFallScene.SetActive(true);
+            steps++; // 18 steps
+
+            // Floor
+            floorDestroyed.SetActive(false);
+            // Particle DUST
         }
-        if (fallTime <= 0.1f)
+        if (steps == 18 && fallTime <= .65f) //Colliders
+            pushCollider.SetActive(true);
+        if (steps == 18 && fallTime <= 0.1f)
         {
             //flashlight.SetActive(false); // Drops Flashlight
             Debug.Log("Now Falling");
-            steps++;
+            rigidPush.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            steps++; // 19 steps
         }
-        if (fallTime <= 0f && steps == 18) // TIME 0
+        if (fallTime <= 0f) // TIME 0
         {
             // RESET TIME // ANIM STOP
             isFall = false; // Not Falling
             animPlayer.isFallClimb = false;
             // MM Not Visable
             maskedMonsterFallScene.SetActive(false);
+
+            //Colliders
+            //pushCollider.SetActive(true);
+            //fallCollider.SetActive(false);
         }
     }
 }
